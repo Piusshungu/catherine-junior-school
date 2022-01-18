@@ -24,7 +24,17 @@ class StudentsController extends Controller
      */
     public function create()
     {
-        //
+        $attributes = request()->validate([
+
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'phone_number' => 'required|10',
+            'date_of_birth' => 'required',
+        ]);
+
+        $studentDetails = Student::create($attributes);
+
+        return redirect('/dashboard')->with('success', 'Student records successfully saved');
     }
 
     /**
