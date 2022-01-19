@@ -3,9 +3,8 @@
 
         <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
 
-        <div class="flex justify-end mt-2">
-      <button class="px-4 py-2 rounded-full bg-sky-500 text-sky-100 hover:bg-yellow-400 mb-4">Add New Student</button>
-    </div>
+        <x-create-student-button />
+        
             <table class="min-w-full">
                 <thead>
                     <tr>
