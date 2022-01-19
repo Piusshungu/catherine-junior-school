@@ -25,4 +25,6 @@ Route::get('/' , [HomeController::class, 'index']);
 
 Route::get('/dashboard', [StudentsController::class, 'index']);
 
+Route::post('/studentRegistration', [StudentsController::class, 'registerNewStudent']);
+
 Route::get('/dashboard', [AdminController::class, 'index']);

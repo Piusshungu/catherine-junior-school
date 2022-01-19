@@ -4,7 +4,9 @@
         <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
 
         <x-create-student-button />
-        
+
+        <div class="w-full border-b-4 border-yellow-400"></div>
+
             <table class="min-w-full">
                 <thead>
                     <tr>

@@ -22,14 +22,14 @@ class StudentsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function registerNewStudent()
     {
         $attributes = request()->validate([
 
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'phone_number' => 'required|10',
-            'date_of_birth' => 'required',
+            'full_name' => 'required|max:255',
+            'registration_number' => 'required|max:255',
+            'phone_number' => 'required|max:13',
+            'dob' => 'required',
         ]);
 
         $studentDetails = Student::create($attributes);

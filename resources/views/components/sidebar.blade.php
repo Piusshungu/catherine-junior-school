@@ -9,8 +9,8 @@
         <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     </head>
 
-    <body class="text-sm">
-        <div class="flex h-screen">
+    <body class="text-sm bg-gray-200">
+        <div class="flex h-screen w-11/12">
             <div class="px-4 py-2 bg-gray-200 bg-indigo-300 lg:w-1/4">
                 <svg xmlns="http://www.w3.org/2000/svg" class="inline w-8 h-8 text-white lg:hidden" fill="none"
                     viewBox="0 0 24 24" stroke="currentColor">
