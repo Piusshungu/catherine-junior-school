@@ -14,7 +14,11 @@ class StudentsController extends Controller
      */
     public function index()
     {
-        return view('admin.dashboard');
+
+        return view('admin.manage-students', [
+
+            'students' => Student::orderBy('full_name')->get(),
+        ]);
     }
 
     /**
@@ -24,6 +28,7 @@ class StudentsController extends Controller
      */
     public function registerNewStudent()
     {
+
         $attributes = request()->validate([
 
             'full_name' => 'required|max:255',
@@ -34,7 +39,7 @@ class StudentsController extends Controller
 
         $studentDetails = Student::create($attributes);
 
-        return redirect('/dashboard')->with('success', 'Student records successfully saved');
+        return redirect('/students')->with('success', 'Student records successfully saved');
     }
 
     /**

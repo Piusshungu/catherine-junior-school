@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 Route::get('/' , [HomeController::class, 'index']);
 
-Route::get('/dashboard', [StudentsController::class, 'index']);
+Route::get('/students', [StudentsController::class, 'index']);
 
 Route::post('/studentRegistration', [StudentsController::class, 'registerNewStudent']);
 
