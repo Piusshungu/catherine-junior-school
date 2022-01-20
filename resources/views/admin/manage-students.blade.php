@@ -9,13 +9,13 @@
             <x-create-student-button />
 
 
-            <!-- @if (session()->has('success'))
+            @if (session()->has('success'))
 
-            <div x-data="{ show: true}" x-init="setTimeout(() => show = false, 1)" x-show="show" class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl text-sm flex">
+            <div x-data="{ show: true}" x-init="setTimeout(() => show = false, 3000)" x-show="show" class="fixed bg-blue-500 text-white py-2 px-4 rounded-xl text-sm flex">
 
                 <p>{{ session('success') }}</p>
             </div>
-            @endif -->
+            @endif
 
             <div class="w-full border-b-4 border-yellow-400"></div>
 
@@ -39,6 +39,11 @@
 
                 <tbody class="bg-white">
                     <tr>
+                        @php 
+
+                        $i = 1;
+
+                        @endphp
 
                         @foreach($students as $student)
 
@@ -46,7 +51,7 @@
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             <div class="flex items-center">
                                 <div class="flex-shrink-0 w-10 h-10">
-                                    1
+                                    {{ $i++ }}
                                 </div>
                                 {{ $student->full_name }}
                                 <div class="ml-4">
@@ -88,6 +93,8 @@
 
 
             </table>
+
+            {{ $students->links() }}
 
         </div>
     </div>
