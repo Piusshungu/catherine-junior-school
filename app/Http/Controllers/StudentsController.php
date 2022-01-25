@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class StudentsController extends Controller
 {
@@ -19,7 +20,7 @@ class StudentsController extends Controller
 
             'students' => Student::orderBy('full_name')
 
-            ->paginate(5)->withQueryString(),
+            ->paginate(4)->withQueryString(),
         ]);
     }
 
@@ -95,8 +96,13 @@ class StudentsController extends Controller
      * @param  \App\Models\Student  $student
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Student $student)
+    public function deleteStudentRecords($id)
     {
-        //
+
+        $student = Student::find($id);
+        
+        $student->delete();
+
+        return redirect('/students')->with('success', 'Student records successfully deleted');
     }
 }

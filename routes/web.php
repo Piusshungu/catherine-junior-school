@@ -25,6 +25,8 @@ Route::get('/' , [HomeController::class, 'index']);
 
 Route::get('/students', [StudentsController::class, 'index']);
 
+Route::get('/deleteStudent/{id}', [StudentsController::class, 'deleteStudentRecords']);
+
 Route::post('/studentRegistration', [StudentsController::class, 'registerNewStudent']);
 
 Route::get('/dashboard', [AdminController::class, 'index']);
