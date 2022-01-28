@@ -17,16 +17,30 @@ use App\Http\Controllers\AdminController;
 |
 */
 
+//Routes for Website
+
 Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/' , [HomeController::class, 'index']);
 
+//Routes for managing students 
+
 Route::get('/students', [StudentsController::class, 'index']);
 
 Route::get('/deleteStudent/{id}', [StudentsController::class, 'deleteStudentRecords']);
 
+Route::post('/editStudentDetails/{id}', [StudentsController::class, 'editStudentDetails']);
+
 Route::post('/studentRegistration', [StudentsController::class, 'registerNewStudent']);
+
+Route::get('/importStudents', [StudentsController::class, 'importStudentsView']);
+
+Route::post('/importStudentsDetails', [StudentsController::class, 'importStudentsDetails']);
+
+Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudentsDetails']);
+
+//Routes for managing Dashboard
 
 Route::get('/dashboard', [AdminController::class, 'index']);
