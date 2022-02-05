@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\SendBulkMailsToParentsController;
 
 
 /*
@@ -44,3 +45,20 @@ Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudents
 //Routes for managing Dashboard
 
 Route::get('/dashboard', [AdminController::class, 'index']);
+
+//Routes for managing Students Parents
+
+Route::get('/parents', [SendBulkMailsToParentsController::class, 'index']);
+
+// Route::get('/sendMailsToAllParents', [SendBulkMailsToParentsController::class, 'sendMailToAllParents']);
+
+Route::get('/sendMailsToAllParents', function(){
+
+    $details['email'] = 'shungupius@gmail.com';
+    
+    dispatch(new App\Jobs\SendMailsToAllParents($details));
+    
+   dd($details);
+   
+    });
+    
