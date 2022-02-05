@@ -28,7 +28,7 @@
                             Name</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                             Reg. Number</th>
-                            <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                        <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                             Date of Birth</th>
                         <th class="px-6 py-3 text-xs font-medium leading-4 tracking-wider text-left text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
                             Status</th>
@@ -55,7 +55,7 @@
                                 <div class="flex-shrink-0 w-10 h-10">
                                     {{ $i++ }}
                                 </div>
-                                {{ $student->full_name }}
+                                {{ ucwords( strtolower($student->full_name)) }}
                                 <div class="ml-4">
                                     <div class="text-sm font-medium leading-5 text-gray-900">
 
@@ -85,7 +85,7 @@
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="/deleteStudent/{{ $student->id }}" class="px-4 py-1 text-sm text-black bg-red-500 rounded-full" onclick="confirm('Are you sure you want to delete?')">Delete</a>
+                            <a href="/deleteStudent/{{ $student->id }}" class="px-4 py-1 text-sm text-black bg-red-500 rounded-full" onclick="deleteConfirmation()">Delete</a>
                         </td>
 
                     </tr>
@@ -105,13 +105,13 @@
 {{ $students->links() }}
 
 <script>
-function deleteConfirmation() {
-  var txt;
-  if (confirm("Press a button!")) {
-    txt = "You pressed OK!";
-  } else {
-    txt = "You pressed Cancel!";
-  }
-  document.getElementById("demo").innerHTML = txt;
-}
+    function deleteConfirmation() {
+        var txt;
+        if (!confirm("Press ok to delete student records!")) {
+
+            return;
+        }
+        return false;
+        //document.getElementById("demo").innerHTML = txt;
+    }
 </script>

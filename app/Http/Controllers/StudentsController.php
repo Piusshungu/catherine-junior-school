@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Jobs\StudentsExcelProcess;
 use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
 use Maatwebsite\Excel\Facades\Excel;
@@ -75,7 +76,7 @@ class StudentsController extends Controller
 
     public function importStudentsDetails()
     {
-        $validateStudentsData = request()->validate([
+        $studentsData = request()->validate([
             
             'file' => 'required',
         ]);
@@ -83,5 +84,7 @@ class StudentsController extends Controller
         Excel::import(new StudentsImport,request()->file('file'));
 
         return redirect('/students')->with('success', 'Students records successfully uploaded');
+
+        StudentsExcelProcess::dispatch($studentsData);
     }
 }
