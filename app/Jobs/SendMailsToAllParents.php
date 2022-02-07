@@ -11,6 +11,7 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
+use App\Http\Controllers\SendBulkMailsToParentsController;
 
 class SendMailsToAllParents implements ShouldQueue
 {
@@ -36,7 +37,6 @@ class SendMailsToAllParents implements ShouldQueue
      */
     public function handle()
     {
-        // $email = new NotifyAllParents();
         $parents = Parents::all();
         
         $email = (new NotifyAllParents($parents))

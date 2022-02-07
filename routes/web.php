@@ -4,7 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\SendBulkMailsToParentsController;
+use App\Http\Controllers\ParentsController;
+use App\Http\Controllers\SendBulkMailsToParents;
 
 
 /*
@@ -48,17 +49,22 @@ Route::get('/dashboard', [AdminController::class, 'index']);
 
 //Routes for managing Students Parents
 
-Route::get('/parents', [SendBulkMailsToParentsController::class, 'index']);
+Route::get('/parents', [ParentsController::class, 'index']);
 
-// Route::get('/sendMailsToAllParents', [SendBulkMailsToParentsController::class, 'sendMailToAllParents']);
+Route::post('/addParentDetails', [ParentsController::class, 'addNewParentDetails']);
 
-Route::get('/sendMailsToAllParents', function(){
+Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToParents']);
 
-    $details['email'] = 'shungupius@gmail.com';
+// Route::get('/sendMailsToAllParents', function(){
+
+//     $details['email'] = 'shungupius@gmail.com';
     
-    dispatch(new App\Jobs\SendMailsToAllParents($details));
-    
-   dd($details);
+//     dispatch(new App\Jobs\SendMailsToAllParents($details));
+
+//     dd('done');
+
+//     return redirect('/parents')->with('success', 'Mails are sent to the Parents');
+
    
-    });
+//     });
     

@@ -25,6 +25,7 @@ class CreateStudentsTable extends Migration
             $table->date('dob');
             $table->integer('phone_number');
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

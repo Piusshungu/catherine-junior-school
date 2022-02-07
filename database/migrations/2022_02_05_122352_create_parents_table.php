@@ -20,10 +20,11 @@ class CreateParentsTable extends Migration
         Schema::create('parents', function (Blueprint $table) {
             $table->uuid('id');
             $table->string('name');
-            $table->varchar('email');
+            $table->string('email')->unique();
             $table->string('physical_address');
-            $table->varchar('phone_number');
+            $table->integer('phone_number');
             $table->timestamps();
+            
         });
     }
 
