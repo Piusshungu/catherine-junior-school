@@ -5,7 +5,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ParentsController;
-use App\Http\Controllers\SendBulkMailsToParents;
+use App\Http\Controllers\RolesController;
+use App\Http\Controllers\UsersController;
 
 
 /*
@@ -54,4 +55,12 @@ Route::get('/parents', [ParentsController::class, 'index']);
 Route::post('/addParentDetails', [ParentsController::class, 'addNewParentDetails']);
 
 Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToParents']);
-    
+
+//Routes for managing Roles and Permissions
+
+Route::group(['middleware' => ['auth']], function(){
+    Route::resource('/roles', RolesController::class);
+    Route::resource('/users', UsersController::class);
+    Route::resource('/parents', RolesController::class);
+
+});
