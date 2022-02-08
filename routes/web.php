@@ -61,6 +61,6 @@ Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToPare
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('/roles', RolesController::class);
     Route::resource('/users', UsersController::class);
-    Route::resource('/parents', RolesController::class);
+    // Route::resource('/parents', RolesController::class);
 
 });

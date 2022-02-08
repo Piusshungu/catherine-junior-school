@@ -8,6 +8,15 @@ use Illuminate\Support\Facades\Mail;
 
 class ParentsController extends Controller
 {
+    // function __construct()
+    // {
+    //      $this->middleware('permission:parents-list|parents-create|parents-edit|parents-delete', ['only' => ['index','show']]);
+    //      $this->middleware('permission:parents-create', ['only' => ['addNewParentDetails','sendMailsToParents']]);
+    //      $this->middleware('permission:parents-edit', ['only' => ['editParentDetails','updateParentDetails']]);
+    //      $this->middleware('permission:parents-delete', ['only' => ['deleteParentDetails']]);
+    // }
+
+
     public function index(){
 
         return view('admin.manage-parents', [
