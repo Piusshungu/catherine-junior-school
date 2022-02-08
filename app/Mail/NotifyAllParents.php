@@ -31,6 +31,9 @@ class NotifyAllParents extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.all-parents');
+        return $this->view('emails.all-parents', [
+
+            'parents' => Parents::all(),
+        ]);
     }
 }

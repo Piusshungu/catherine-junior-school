@@ -54,17 +54,4 @@ Route::get('/parents', [ParentsController::class, 'index']);
 Route::post('/addParentDetails', [ParentsController::class, 'addNewParentDetails']);
 
 Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToParents']);
-
-// Route::get('/sendMailsToAllParents', function(){
-
-//     $details['email'] = 'shungupius@gmail.com';
-    
-//     dispatch(new App\Jobs\SendMailsToAllParents($details));
-
-//     dd('done');
-
-//     return redirect('/parents')->with('success', 'Mails are sent to the Parents');
-
-   
-//     });
     

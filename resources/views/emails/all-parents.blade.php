@@ -1,50 +1,55 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Mail Testing</title>
-</head>
-<body>
-    <h1>{{ $data['subject'] }}</h1>
-   
-    <p>Thank you!</p>
-</body>
-</html> -->
-
-
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>School Opening Alert</title>
-        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
-    </head>
-    <body>
-        <div class="flex items-center justify-center min-h-screen p-5 bg-blue-100 min-w-screen">
-            <div class="max-w-xl p-8 text-center text-gray-800 bg-white shadow-xl lg:max-w-3xl rounded-3xl lg:p-12">
-                <h3 class="text-2xl">{{ $data['subject'] }}</h3>
-                <div class="flex justify-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="w-24 h-24 text-green-400" fill="none"
-                        viewBox="0 0 24 24" stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                            d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5m0 0l-1.14.76a2 2 0 01-2.22 0l-1.14-.76" />
-                    </svg>
-                </div>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catherine Junior School</title>
+</head>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap");
+</style>
 
-                <p>Dear Parent we are happy to let you know that we're expecting to open our school on 2nd of March</p>
-                <div class="mt-4">
-                    <button class="px-2 py-2 text-blue-200 bg-blue-600 rounded-full">Click to Visit our Website</button>
-                    <p class="mt-4 text-sm">If you’re having trouble clicking the "Verify Email Address" button, copy
-                        and
-                        paste
-                        the URL below
-                        into your web browser:
-                        <a href="#" class="text-blue-600 underline">http://localhost:8000/</a>
-                    </p>
-                </div>
+<body style="font-family: 'Open Sans', sans-serif;background-color: #F5F5F5;font-size: 16px;">
+    <div style="justify-content: center;align-items: center; border-radius:0.125rem;background-color:rgba(232, 236, 238, 1);width:80%; border-radius: 0.375rem;padding-left: 2rem;padding-right: 2rem;padding-top: 2rem;padding-bottom: 2rem">
+        <div style="padding-top:1.25rem;padding-bottom: 0.875rem;padding-left:1rem;padding-right:1rem;width:97%;border-left-width:8px;border-bottom-right-radius:0.125rem;border-top-right-radius:0.125rem;justify-content: center;align-items: center;margin-top: 2rem;margin-top: 0.75rem;margin-bottom: 0.75rem;background-color: #27BF3C20;border-color:rgb(239, 191, 60); margin: right 4rem;">
+            <p style="text-transform: uppercase;letter-spacing:0.025em;font-weight: 600;font-size: 0.875rem;line-height: 1.25rem;text-align:center">
+                {{$data['subject']}}
+            </p>
+            <p style="text-align: center;font-size:0.875rem;line-height:1.25rem;margin-bottom:0.5rem;margin-top: 0.5rem;position:relative">
+                Dear Parent, We are pleased to inform you that a new term for Academic years {{ now()->year }} will start in few coming weeks, we remind you to complete neccessary requirements for your child/children. 
+            </p>
+
+
+            <p style="font-size:0.875rem;text-align: center; line-height:1.25rem;text-transform:uppercase;letter-spacing:0.025em;font-weight:600 ">
+                Stay connected
+            </p>
+            <p style="margin-top:0.5rem; margin-bottom:0.5rem; text-align:center;font-size:0.875rem; position:relative;line-height: 1.25rem">
+                Please keep in touch with us through our social media platforms and website for more information and updates. Click links below to explore</p>
+
+            <div style="display: inline-flex; justify-items:center; margin-top:1rem; width:auto;--tw-space-x-reverse: 0;margin-right: calc(0.75rem * var(--tw-space-x-reverse));margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));">
+                <a target="_blank" style="text-align:center;margin-left:0.75rem;background-color: rgba(243, 244, 246, 1);width:1.5rem;height:1.5rem; justify-content:center;align-items:center;border-radius:0.375rem" href="https://www.linkedin.com/company/youlead-afrika/">
+                    <img src="https://youleadsummit.org/img/linkedin.png" alt="" style="width: 00.75rem;" />
+                </a>
+                
+                <a target="_blank" style="text-align:center;margin-left:0.75rem;background-color:rgba(243, 244, 246, 1);width:1.5rem; justify-content:center;align-items:center;border-radius:0.375rem" href="https://twitter.com/OneYoungAfrica">
+                    <img src="https://youleadsummit.org/img/twitter.png" alt="" style="width: 00.75rem;" />
+                </a>
+
+                <a target="_blank" style="text-align:center;margin-left:0.75rem;background-color:rgba(243, 244, 246, 1);width:1.5rem; justify-content:center;align-items:center;border-radius:0.375rem" href="https://www.facebook.com/OneYoungAfrica">
+                    <img src="https://youleadsummit.org/img/facebook.png" alt="" style="width: 00.75rem;" />
+                </a>
+               
+                <a target="_blank" style="text-align:center;margin-left:0.75rem;background-color:rgba(243, 244, 246, 1);width:1.5rem; justify-content:center;align-items:center;border-radius:0.375rem" href="https://www.instagram.com/oneyoungafrica/">
+                    <img src="https://youleadsummit.org/img/instagram.png" alt="" style="width: 00.75rem;" />
+                </a>
             </div>
+
         </div>
-    </body>
+      
+        <a href="#" class="button button-blue" target="_blank" rel="noopener" style="font-size:0.875rem; font-family: Avenir, Helvetica, sans-serif; box-sizing: border-box; border-radius: 3px; box-shadow: 0 2px 3px rgba(0, 0, 0, 0.16); color: #ffffff; display: inline-block; text-decoration: none; -webkit-text-size-adjust: none; background-color: #3097d1; border-top: 10px solid #3097d1; border-right: 18px solid #3097d1; border-bottom: 10px solid #3097d1; border-left: 18px solid #3097d1;">Click Here To Visit Our Website</a>
+    </div>
+</body>
+
 </html>

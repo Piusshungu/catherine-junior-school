@@ -36,9 +36,7 @@ class ParentsController extends Controller
     public function sendMailsToParents()
     {
 
-        $allParents = Parents::pluck('id')->toArray();
-
-        $parents = Parents::whereIn('id', $allParents)->get();
+        $parents = Parents::select('email')->get();
        
         if($parents->count() > 0){
 
