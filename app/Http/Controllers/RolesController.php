@@ -13,8 +13,8 @@ class RolesController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','storeNewRole']]);
-         $this->middleware('permission:role-create', ['only' => ['createRole','storeRole']]);
+         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','showRole', 'createRole', 'storeNewRole', 'destroyRole']]);
+         $this->middleware('permission:role-create', ['only' => ['createRole','storeNewRole']]);
          $this->middleware('permission:role-edit', ['only' => ['editRole','updateRole']]);
          $this->middleware('permission:role-delete', ['only' => ['destroyRole']]);
     }
@@ -48,7 +48,7 @@ class RolesController extends Controller
         return redirect('/roles')->with('success', 'Role successfully added to the Database');
     }
 
-    public function show($id)
+    public function showRole($id)
     {
         $role = Role::find($id);
 
