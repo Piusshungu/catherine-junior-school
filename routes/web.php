@@ -44,6 +44,14 @@ Route::post('/importStudentsDetails', [StudentsController::class, 'importStudent
 
 Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudentsDetails']);
 
+//Routes for managing users
+
+Route::get('/login', [UsersController::class, 'showLoginForm']);
+
+Route::post('/redirectAfterLogin', [UsersController::class, 'userLogin']);
+
+Route::get('/logout', [UsersController::class, 'userLogout']);
+
 //Routes for managing Dashboard
 
 Route::get('/dashboard', [AdminController::class, 'index']);

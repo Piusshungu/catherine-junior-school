@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
+use Illuminate\Support\Facades\DB;
 
 
 class PermissionTableSeeder extends Seeder
@@ -15,22 +16,44 @@ class PermissionTableSeeder extends Seeder
      */
     public function run()
     {
-        
-        $permissions = [
-            'role-list',
-            'role-create',
-            'role-edit',
-            'role-delete',
-            'parents-list',
-            'parents-create',
-            'parents-edit',
-            'parents-delete'
-         ];
+        DB::transaction(function () {
+            $permissions = [
+                [
+                    'name' => 'Can View Parents List',
+                ],
+                [
+                    'name' => 'Can View Parent Details',
+                ],
 
-         foreach($permissions as $permission)
-    {
-        Permission::create(['name' => $permission]);
-    }
-    
+                [
+                    'name' => 'Can Edit Parent(s) Details',
+                ],
+                [
+                    'name' => 'Can Delete Parent(s) Details',
+                ],
+                [
+                    'name' => 'Can Create Parent',
+                ],
+                [
+                    'name' => 'Can Create Role',
+                ],
+                [
+                    'name' => 'Can Delete Role',
+                ],
+                [
+                    'name'=>'Can Edit Role',
+                ],
+                [
+                    'name'=>'Can view All Roles',
+                ]
+            ];
+
+            foreach ($permissions as $permission) {
+                $finder = ['name' => $permission['name']];
+                if (!Permission::where($finder)->exists()) {
+                    Permission::create($permission);
+                }
+            }
+        });
     }
 }

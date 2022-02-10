@@ -7,11 +7,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Support\Arr;
+use Illuminate\Support\Facades\Auth;
 use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
 {
-    public function index(){
+    public function index()
+    {
 
         return view('users.index', [
 
@@ -19,7 +21,41 @@ class UsersController extends Controller
         ]);
     }
 
-    public function showForm(){
+    public function showLoginForm()
+    {
+
+        return view('users.login');
+    }
+
+    
+    public function userLogin()
+    {
+
+        request()->validate([
+
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $loginCredentials = request()->only('email', 'password');
+
+        if(Auth::attempt($loginCredentials)){
+
+            return redirect('/dashboard')->with('success', 'Logged In');
+        }
+
+        else return redirect('/login')->with('error', 'Incorrect email or password');
+    }
+
+    public function userLogout()
+    {
+        Auth::logout();
+
+        return redirect('/login');
+    }
+
+    public function showForm()
+    {
 
         return view('users,create', [
 
@@ -27,7 +63,8 @@ class UsersController extends Controller
         ]);
     }
 
-    public function createUser(){
+    public function createUser()
+    {
 
         $userDetails = request()->validate([
 
@@ -86,7 +123,8 @@ class UsersController extends Controller
         return redirect('/users')->with('success','User updated successfully');
     }
 
-    public function deleteUser($id){
+    public function deleteUser($id)
+    {
 
         User::find($id)->delete();
 
