@@ -15,7 +15,5 @@ class Permission extends SpatiePermission
     public $incrementing = false;
 
 
-    protected $casts = [
-        'id' => 'string'
-    ];
+   
 }

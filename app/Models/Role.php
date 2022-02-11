@@ -15,7 +15,16 @@ class Role extends SpatieRole
     use Uuids;
 
     protected $primaryKey = 'id';
+
     public $incrementing = false;
+
+    const HEADMASTER = 'Head Master';
+
+    const HEADMISTRESS = 'Head Mistress';
+
+    const TEACHER = 'Teacher';
+
+    const ADMINSTRATOR = 'Adminstrator';
 
 
     protected $table = 'roles';
