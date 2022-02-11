@@ -49,8 +49,11 @@ class PermissionTableSeeder extends Seeder
             ];
 
             foreach ($permissions as $permission) {
+
                 $finder = ['name' => $permission['name']];
+
                 if (!Permission::where($finder)->exists()) {
+                    
                     Permission::create($permission);
                 }
             }

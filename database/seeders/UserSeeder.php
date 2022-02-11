@@ -71,8 +71,6 @@ class UserSeeder extends Seeder
                 {
                     $roles = Role::where('name', $type)->get();
 
-                    //$user->removeRole($role);
-
                     $user->save();
 
                     $user->assignRole($roles);

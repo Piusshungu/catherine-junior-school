@@ -13,15 +13,15 @@ class RolesController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:role-list|role-create|role-edit|role-delete', ['only' => ['index','showRole', 'createRole', 'storeNewRole', 'destroyRole']]);
-         $this->middleware('permission:role-create', ['only' => ['createRole','storeNewRole']]);
-         $this->middleware('permission:role-edit', ['only' => ['editRole','updateRole']]);
-         $this->middleware('permission:role-delete', ['only' => ['destroyRole']]);
+         $this->middleware('permission:Can view All Roles|Can Create Role|Can Edit Role|Can Delete Role', ['only' => ['index','showRole', 'createRole', 'storeNewRole', 'destroyRole']]);
+         $this->middleware('permission:Can Create Role', ['only' => ['createRole','storeNewRole']]);
+         $this->middleware('permission:Can Edit Role', ['only' => ['editRole','updateRole']]);
+         $this->middleware('permission:Can Delete Role', ['only' => ['destroyRole']]);
     }
 
     public function index()
     {
-        $roles = Role::orderBy('id','DESC')->paginate(10)->withQueryString();
+        $roles = Role::orderBy('name','ASC')->paginate(10)->withQueryString();
 
         return view('roles.index', compact('roles'));
     }
