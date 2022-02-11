@@ -17,14 +17,14 @@ class AssignPermission extends Seeder
     {
         $permissions = Permission::pluck('name')->toArray();
 
-        $role = Role::where('name', 'Adminstrator')->get()->first();
+        $role = Role::where('name', 'Administrator')->get()->first();
 
         foreach ($permissions as $permission) {
 
             $permission = Permission::where('name', $permission)->first();
 
             if(!$role->hasPermissionTo($permission)) {
-                
+
                 $role->givePermissionTo($permission);
             }
         }

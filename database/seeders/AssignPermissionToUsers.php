@@ -15,7 +15,7 @@ class AssignPermissionToUsers extends Seeder
      */
     public function run()
     {
-        $users = User::where('type', 'Adminstrator')->get();
+        $users = User::where('type', 'Administrator')->get();
 
         $permissions = Permission::pluck('name')->toArray();
 

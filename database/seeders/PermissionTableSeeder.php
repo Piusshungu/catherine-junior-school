@@ -28,21 +28,26 @@ class PermissionTableSeeder extends Seeder
                 [
                     'name' => 'Can Edit Parent(s) Details',
                 ],
+
                 [
                     'name' => 'Can Delete Parent(s) Details',
                 ],
                 [
                     'name' => 'Can Create Parent',
                 ],
+
                 [
                     'name' => 'Can Create Role',
                 ],
+
                 [
                     'name' => 'Can Delete Role',
                 ],
+
                 [
                     'name'=>'Can Edit Role',
                 ],
+                
                 [
                     'name'=>'Can view All Roles',
                 ]

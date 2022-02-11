@@ -15,14 +15,14 @@ class AssignRoles extends Seeder
      */
     public function run()
     {
-        $users = User::where('type', 'Adminstrator')->get();
+        $users = User::where('type', 'Administrator')->get();
 
-        $role= Role::where('name', 'Adminstrator')->first();
+        $role= Role::where('name', 'Administrator')->first();
 
         foreach ($users as $user) {
 
             if (!$user->hasRole($role)) {
-                
+
                 $user->assignRole($role);
             }
             

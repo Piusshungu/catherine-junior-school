@@ -83,15 +83,15 @@
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="px-4 py-1 text-sm text-white bg-green-400 rounded-full text-center">Edit</a>
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-green-600 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-green-600 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="px-4 py-1 text-sm text-white bg-green-400 rounded-full text-center text-bold">View</a>
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-yellow-400 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="/deleteParent/{{ $parent->id }}" class="px-4 py-1 text-sm text-black bg-red-500 rounded-full text-center" onclick="deleteConfirmation()">Delete</a>
+                            <a href="/deleteParent/{{ $parent->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()"" onclick="deleteConfirmation()">Delete</a>
                         </td>
 
                     </tr>

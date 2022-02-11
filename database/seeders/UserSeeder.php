@@ -23,14 +23,14 @@ class UserSeeder extends Seeder
                     'name' => 'Pius Shungu',
                     'email' => 'shungupius@gmail.com',
                     'password' => Hash::make('shungu'),
-                    'type' => 'Adminstrator',
+                    'type' => 'Administrator',
                     
                 ],
 
                 [
                     'name' => 'Root Administrator',
-                    'email' => 'shungupius@youlead.com',
-                    'password' => Hash::make('YouLead'),
+                    'email' => 'shungupius@yahoo.com',
+                    'password' => Hash::make('AdminUser'),
                     'type' => 'Administrator',
                 ],
             ];
@@ -43,7 +43,7 @@ class UserSeeder extends Seeder
 
                 $finder = ['email' => $user['email']];
 
-                if ($type === "Adminstrator")
+                if ($type === "Administrator")
                 {
                     $role = Role::ADMINSTRATOR;
                 }
