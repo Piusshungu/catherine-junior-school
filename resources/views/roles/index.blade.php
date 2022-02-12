@@ -6,7 +6,7 @@
 
         <div class="inline-block min-w-full overflow-hidden align-middle border-b shadow sm:rounded-lg">
 
-        @can('role-create')
+        @can('Can Create Role')
 
             <x-addrole-button />
 
@@ -52,7 +52,7 @@
 
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
                             <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
+                                <div class="flex-shrink-0 w-12 h-10">
                                     {{ $i++ }}
                                 </div>
                                 {{ ucwords( strtolower($role->name)) }}
@@ -68,7 +68,7 @@
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
 
-                        @can('role-edit')
+                        @can('Can Edit Role')
 
                             <a href="{{ route('roles.edit', $role->id ) }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-green-600 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-green-600 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
 
@@ -77,12 +77,18 @@
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
+
+                        @can('Can view All Roles')
+
                             <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-yellow-400 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
+                       
+                       @endcan
+
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
 
-                        @can('role-delete')
+                        @can('Can Delete Role')
                         
                             <a href="{{ route('roles.destroy',$role->id) }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()">Delete</a>
 

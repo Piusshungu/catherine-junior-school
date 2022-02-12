@@ -14,7 +14,7 @@
 
 <body class="text-sm bg-gray-200">
     <div class="flex h-full w-11/12">
-        <div class="h-10/14 px-4 py-2 bg-gray-200 bg-indigo-300 lg:w-1/4">
+        <div class="h-screen px-4 py-2 bg-gray-200 bg-indigo-300 lg:w-1/4">
             <svg xmlns="http://www.w3.org/2000/svg" class="inline w-8 h-8 text-white lg:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
