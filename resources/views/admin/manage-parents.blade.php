@@ -6,7 +6,33 @@
 
         <div class="inline-block min-w-full overflow-hidden align-middle border-b border-gray-200 shadow sm:rounded-lg">
 
-            <x-create-parent-button />
+            <div class="grid grid-cols-2 gap-">
+
+                <div class="col">
+
+                    @can('Can Create Parent')
+
+                    <x-create-parent-button />
+
+                    @endcan
+
+                </div>
+
+                <div class="col">
+                    <div class="lg:inline-flex items-center rounded-full px-12 py-2 mt-2 ml-28">
+                        <form method="GET" action="/">
+
+                            @if(request('category'))
+                            <input type="hidden" name="category" value="{{ request('category') }}">
+                            @endif
+
+                            <input type="search" name="search" class="form-control relative flex-auto min-w-0 block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+
+                        </form>
+                    </div>
+                </div>
+
+            </div>
 
 
             @if (session()->has('success'))
@@ -83,15 +109,15 @@
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-green-600 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-green-600 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-yellow-400 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-yellow-400 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="/deleteParent/{{ $parent->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-medium text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()"" onclick="deleteConfirmation()">Delete</a>
+                            <a href="/deleteParent/{{ $parent->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()">Delete</a>
                         </td>
 
                     </tr>

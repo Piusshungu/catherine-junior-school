@@ -85,6 +85,6 @@ class StudentsController extends Controller
 
         return redirect('/students')->with('success', 'Students records successfully uploaded');
 
-        StudentsExcelProcess::dispatch($studentsData);
+        // StudentsExcelProcess::dispatch($studentsData);
     }
 }

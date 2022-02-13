@@ -8,7 +8,7 @@ use Maatwebsite\Excel\Concerns\ToModel;
 use Maatwebsite\Excel\Concerns\WithChunkReading;
 use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class StudentsImport implements ToModel, WithHeadingRow, WithChunkReading, ShouldQueue
+class StudentsImport implements ToModel, WithHeadingRow
 {
     public function model(array $row)
     {
@@ -22,10 +22,10 @@ class StudentsImport implements ToModel, WithHeadingRow, WithChunkReading, Shoul
         ]);
     }
 
-    public function chunkSize(): int
-    {
-        return 2;
-    }
+    // public function chunkSize(): int
+    // {
+    //     return 2;
+    // }
 
     
 }
