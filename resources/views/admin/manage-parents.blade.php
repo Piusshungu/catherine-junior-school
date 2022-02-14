@@ -20,13 +20,13 @@
 
                 <div class="col">
                     <div class="lg:inline-flex items-center rounded-full px-12 py-2 mt-2 ml-28">
-                        <form method="GET" action="/">
+                        <form method="GET" action="/parents">
 
                             @if(request('category'))
                             <input type="hidden" name="category" value="{{ request('category') }}">
                             @endif
 
-                            <input type="search" name="search" class="form-control relative flex-auto min-w-0 block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
+                            <input type="search" name="search" class="rounded-full form-control relative flex-auto min-w-0 block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
 
                         </form>
                     </div>
@@ -67,7 +67,7 @@
                     </tr>
                 </thead>
 
-                <tbody class="bg-white">
+                <tbody class="bg-white text-sm">
                     <tr>
                         @php
 
@@ -78,14 +78,14 @@
                         @foreach($parents as $parent)
 
 
-                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <div class="flex items-center">
-                                <div class="flex-shrink-0 w-10 h-10">
+                        <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm">
+                            <div class="flex items-center text-sm">
+                                <div class="flex-shrink-0 w-10 h-10 text-sm">
                                     {{ $i++ }}
                                 </div>
                                 {{ ucwords( strtolower($parent->name)) }}
                                 <div class="ml-4">
-                                    <div class="text-sm font-medium leading-5 text-gray-900">
+                                    <div class="text-sm font-small leading-5 text-gray-900">
 
                                     </div>
                                 </div>

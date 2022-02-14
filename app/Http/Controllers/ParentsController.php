@@ -21,7 +21,7 @@ class ParentsController extends Controller
 
         return view('admin.manage-parents', [
             
-            'parents' => Parents::orderBy('name')
+            'parents' => Parents::orderBy('name')->filter(request(['search']))
 
             ->paginate(5)->withQueryString(),
         ]);
