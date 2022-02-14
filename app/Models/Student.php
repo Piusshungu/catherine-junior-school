@@ -16,4 +16,13 @@ class Student extends Model
     protected $guarded = ['id'];
 
     public $incrementing = false;
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if(isset($filters['search'])){
+
+            $query->where('full_name', 'like', '%'. request('search'). '%');
+        }
+    }
 }

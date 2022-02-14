@@ -17,7 +17,7 @@ class StudentsController extends Controller
 
         return view('admin.manage-students', [
 
-            'students' => Student::orderBy('full_name')
+            'students' => Student::orderBy('full_name')->filter(request(['search']))
 
             ->paginate(5)->withQueryString(),
         ]);
