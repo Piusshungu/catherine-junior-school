@@ -33,4 +33,13 @@ class Role extends SpatieRole
     protected $casts = [
         'id' => 'string'
     ];
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if(isset($filters['search'])){
+
+            $query->where('name', 'like', '%'. request('search'). '%');
+        }
+    }
 }

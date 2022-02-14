@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Spatie\Permission\Models\Permission;
 use Spatie\QueryBuilder\QueryBuilder;
-use Spatie\Permission\Models\Role;
+// use Spatie\Permission\Models\Role;
+use App\Models\Role;
 use Illuminate\Support\Facades\DB;
 
 
@@ -21,7 +22,9 @@ class RolesController extends Controller
 
     public function index()
     {
-        $roles = Role::orderBy('name','ASC')->paginate(10)->withQueryString();
+        $roles = Role::orderBy('name','ASC')->filter(request(['search']))
+        
+        ->paginate(10)->withQueryString();
 
         return view('roles.index', compact('roles'));
     }
