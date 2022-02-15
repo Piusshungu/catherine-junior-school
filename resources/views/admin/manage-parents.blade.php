@@ -109,15 +109,29 @@
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
+
+                        @can('Can Edit Parent(s) Details')
+
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
+
+                        @endcan
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-yellow-400 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
+
+                            @can('Can View Parents List')
+
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-yellow-400 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
+
+                            @endcan
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="/deleteParent/{{ $parent->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()">Delete</a>
+                            @can('Can Delete Parent(s) Details')
+                            
+                            <a href="/deleteParent/{{ $parent->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="return confirm('Are you sure you want to delete this parent?')">Delete</a>
+
+                            @endcan
                         </td>
 
                     </tr>
@@ -136,14 +150,10 @@
 </div>
 {{ $parents->links() }}
 
-<script>
-    function deleteConfirmation() {
-        var txt;
-        if (!confirm("Press ok to delete student records!")) {
+<script type="text/javascript">
 
-            return;
-        }
-        return false;
-        //document.getElementById("demo").innerHTML = txt;
+    function deleteConfirmation() {
+
+        return confirm('Are you sure you want to delete this parent?');
     }
 </script>

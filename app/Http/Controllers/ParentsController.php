@@ -8,13 +8,13 @@ use Illuminate\Support\Facades\Mail;
 
 class ParentsController extends Controller
 {
-    // function __construct()
-    // {
-    //      $this->middleware('permission:parents-list|parents-create|parents-edit|parents-delete', ['only' => ['index','show']]);
-    //      $this->middleware('permission:parents-create', ['only' => ['addNewParentDetails','sendMailsToParents']]);
-    //      $this->middleware('permission:parents-edit', ['only' => ['editParentDetails','updateParentDetails']]);
-    //      $this->middleware('permission:parents-delete', ['only' => ['deleteParentDetails']]);
-    // }
+    function __construct()
+    {
+         $this->middleware('permission:Can Edit Parent(s) Details|Can Create Parent|Can View Parent Details|Can Delete Parent(s) Details', ['only' => ['index','show']]);
+         $this->middleware('permission:Can Create Parent', ['only' => ['addNewParentDetails','sendMailsToParents']]);
+         $this->middleware('permission:Can Edit Parent(s) Details', ['only' => ['editParentDetails','updateParentDetails']]);
+         $this->middleware('permission:Can Delete Parent(s) Details', ['only' => ['deleteParentDetails']]);
+    }
 
 
     public function index(){

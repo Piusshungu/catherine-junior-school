@@ -56,7 +56,7 @@ Route::get('/logout', [UsersController::class, 'userLogout']);
 
 Route::get('/dashboard', [AdminController::class, 'index']);
 
-//Routes for managing Students Parents
+//Routes for managing Parents
 
 Route::get('/parents', [ParentsController::class, 'index']);
 

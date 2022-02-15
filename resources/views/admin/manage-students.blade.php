@@ -103,15 +103,15 @@
 
 
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <span class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Active</span>
+                            <span class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Active</span>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
+                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-yellow-400 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-yellow-400 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="/deleteStudent/{{ $student->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()">Delete</a>
+                            <a href="/deleteStudent/{{ $student->id }}" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 bg-red-500 rounded-full hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
                         </td>
 
                     </tr>
@@ -130,14 +130,10 @@
 </div>
 {{ $students->links() }}
 
-<script>
+<script type="text/javascript">
+    
     function deleteConfirmation() {
-        var txt;
-        if (!confirm("Press ok to delete student records!")) {
-
-            return;
-        }
-        return false;
-        //document.getElementById("demo").innerHTML = txt;
+        
+        return confirm('Are you sure you want to delete this student?');
     }
 </script>
