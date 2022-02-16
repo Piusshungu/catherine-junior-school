@@ -23,6 +23,12 @@ class StudentsController extends Controller
         ]);
     }
 
+    public function studentProfile()
+    {
+
+        return view('student-profile');
+    }
+
 
     public function registerNewStudent()
     {

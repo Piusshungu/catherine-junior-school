@@ -28,4 +28,9 @@ class Parents extends Model
             ->orWhere('phone_number', 'like', '%'. request('search'). '%');
         }
     }
+
+    public function getNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
 }

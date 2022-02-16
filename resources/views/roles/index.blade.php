@@ -195,10 +195,11 @@
 
 <script type="text/javascript">
     function toggleModal(modalBox) {
+
         document.getElementById(modalBox).classList.toggle("hidden");
-        // document.getElementById(modalBox + "-backdrop").classList.toggle("hidden");
+
         document.getElementById(modalBox).classList.toggle("flex");
-        // document.getElementById(modalBox + "-backdrop").classList.toggle("flex");
+
     }
 </script>
 

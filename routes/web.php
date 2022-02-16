@@ -30,19 +30,21 @@ Route::get('/' , [HomeController::class, 'index']);
 
 //Routes for managing students 
 
-Route::get('/students', [StudentsController::class, 'index']);
+Route::get('/students', [StudentsController::class, 'index'])->middleware('auth');
 
-Route::get('/deleteStudent/{id}', [StudentsController::class, 'deleteStudentRecords']);
+Route::get('/deleteStudent/{id}', [StudentsController::class, 'deleteStudentRecords'])->middleware('auth');
 
-Route::post('/editStudentDetails/{id}', [StudentsController::class, 'editStudentDetails']);
+Route::post('/editStudentDetails/{id}', [StudentsController::class, 'editStudentDetails'])->middleware('auth');
 
-Route::post('/studentRegistration', [StudentsController::class, 'registerNewStudent']);
+Route::post('/studentRegistration', [StudentsController::class, 'registerNewStudent'])->middleware('auth');
 
-Route::get('/importStudents', [StudentsController::class, 'importStudentsView']);
+Route::get('/importStudents', [StudentsController::class, 'importStudentsView'])->middleware('auth');
 
-Route::post('/importStudentsDetails', [StudentsController::class, 'importStudentsDetails']);
+Route::post('/importStudentsDetails', [StudentsController::class, 'importStudentsDetails'])->middleware('auth');
 
-Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudentsDetails']);
+Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudentsDetails'])->middleware('auth');
+
+Route::get('/studentProfile', [StudentsController::class, 'studentProfile']);
 
 //Routes for managing users
 
@@ -60,6 +62,8 @@ Route::get('/dashboard', [AdminController::class, 'index']);
 
 Route::get('/parents', [ParentsController::class, 'index']);
 
+Route::get('/parent/{id}/profile', [ParentsController::class, 'profile']);
+
 Route::post('/addParentDetails', [ParentsController::class, 'addNewParentDetails']);
 
 Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToParents']);
@@ -69,6 +73,6 @@ Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToPare
 Route::group(['middleware' => ['auth']], function(){
     Route::resource('/roles', RolesController::class);
     Route::resource('/users', UsersController::class);
-    // Route::resource('/parents', RolesController::class);
+   
 
 });
