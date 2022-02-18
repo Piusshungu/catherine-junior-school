@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Mail\NotifyAllParents;
 use App\Models\Parents;
+use App\Notifications\SchoolFeePayment;
+use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 
 class ParentsController extends Controller
@@ -84,6 +86,25 @@ class ParentsController extends Controller
         }
 
         return redirect('/parents')->with('success', 'Mails successfully sent to all Parents');
+    }
+
+    public function sendSchoolFeeSms()
+    {
+        $parents = Parents::select('phone_number')->get();
+
+        if($parents->count() > 0){
+
+            foreach($parents as $parent){
+
+                
+
+                Notification::send($parent, new SchoolFeePayment());
+
+               
+            }
+        }
+
+        return redirect('/parents')->with('success', 'SMS successfully sent to Parents');
     }
 
 
