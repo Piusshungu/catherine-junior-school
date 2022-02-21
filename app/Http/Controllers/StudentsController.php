@@ -19,7 +19,7 @@ class StudentsController extends Controller
 
             'students' => Student::orderBy('full_name')->filter(request(['search']))
 
-            ->paginate(5)->withQueryString(),
+            ->paginate(7)->withQueryString(),
         ]);
     }
 

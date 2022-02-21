@@ -81,7 +81,7 @@ class ParentsController extends Controller
                     'subject' => 'Notification To All Parents',
                 ];
 
-                Mail::to($parent->email)->send(new NotifyAllParents($details));
+                // Mail::to($parent->email)->send(new NotifyAllParents($details));
             }
         }
 
@@ -96,11 +96,9 @@ class ParentsController extends Controller
 
             foreach($parents as $parent){
 
-                
-
                 Notification::send($parent, new SchoolFeePayment());
 
-               
+                dd(Notification::send($parent, new SchoolFeePayment()));
             }
         }
 
