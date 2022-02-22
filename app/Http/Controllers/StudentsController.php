@@ -44,7 +44,23 @@ class StudentsController extends Controller
 
         ]);
 
-        $studentDetails = Student::create($attributes);
+        $name = explode(" ", $attributes['full_name'], 2);
+
+        $first_name = $name[0];
+
+        $last_name = !empty($name[1]) ? $name[1] : '';
+
+        $data= [
+            "first_name" => $first_name,
+            "last_name" => $last_name,
+            "registration_number" => $attributes['registration_number'],
+            "phone_number" => $attributes['phone_number'],
+            "registration_year" => $attributes['registration_year'],
+            "gender" => $attributes['gender'],
+            "dob" => $attributes['gender'],
+        ];
+
+        $studentDetails = Student::create($data);
 
         return redirect('/students')->with('success', 'Student records successfully saved');
     }
