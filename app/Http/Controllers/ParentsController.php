@@ -97,8 +97,7 @@ class ParentsController extends Controller
             foreach($parents as $parent){
 
                 Notification::send($parent, new SchoolFeePayment());
-
-                dd(Notification::send($parent, new SchoolFeePayment()));
+                
             }
         }
 

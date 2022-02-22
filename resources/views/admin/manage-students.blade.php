@@ -5,9 +5,9 @@
     <div class="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-full">
 
         <div class="inline-block ml-10 w-full align-middle border-b border-gray-200 shadow sm:rounded-lg">
-            
 
-            <div class="grid grid-cols-2 gap-">
+
+            <div class="grid grid-cols-3 gap-">
 
                 <div class="col">
 
@@ -20,7 +20,27 @@
                 </div>
 
                 <div class="col">
-                    <div class="lg:inline-flex items-center rounded-full px-12 py-2 mt-2 ml-28">
+
+
+                    <button id="dropdownButton" data-dropdown-toggle="dropdown" class="-ml-16 mt-4 block w- 55 text-white mb-8 flex bg-blue-700 hover:bg-blue-800 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="dropDown('dropdown')" type="button">Import/Export<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 9l-7 7-7-7"></path>
+                        </svg></button>
+
+                    <div id="dropdown" class="fixed hidden z-10 w-40 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
+                        <ul class="py-3" aria-labelledby="dropdownButton">
+                            <li>
+                                <a href="/importStudents" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Upload Excel</a>
+                            </li>
+                            <li>
+                                <a href="/exportStudentsDetails" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Export Excel</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                </div>
+
+                <div class="col">
+                    <div class="lg:inline-flex items-center rounded-full px-12 py-2 mt-2 ml-1">
                         <form method="GET" action="/students">
 
                             @if(request('category'))
@@ -109,7 +129,7 @@
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
                             <a href="#" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-900 border border-yellow-500  rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 rounded-full  hover:bg-yellow-400 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
-                        
+
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
@@ -134,9 +154,19 @@
 
 
 <script type="text/javascript">
-    
     function deleteConfirmation() {
-        
+
         return confirm('Are you sure you want to delete this student?');
     }
+</script>
+
+
+<script type="text/javascript">
+  function dropDown(dropdown){
+    
+    document.getElementById(dropdown).classList.toggle("hidden");
+    
+    document.getElementById(dropdown).classList.toggle("flex");
+   
+  }
 </script>
