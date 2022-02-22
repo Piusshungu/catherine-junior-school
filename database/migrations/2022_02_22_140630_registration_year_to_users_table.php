@@ -14,7 +14,7 @@ class RegistrationYearToUsersTable extends Migration
     public function up()
     {
         Schema::table('students', function (Blueprint $table) {
-            $table->integer('registration_year');
+            $table->year('registration_year');
         });
     }
 
@@ -26,7 +26,7 @@ class RegistrationYearToUsersTable extends Migration
     public function down()
     {
         Schema::table('students', function (Blueprint $table) {
-            //
+            
         });
     }
 }
