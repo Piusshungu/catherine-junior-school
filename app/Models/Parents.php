@@ -8,7 +8,6 @@ use Emadadly\LaravelUuid\Uuids;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Notifications\SchoolFeePayment;
-use App\Models\Student;
 
 class Parents extends Authenticatable
 {
@@ -69,7 +68,7 @@ class Parents extends Authenticatable
 
     public function students()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Parents::class);
     }
 }
  

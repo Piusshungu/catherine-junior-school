@@ -5,7 +5,6 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Emadadly\LaravelUuid\Uuids;
-use App\Models\Parents;
 
 class Student extends Model
 {
@@ -47,6 +46,6 @@ class Student extends Model
 
     public function parents()
     {
-        return $this->belongsToMany(Parents::class);
+        return $this->belongsToMany(Student::class);
     }
 }
