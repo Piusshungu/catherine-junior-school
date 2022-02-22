@@ -39,6 +39,9 @@ class StudentsController extends Controller
             'registration_number' => 'required|max:255',
             'phone_number' => 'required|max:13',
             'dob' => 'required',
+            'registration_year' => 'required',
+            'gender' => 'required',
+
         ]);
 
         $studentDetails = Student::create($attributes);
