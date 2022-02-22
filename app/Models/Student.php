@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Emadadly\LaravelUuid\Uuids;
+use App\Models\Parents;
 
 class Student extends Model
 {
@@ -42,5 +43,10 @@ class Student extends Model
 
         return "+255" . $this->attributes['phone_number'];
 
+    }
+
+    public function parents()
+    {
+        return $this->belongsToMany(Parents::class);
     }
 }
