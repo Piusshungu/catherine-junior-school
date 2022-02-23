@@ -44,8 +44,13 @@ class Student extends Model
 
     }
 
+    public function getNameAttribute()
+    {
+        return "{$this->first_name} {$this->last_name}";
+    }
+
     public function parents()
     {
-        return $this->belongsToMany(Parents::class);
+        return $this->belongsToMany(Parents::class, 'parent_student');
     }
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\NotifyAllParents;
 use App\Models\Parents;
+use App\Models\Student;
 use App\Notifications\SchoolFeePayment;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
@@ -24,9 +25,11 @@ class ParentsController extends Controller
 
         return view('admin.manage-parents', [
             
-            'parents' => Parents::orderBy('first_name')->filter(request(['search']))
+            'parents' => Parents::with('students')->orderBy('first_name')->filter(request(['search']))
 
             ->paginate(5)->withQueryString(),
+
+            'students' => Student::all(),
         ]);
     }
 
@@ -34,7 +37,7 @@ class ParentsController extends Controller
     {
         return view('parent-profile', [
 
-            'parents' => Parents::find($id),
+            'parents' => Parents::with('students')->find($id),
         ]);
     }
 
@@ -47,7 +50,7 @@ class ParentsController extends Controller
             'physical_address' => 'required',
             'email' => 'required|email|max:255|unique:users,email',
         ]);
-
+// dd(request()->students);
         $name = explode(" ", $attributes['name'], 2);
 
         $first_name = $name[0];
@@ -63,6 +66,16 @@ class ParentsController extends Controller
         ];
 
         $parentsDetails = Parents::create($data);
+
+        if(isset(request()->students)){
+
+            foreach(request()->students as $student){
+
+$parentsDetails->students()->attach($student);
+
+            }
+
+        }
 
         return redirect('/parents')->with('success', 'Parents records successfully saved');
     }
@@ -97,7 +110,7 @@ class ParentsController extends Controller
             foreach($parents as $parent){
 
                 Notification::send($parent, new SchoolFeePayment());
-                
+
             }
         }
 

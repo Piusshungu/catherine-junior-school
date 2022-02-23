@@ -17,7 +17,7 @@ class StudentsController extends Controller
 
         return view('admin.manage-students', [
 
-            'students' => Student::orderBy('full_name')->filter(request(['search']))
+            'students' => Student::orderBy('first_name')->filter(request(['search']))
 
             ->paginate(7)->withQueryString(),
         ]);
@@ -35,16 +35,16 @@ class StudentsController extends Controller
 
         $attributes = request()->validate([
 
-            'full_name' => 'required|max:255',
+            'name' => 'required|max:255',
             'registration_number' => 'required|max:255',
             'phone_number' => 'required|max:13',
             'dob' => 'required',
             'registration_year' => 'required',
-            'gender' => 'required',
+            'gender' => 'required|in:male,female',
 
         ]);
 
-        $name = explode(" ", $attributes['full_name'], 2);
+        $name = explode(" ", $attributes['name'], 2);
 
         $first_name = $name[0];
 
@@ -57,7 +57,7 @@ class StudentsController extends Controller
             "phone_number" => $attributes['phone_number'],
             "registration_year" => $attributes['registration_year'],
             "gender" => $attributes['gender'],
-            "dob" => $attributes['gender'],
+            "dob" => $attributes['dob'],
         ];
 
         $studentDetails = Student::create($data);

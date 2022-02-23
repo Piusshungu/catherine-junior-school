@@ -1,7 +1,7 @@
 <x-sidebar />
 
 <div class="w-full px-4 py-2 bg-gray-200 lg:w-full">
-    <div class="container mx-auto mt-12">
+    <div class="container mx-auto mt-16">
         <div class="grid gap-4 lg:grid-cols-3">
             <div class="flex items-center px-4 py-6 bg-white rounded-md shadow-md">
                 <div class="p-3 bg-indigo-600 rounded">

@@ -102,7 +102,7 @@
                                 <div class="flex-shrink-0 w-10 h-10">
                                     {{ $i++ }}
                                 </div>
-                                {{ ucwords( strtolower($student->full_name)) }}
+                                {{ ucwords( strtolower($student->name)) }}
                                 <div class="ml-4">
                                     <div class="text-sm font-medium leading-5 text-gray-900">
 

@@ -19,12 +19,12 @@ Add New Student
 
 
 <div>
-<label for="full_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Full Name</label>
-<input type="text" name="full_name" id="firts_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Full Name" required=""><br>
+<label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Full Name</label>
+<input type="text" name="name" id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Full Name" required=""><br>
 
 
 <label for="registration_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Registration Number</label>
-<input type="text" name="registration_number" id="middle_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Registration Number" required=""><br>
+<input type="text" name="registration_number" id="registration_number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" placeholder="Registration Number" required=""><br>
 
 <label for="dob" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Date Of Birth</label>
 <!-- <div class="relative">
@@ -39,18 +39,18 @@ Add New Student
 <label for="phone_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Phone Number</label>
 <input type="text" name="phone_number" id="phone_number" placeholder="Phone Number" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required=""><br>
 
-<label for="phone_number" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Year</label>
-<input type="text" name="phone_number" id="phone_number" placeholder="Year Registred" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required=""><br>
+<label for="registration_year" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Year Registered</label>
+<input type="text" name="registration_year" id="registration_year" placeholder="Year Registred" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white" required=""><br>
 
 
 <span class="text-gray-700 text-bold">Gender</span>
   <div class="mt-2">
     <label class="inline-flex items-center">
-      <input type="radio" class="form-radio" name="gender" value="gender">
+      <input type="radio" class="form-radio" name="gender" value="male" id="gender">
       <span class="ml-2">Male</span>
     </label>
     <label class="inline-flex items-center ml-6">
-      <input type="radio" class="form-radio" name="gender" value="gender">
+      <input type="radio" class="form-radio" name="gender" value="female" id="gender">
       <span class="ml-2">Female</span>
     </label>
   </div>

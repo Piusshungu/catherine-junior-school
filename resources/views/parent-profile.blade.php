@@ -126,8 +126,8 @@
                                 </div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Birthday</div>
-                                <div class="px-4 py-2">Feb 06, 1998</div>
+                                <div class="px-4 py-2 font-semibold">Active Since</div>
+                                <div class="px-4 py-2">{{ $parents->created_at->diffForHumans()}} </div>
                             </div>
                         </div>
                     </div>
@@ -152,9 +152,27 @@
                             </div>
                             <ul class="list-inside space-y-2">
                                 <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600">Related Student(s)</div>
+                                    
+                                    @php 
+
+                                    $i = 1;
+
+                                    @endphp
+                                    
+                                    @foreach ($parents->students as $student)
+
+                                    <div class="inline-flex">
+
+                                    <div class="text-gray-500 text-sm">{{ $i++ }}.</div>
+                                    
+                                    <div class="mx-1 text-gray-500 text-sm">{{ $student->name }}</div>
+
+                                    </div>
                                 </li>
+
+                                @endforeach
+
                                 <li>
                                     <div class="text-teal-600">Owner at Her Company Inc.</div>
                                     <div class="text-gray-500 text-xs">March 2020 - Now</div>
@@ -163,10 +181,7 @@
                                     <div class="text-teal-600">Owner at Her Company Inc.</div>
                                     <div class="text-gray-500 text-xs">March 2020 - Now</div>
                                 </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
+                               
                             </ul>
                         </div>
                         <div>

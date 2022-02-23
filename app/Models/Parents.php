@@ -68,7 +68,7 @@ class Parents extends Authenticatable
 
     public function students()
     {
-        return $this->belongsToMany(Student::class);
+        return $this->belongsToMany(Student::class,'parent_student', 'parent_id');
     }
 }
  
