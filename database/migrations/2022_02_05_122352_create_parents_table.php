@@ -19,6 +19,7 @@ class CreateParentsTable extends Migration
     {
         Schema::create('parents', function (Blueprint $table) {
             $table->uuid('id');
+            $table->primary('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->unique();

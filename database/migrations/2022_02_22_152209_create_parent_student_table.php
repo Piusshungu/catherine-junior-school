@@ -17,10 +17,14 @@ class CreateParentStudentTable extends Migration
     public function up()
     {
         Schema::create('parent_student', function (Blueprint $table) {
-            $table->uuid('parents_id')->unsigned()->index();
-            $table->foreignId('parent_id')->references('id')->on('parents')->onUpdate('cascade')->onDelete('cascade');
-            $table->uuid('student_id')->unsigned()->index();
-            $table->foreignId('student_id')->references('id')->on('students')->onUpdate('cascade')->onDelete('cascade');
+            $table->foreignUuid('parent_id')->references('id')->on('parents')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+
+            $table->foreignUuid('student_id')->references('id')->on('students')
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            
             $table->primary(['parent_id', 'student_id']);
             $table->timestamps();
         });
