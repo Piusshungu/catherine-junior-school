@@ -36,4 +36,11 @@ return [
         'from'          => env('AT_FROM'),
     ],
 
+    'beem' => [
+        'secretKey'      => env('BEEM_SMS_SECRET_KEY'),
+        'apiKey'           => env('BEEM_SMS_API_KEY'),
+        'sender'          => env('BEEM_SMS_SENDER_NAME'),
+    ],
+
+
 ];

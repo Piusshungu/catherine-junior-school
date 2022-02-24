@@ -37,24 +37,24 @@ class Parents extends Authenticatable
         return "{$this->first_name} {$this->last_name}";
     }
 
-    public function getPhoneNumberAttribute()
+    public function setPhoneNumberAttribute($phone_number)
     {
-      
-        if(substr($this->attributes['phone_number'],0,1) === "0" || substr($this->attributes['phone_number'],0,1) === "+"){
+       
+        if(substr($phone_number,0,1) === "0" || substr($phone_number,0,1) === "+"){
+
+            $phone_number = substr($phone_number,1);
  
-            return "+255". substr($this->attributes['phone_number'],1);
+            $this->attributes['phone_number'] = "+255". $phone_number;
             
         }
+        
+        if (substr($phone_number,0,3) === "255") {
 
-        if (substr($this->attributes['phone_number'], 0, 3) === "255") {
+            $this->attributes['phone_number'] = "+". $phone_number;
 
-            return "+". $this->attributes['phone_number'];
-        }
-
-        return "+255" . $this->attributes['phone_number'];
-
+         }
+        
     }
-
     /**
      * Route notifications for the Africa's Talking channel.
      *
@@ -63,6 +63,12 @@ class Parents extends Authenticatable
      */
     public function routeNotificationForAfricasTalking($notification)
     {
+        return $this->phone_number;
+    }
+
+    public function routeNotificationForBeem()
+    {
+        // Country code, area code and number without symbols or spaces e.g: 255713001001
         return $this->phone_number;
     }
 

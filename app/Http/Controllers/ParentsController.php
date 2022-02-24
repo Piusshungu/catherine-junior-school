@@ -6,17 +6,19 @@ use App\Mail\NotifyAllParents;
 use App\Models\Parents;
 use App\Models\Student;
 use App\Notifications\SchoolFeePayment;
+use App\Notifications\SchoolOpening;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
+use App\Actions\SchoolOpeningAction;
 
 class ParentsController extends Controller
 {
     function __construct()
     {
-         $this->middleware('permission:Can Edit Parent(s) Details|Can Create Parent|Can View Parent Details|Can Delete Parent(s) Details', ['only' => ['index','show', 'profile']]);
-         $this->middleware('permission:Can Create Parent', ['only' => ['addNewParentDetails','sendMailsToParents']]);
-         $this->middleware('permission:Can Edit Parent(s) Details', ['only' => ['editParentDetails','updateParentDetails']]);
-         $this->middleware('permission:Can Delete Parent(s) Details', ['only' => ['deleteParentDetails']]);
+        $this->middleware('permission:Can Edit Parent(s) Details|Can Create Parent|Can View Parent Details|Can Delete Parent(s) Details', ['only' => ['index', 'show', 'profile']]);
+        $this->middleware('permission:Can Create Parent', ['only' => ['addNewParentDetails', 'sendMailsToParents']]);
+        $this->middleware('permission:Can Edit Parent(s) Details', ['only' => ['editParentDetails', 'updateParentDetails']]);
+        $this->middleware('permission:Can Delete Parent(s) Details', ['only' => ['deleteParentDetails']]);
     }
 
 
@@ -24,10 +26,10 @@ class ParentsController extends Controller
     {
 
         return view('admin.manage-parents', [
-            
+
             'parents' => Parents::with('students')->orderBy('first_name')->filter(request(['search']))
 
-            ->paginate(5)->withQueryString(),
+                ->paginate(5)->withQueryString(),
 
             'students' => Student::orderBy('first_name')->get(),
         ]);
@@ -57,7 +59,7 @@ class ParentsController extends Controller
 
         $last_name = !empty($name[1]) ? $name[1] : '';
 
-        $data= [
+        $data = [
             "first_name" => $first_name,
             "last_name" => $last_name,
             "email" => $attributes['email'],
@@ -67,13 +69,11 @@ class ParentsController extends Controller
 
         $parentsDetails = Parents::create($data);
 
-        if(isset(request()->students))
-        {
+        if (isset(request()->students)) {
 
-            foreach(request()->students as $student){
+            foreach (request()->students as $student) {
 
-            $parentsDetails->students()->attach($student);
-
+                $parentsDetails->students()->attach($student);
             }
         }
 
@@ -84,17 +84,17 @@ class ParentsController extends Controller
     {
 
         $parents = Parents::select('email')->get();
-       
-        if($parents->count() > 0){
 
-            foreach($parents as $key => $parent){
+        if ($parents->count() > 0) {
+
+            foreach ($parents as $key => $parent) {
 
                 $details = [
 
                     'subject' => 'Notification To All Parents',
                 ];
 
-                // Mail::to($parent->email)->send(new NotifyAllParents($details));
+                Mail::to($parent->email)->send(new NotifyAllParents($details));
             }
         }
 
@@ -103,19 +103,13 @@ class ParentsController extends Controller
 
     public function sendSchoolFeeSms()
     {
-        $parents = Parents::select('phone_number')->get();
 
-        if($parents->count() > 0){
+        $parents = Parents::select('phone_number', 'id')->get();
 
-            foreach($parents as $parent){
+         $send = new SchoolOpeningAction();
 
-                Notification::send($parent, new SchoolFeePayment());
-
-            }
-        }
+         $send->schoolOpeningSMS($parents);
 
         return redirect('/parents')->with('success', 'SMS successfully sent to Parents');
     }
-
-
 }
