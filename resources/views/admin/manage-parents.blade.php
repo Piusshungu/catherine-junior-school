@@ -144,7 +144,6 @@
                         @php
 
                         $i = 1;
-                        dd($parents);
 
                         @endphp
 

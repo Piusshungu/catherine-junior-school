@@ -138,7 +138,7 @@
                 <div class="my-4"></div>
 
                 <!-- Experience and education -->
-                <div class="bg-white p-3 shadow-sm rounded-sm">
+                <div class="bg-white p-3 shadow-sm rounded-sm ">
 
                     <div class="grid grid-cols-2">
                         <div>

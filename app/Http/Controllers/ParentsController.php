@@ -29,7 +29,7 @@ class ParentsController extends Controller
 
             ->paginate(5)->withQueryString(),
 
-            'students' => Student::all(),
+            'students' => Student::orderBy('first_name')->get(),
         ]);
     }
 
@@ -50,7 +50,7 @@ class ParentsController extends Controller
             'physical_address' => 'required',
             'email' => 'required|email|max:255|unique:users,email',
         ]);
-// dd(request()->students);
+
         $name = explode(" ", $attributes['name'], 2);
 
         $first_name = $name[0];
@@ -67,14 +67,14 @@ class ParentsController extends Controller
 
         $parentsDetails = Parents::create($data);
 
-        if(isset(request()->students)){
+        if(isset(request()->students))
+        {
 
             foreach(request()->students as $student){
 
-$parentsDetails->students()->attach($student);
+            $parentsDetails->students()->attach($student);
 
             }
-
         }
 
         return redirect('/parents')->with('success', 'Parents records successfully saved');
