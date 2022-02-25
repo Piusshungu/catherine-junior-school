@@ -2,7 +2,7 @@
 
 namespace App\Actions;
 
-class SchoolOpeningAction
+class CustomSMSUsersAction
 {
    public function schoolOpeningSMS($recipients){//This check the format rather than a variable name
 
@@ -11,13 +11,14 @@ class SchoolOpeningAction
     $secret_key = 'N2YwZGEwNDdlMGJiOWY4YzNkOTlmMTlhZDdlYTdmMmI4MGZmOTczNjRkZDA1NDQ1NmEwZDYyMTQ2ZTEwMmQ0Ng==';
 
 
+    foreach ($recipients as $key => $recipient){
 
         $smsData = array(
             'source_addr' => 'INFO',
             'encoding' => 0,
             'schedule_time' => '',
             'message' => 'Relax Shungu is Testing please confirm when you get SMS',
-            'recipients' => $recipients
+            'recipients' => [array('recipient_id' => $key, 'dest_addr' => $recipient->phone_number)]
         );
     
 
@@ -49,6 +50,7 @@ class SchoolOpeningAction
         }
         var_dump($response) ;
     }
-
+        
+   }
 }
 

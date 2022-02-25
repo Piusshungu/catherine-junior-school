@@ -104,10 +104,6 @@
                                 <div class="px-4 py-2">{{ $parents->last_name }}</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Gender</div>
-                                <div class="px-4 py-2">Female</div>
-                            </div>
-                            <div class="grid grid-cols-2">
                                 <div class="px-4 py-2 font-semibold">Phone No.</div>
                                 <div class="px-4 py-2">{{ $parents->phone_number }}</div>
                             </div>
@@ -120,9 +116,9 @@
                                 <div class="px-4 py-2">{{ $parents->physical_address }}</div>
                             </div>
                             <div class="grid grid-cols-2">
-                                <div class="px-4 py-2 font-semibold">Email</div>
+                                <div class="px-4 py-2 font-semibold">Email Address</div>
                                 <div class="px-4 py-2">
-                                    <a class="text-blue-800" href="mailto:jane@example.com">{{ $parents->email }}</a>
+                                    <a class="text-blue-800" href="mailto:{{ $parents->email }}">{{ $parents->email }}</a>
                                 </div>
                             </div>
                             <div class="grid grid-cols-2">
@@ -164,9 +160,9 @@
 
                                     <div class="inline-flex">
 
-                                    <div class="text-gray-500 text-sm">{{ $i++ }}.</div>
+                                    <div class="text-gray-800 text-sm">{{ $i++ }}.</div>
                                     
-                                    <div class="mx-1 text-gray-500 text-sm">{{ $student->name }}</div>
+                                    <div class="mx-1 text-gray-800 text-sm">{{ $student->name }}</div>
 
                                     </div>
                                 </li>
@@ -174,12 +170,12 @@
                                 @endforeach
 
                                 <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
-                                </li>
-                                <li>
-                                    <div class="text-teal-600">Owner at Her Company Inc.</div>
-                                    <div class="text-gray-500 text-xs">March 2020 - Now</div>
+                                    <div class="text-teal-600">Want to Contact Parent?</div><br>
+                                    <a href="" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send SMS</a>
+                                    
+                                    <a href="" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send EMail</a>
+
+                                  
                                 </li>
                                
                             </ul>

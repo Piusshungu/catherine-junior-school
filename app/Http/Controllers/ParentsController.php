@@ -106,9 +106,16 @@ class ParentsController extends Controller
 
         $parents = Parents::select('phone_number', 'id')->get();
 
-         $send = new SchoolOpeningAction();
+        $contacts = [];
 
-         $send->schoolOpeningSMS($parents);
+        foreach ($parents as $key => $parent) {
+            
+            array_push($contacts, ['recipient_id' => $key, 'dest_addr' => $parent->phone_number]);
+        }
+
+        $send = new SchoolOpeningAction();
+
+        $send->schoolOpeningSMS($contacts);
 
         return redirect('/parents')->with('success', 'SMS successfully sent to Parents');
     }
