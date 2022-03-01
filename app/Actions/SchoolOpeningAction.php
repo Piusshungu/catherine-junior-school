@@ -6,9 +6,9 @@ class SchoolOpeningAction
 {
    public function schoolOpeningSMS($recipients){//This check the format rather than a variable name
 
-    $api_key = 'c1a13d70917b9663';
+    $api_key = config('keys.beem.apikey');
 
-    $secret_key = 'N2YwZGEwNDdlMGJiOWY4YzNkOTlmMTlhZDdlYTdmMmI4MGZmOTczNjRkZDA1NDQ1NmEwZDYyMTQ2ZTEwMmQ0Ng==';
+    $secret_key = config('keys.beem.secretkey');
 
 
 
