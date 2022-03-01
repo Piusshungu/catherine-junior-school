@@ -149,20 +149,20 @@
                             <ul class="list-inside space-y-2">
                                 <li>
                                     <div class="text-teal-600">Related Student(s)</div>
-                                    
-                                    @php 
+
+                                    @php
 
                                     $i = 1;
 
                                     @endphp
-                                    
+
                                     @foreach ($parents->students as $student)
 
                                     <div class="inline-flex">
 
-                                    <div class="text-gray-800 text-sm">{{ $i++ }}.</div>
-                                    
-                                    <div class="mx-1 text-gray-800 text-sm">{{ $student->name }}</div>
+                                        <div class="text-gray-800 text-sm">{{ $i++ }}.</div>
+
+                                        <div class="mx-1 text-gray-800 text-sm">{{ $student->name }}</div>
 
                                     </div>
                                 </li>
@@ -171,13 +171,47 @@
 
                                 <li>
                                     <div class="text-teal-600">Want to Contact Parent?</div><br>
-                                    <a href="" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send SMS</a>
-                                    
-                                    <a href="" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send EMail</a>
 
-                                  
+                                    <a href="" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send Email</a>
+
+                                    <button class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" type="button" data-modal-toggle="modalBox" onclick="toggleModal('modalBox')">
+                                        Send SMS
+                                    </button>
+
+                                    <div id="modalBox" aria-hidden="true" class="hidden bg-gray-700 bg-opacity-80 overflow-y-auto overflow-x-hidden fixed right-0 left-0 top-4 z-50 justify-center items-center h-modal md:h-full md:inset-0">
+                                        <div class="relative px-4 w-full max-w-md h-full md:h-auto">
+
+                                            <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                                                <div class="flex justify-end p-2">
+                                                    <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-toggle="modalBox" onclick="toggleModal('modalBox')">
+                                                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                                                            <path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                                                        </svg>
+                                                    </button>
+                                                </div>
+
+                                                <form class="px-6 pb-4 space-y-6 lg:px-8 sm:pb-6 xl:pb-8" method="POST" action="/sendCustomSMSToParent/{{ $parents->id }}">
+                                                    @csrf
+
+                                                    <h3 class="text-medium font-sm text-gray-900 dark:text-white">Compose New SMS</h3>
+
+                                                        <div class="flex justify-center w-full">
+                                                            <div class="mb-3 xl:w-96">
+                                                                <label for="exampleFormControlTextarea1" class="form-label inline-block mb-2 text-gray-700">SMS</label>
+                                                                <textarea class="w-11/12 form-control block w-full px-3 py-1.5text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" id="message" name="message" rows="3" placeholder="Your message"></textarea>
+                                                            </div>
+                                                        </div>
+                                                    
+                                                    <button type="submit" class=" w-full py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send</button>
+                                                    <div class="text-sm font-medium text-gray-500 dark:text-gray-300">
+                                                    </div>
+
+                                                </form>
+
+
+
                                 </li>
-                               
+
                             </ul>
                         </div>
                         <div>
@@ -210,3 +244,15 @@
 
 
 </div>
+
+
+<script type="text/javascript">
+    
+    function toggleModal(modalBox) {
+
+        document.getElementById(modalBox).classList.toggle("hidden");
+        
+        document.getElementById(modalBox).classList.toggle("flex");
+       
+    }
+</script>

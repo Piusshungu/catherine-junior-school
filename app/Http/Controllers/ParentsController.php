@@ -10,6 +10,7 @@ use App\Notifications\SchoolOpening;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Mail;
 use App\Actions\SchoolOpeningAction;
+use App\Actions\CustomSMSToUsersAction;
 
 class ParentsController extends Controller
 {
@@ -118,5 +119,23 @@ class ParentsController extends Controller
         $send->schoolOpeningSMS($contacts);
 
         return redirect('/parents')->with('success', 'SMS successfully sent to Parents');
+    }
+
+    public function sendCustomSMS($id)
+    {
+        $message = request()->validate([
+
+            'message' => 'required',
+        ]);
+
+        $messageContent = $message['message'];
+
+        $parentPhone = Parents::select('phone_number')->find($id);
+
+        $send = new CustomSMSToUsersAction();
+
+        $send->sendCustomMessage($parentPhone, $messageContent);
+
+        return redirect()->back()->with('success', 'Message successfully sent');
     }
 }

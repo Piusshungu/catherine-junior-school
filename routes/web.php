@@ -70,6 +70,8 @@ Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToPare
 
 Route::get('/schoolFeeSms', [ParentsController::class, 'sendSchoolFeeSms']);
 
+Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCustomSMS']);
+
 //Routes for managing Roles and Permissions
 
 Route::group(['middleware' => ['auth']], function(){
