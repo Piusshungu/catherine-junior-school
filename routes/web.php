@@ -7,6 +7,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\PaymentController;
 
 
 /*
@@ -71,6 +72,10 @@ Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToPare
 Route::get('/schoolFeeSms', [ParentsController::class, 'sendSchoolFeeSms']);
 
 Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCustomSMS']);
+
+//Routes for managing Payment
+
+Route::get('/schoolFeePayment', [PaymentController::class, 'schoolFeeForm']);
 
 //Routes for managing Roles and Permissions
 

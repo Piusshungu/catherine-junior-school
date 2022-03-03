@@ -22,7 +22,9 @@ class Student extends Model
 
         if(isset($filters['search'])){
 
-            $query->where('full_name', 'like', '%'. request('search'). '%');
+            $query->where('first_name', 'like', '%'. request('search'). '%')
+
+            ->orWhere('last_name', 'like', '%'. request('search'). '%');
         }
     }
 
@@ -52,5 +54,10 @@ class Student extends Model
     public function parents()
     {
         return $this->belongsToMany(Parents::class, 'parent_student');
+    }
+
+    public function payment()
+    {
+        return $this->hasMany(Payment::class);
     }
 }

@@ -24,7 +24,9 @@ class Parents extends Authenticatable
 
         if(isset($filters['search'])){
 
-            $query->where('name', 'like', '%'. request('search'). '%')
+            $query->where('first_name', 'like', '%'. request('search'). '%')
+
+            ->orWhere('last_name', 'like', '%'. request('search'). '%')
 
             ->orWhere('email', 'like', '%'. request('search'). '%')
 
@@ -76,5 +78,6 @@ class Parents extends Authenticatable
     {
         return $this->belongsToMany(Student::class,'parent_student', 'parent_id');
     }
+    
 }
  
