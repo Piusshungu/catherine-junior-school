@@ -75,7 +75,7 @@ Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCusto
 
 //Routes for managing Payment
 
-Route::get('/schoolFeePayment', [PaymentController::class, 'schoolFeeForm']);
+Route::get('/payment', [PaymentController::class, 'index']);
 
 //Routes for managing Roles and Permissions
 

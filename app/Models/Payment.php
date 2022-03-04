@@ -12,6 +12,12 @@ class Payment extends Model
 
     use Uuids;
 
+    protected $table =  'payment';
+
+    protected $guarded = ['id'];
+
+    public $incrementing = false;
+
     public function students()
     {
         return $this->belongsTo(Student::class);

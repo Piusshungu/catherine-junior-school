@@ -56,7 +56,7 @@ class Student extends Model
         return $this->belongsToMany(Parents::class, 'parent_student');
     }
 
-    public function payment()
+    public function payments()
     {
         return $this->hasMany(Payment::class);
     }
