@@ -50,6 +50,18 @@ class PermissionTableSeeder extends Seeder
                 
                 [
                     'name'=>'Can view All Roles',
+                ],
+
+                [
+                    'name'=>'Can view Payments',
+                ],
+
+                [
+                    'name'=>'Can Edit Payments',
+                ],
+
+                [
+                    'name'=>'Can Delete Payments',
                 ]
             ];
 
