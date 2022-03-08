@@ -62,6 +62,10 @@ class PermissionTableSeeder extends Seeder
 
                 [
                     'name'=>'Can Delete Payments',
+                ],
+
+                [
+                    'name'=>'Can Create Payments',
                 ]
             ];
 
