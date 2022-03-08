@@ -14,9 +14,9 @@ class PaymentController extends Controller
 
            'payments' => Student::join('payment', 'payment.student_id', '=', 'students.id')
 
-           ->orderBy('payment.created_at')->get(['students.first_name', 'students.last_name', 'payment.*']),
+           ->orderBy('payment.created_at', 'DESC')->get(['students.first_name', 'students.last_name', 'payment.*']),
            
-           'students' => Student::all(),
+           'students' => Student::orderBy('first_name')->get(),
            
         ]);
     }
