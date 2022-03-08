@@ -45,7 +45,7 @@ Route::post('/importStudentsDetails', [StudentsController::class, 'importStudent
 
 Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudentsDetails'])->middleware('auth');
 
-Route::get('/studentProfile', [StudentsController::class, 'studentProfile']);
+Route::get('/studentProfile', [StudentsController::class, 'studentProfile'])->middleware('auth');
 
 //Routes for managing users
 
@@ -53,35 +53,35 @@ Route::get('/login', [UsersController::class, 'showLoginForm']);
 
 Route::post('/redirectAfterLogin', [UsersController::class, 'userLogin']);
 
-Route::get('/logout', [UsersController::class, 'userLogout']);
+Route::get('/logout', [UsersController::class, 'userLogout'])->middleware('auth');
 
 //Routes for managing Dashboard
 
-Route::get('/dashboard', [AdminController::class, 'index']);
+Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
 
 //Routes for managing Parents
 
-Route::get('/parents', [ParentsController::class, 'index']);
+Route::get('/parents', [ParentsController::class, 'index'])->middleware('auth');
 
-Route::get('/parent/{id}/profile', [ParentsController::class, 'profile']);
+Route::get('/parent/{id}/profile', [ParentsController::class, 'profile'])->middleware('auth');
 
-Route::post('/addParentDetails', [ParentsController::class, 'addNewParentDetails']);
+Route::post('/addParentDetails', [ParentsController::class, 'addNewParentDetails'])->middleware('auth');
 
-Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToParents']);
+Route::get('/sendMailsToAllParents', [ParentsController::class, 'sendMailsToParents'])->middleware('auth');
 
-Route::get('/schoolFeeSms', [ParentsController::class, 'sendSchoolFeeSms']);
+Route::get('/schoolFeeSms', [ParentsController::class, 'sendSchoolFeeSms'])->middleware('auth');
 
-Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCustomSMS']);
+Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCustomSMS'])->middleware('auth');
 
 //Routes for managing Payment
 
-Route::get('/payment', [PaymentController::class, 'index']);
+Route::get('/payment', [PaymentController::class, 'index'])->middleware('auth');
 
-Route::post('/addPayment', [PaymentController::class, 'addNewPaymentRecord']);
+Route::post('/addPayment', [PaymentController::class, 'addNewPaymentRecord'])->middleware('auth');
 
-Route::get('/viewPayments/{id}', [PaymentController::class, 'viewPaymentsRecords']);
+Route::get('/viewPayments/{id}', [PaymentController::class, 'viewPaymentsRecords'])->middleware('auth');
 
-Route::get('/deletePaymentRecord/{id}', [PaymentController::class, 'deletePaymentRecord']);
+Route::get('/deletePaymentRecord/{id}', [PaymentController::class, 'deletePaymentRecord'])->middleware('auth');
 
 //Routes for managing Roles and Permissions
 
