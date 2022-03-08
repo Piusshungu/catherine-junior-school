@@ -25,6 +25,7 @@ class ParentsController extends Controller
 
     public function index()
     {
+        // abort_if(!auth()->user()->cannot('Can Create Parent'), 403);
 
         return view('admin.manage-parents', [
 

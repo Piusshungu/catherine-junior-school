@@ -160,7 +160,7 @@
 
                             @can('Can Delete Role')
 
-                            <a href="{{ route('roles.destroy',$role->id) }}" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-red-500 rounded-full hover:bg-red-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-red-500 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="deleteConfirmation()">Delete</a>
+                            <a href="{{ route('roles.destroy',$role->id) }}" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-red-500 rounded-full hover:bg-red-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-red-500 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="return confirm('Are you sure you want to delete this role?')">Delete</a>
 
                             @endcan
 
@@ -182,18 +182,17 @@
 </div>
 {{ $roles->links() }}
 
-<script>
-    function deleteConfirmation() {
-        var txt;
-        if (!confirm("Press ok to delete student records!")) {
 
-            return;
-        }
-        return false;
+<script type="text/javascript">
+    
+    function deleteConfirmation() {
+
+        return confirm('Are you sure you want to delete this role?');
     }
 </script>
 
 <script type="text/javascript">
+
     function toggleModal(modalBox) {
 
         document.getElementById(modalBox).classList.toggle("hidden");
