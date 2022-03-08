@@ -35,11 +35,23 @@ class PaymentController extends Controller
 
         $savePaymentDetails = Payment::create($paymentData);
 
-        // if(isset(request()->students)){
-
-        //     $savePaymentDetails->students()->attach(request()->students);
-        // }
-
         return redirect('/payment')->with('success', 'Payment Records saved successfully');
+    }
+
+    public function viewPaymentsRecord($id)
+    {
+        return view('view-payment', [
+
+            'payments' => Payment::find($id),
+        ]);
+    }
+
+    public function deletePaymentRecord($id)
+    {
+        $payments = Payment::find($id);
+
+        $payments->delete();
+
+        return redirect('/payment')->with('success', 'Payment records successfully deleted');
     }
 }

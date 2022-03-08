@@ -79,6 +79,10 @@ Route::get('/payment', [PaymentController::class, 'index']);
 
 Route::post('/addPayment', [PaymentController::class, 'addNewPaymentRecord']);
 
+Route::get('/viewPayments/{id}', [PaymentController::class, 'viewPaymentsRecords']);
+
+Route::get('/deletePaymentRecord/{id}', [PaymentController::class, 'deletePaymentRecord']);
+
 //Routes for managing Roles and Permissions
 
 Route::group(['middleware' => ['auth']], function(){
