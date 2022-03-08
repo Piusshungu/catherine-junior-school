@@ -77,6 +77,8 @@ Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCusto
 
 Route::get('/payment', [PaymentController::class, 'index']);
 
+Route::post('/addPayment', [PaymentController::class, 'addNewPaymentRecord']);
+
 //Routes for managing Roles and Permissions
 
 Route::group(['middleware' => ['auth']], function(){
