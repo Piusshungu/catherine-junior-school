@@ -47,6 +47,39 @@
             </div>
         </div>
 
-        </body>
+        <div id="chart-container" class="ml-15 mt-10"></div>
 
-        </html>
+        <script>
+        FusionCharts.ready(function () {
+            // chart instance
+            var male = "<?php echo $male; ?>";
+
+            var female = "<?php echo $female; ?>";
+
+            var chart = new FusionCharts({
+               
+                type: "pie3d",
+                renderAt: "chart-container",
+                width: "500",
+                height: "350",
+                dataFormat: "json",
+                dataSource: {
+                    // chart configuration
+                    chart: {
+                        caption: "Male Vs Female",
+                        subcaption: "Number of Male and Female Students"
+                    },
+                    // chart data
+                    data: [
+                       
+                        { label: "Female", value: female },
+                        { label: "Male", value: male }   
+                    ]
+                }
+            }).render();
+        });
+    </script>
+
+    </body>
+
+    </html>

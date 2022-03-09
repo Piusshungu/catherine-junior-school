@@ -61,6 +61,9 @@
             "dont-discover": []
         }
     },
+    "files": [
+        "app/includes/fusioncharts.php"
+    ],
     "config": {
         "optimize-autoloader": true,
         "preferred-install": "dist",

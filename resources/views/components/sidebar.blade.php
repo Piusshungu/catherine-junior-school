@@ -10,6 +10,7 @@
     <script src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <script src="https://unpkg.com/@themesberg/flowbite@1.3.0/dist/datepicker.bundle.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
+    <script src="https://cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
 
 </head>
 

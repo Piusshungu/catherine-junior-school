@@ -5,8 +5,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
-<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"rel="stylesheet"
-/>
+<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
 
 <style>
     html {
@@ -72,8 +71,8 @@
 
     </footer>
     <p class="text-sm text-black">
-            @
-            2021 Catherine Junior School
-            <a href="www.catherinejunior.com" class="ml-1 text-black" target="_blank">www.catherinejunior.com</a>
-        </p>
+        @
+        2021 Catherine Junior School
+        <a href="www.catherinejunior.com" class="ml-1 text-black" target="_blank">www.catherinejunior.com</a>
+    </p>
 </body>

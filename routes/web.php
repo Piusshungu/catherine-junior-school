@@ -59,6 +59,8 @@ Route::get('/logout', [UsersController::class, 'userLogout'])->middleware('auth'
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
 
+Route::get('/gendersummary', [AdminController::class, 'genderSummary']);
+
 //Routes for managing Parents
 
 Route::get('/parents', [ParentsController::class, 'index'])->middleware('auth');
