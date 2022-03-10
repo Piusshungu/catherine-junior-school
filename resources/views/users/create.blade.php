@@ -73,10 +73,10 @@
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                     <div class="w-full px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="roles">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
                             Role
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="roles" name="roles" type="text" placeholder="User Role">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="type" name="type" type="text" placeholder="User Role">
                         <p class="text-gray-500 text-xs italic">Select User Role</p>
                     </div>
 

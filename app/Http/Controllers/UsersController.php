@@ -73,9 +73,19 @@ class UsersController extends Controller
             'last_name' => 'required|max:255',
             'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'phone_number' => 'required|max:12',
-            'roles' => 'required',
+            'type' => 'required',
             'gender' => 'required'
         ]);
+
+        $avatarName = request()->file('avatar')->getClientOriginalName();
+
+        $path = request()->file('avatar')->store('public/images');
+
+        $saveAvatar = new User;
+
+        $saveAvatar->avatarName = $avatarName;
+
+        $saveAvatar->path = $path;
 
         $user = User::create($userDetails);
 
