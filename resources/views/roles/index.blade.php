@@ -1,10 +1,10 @@
-@include('admin.dashboard')
+<x-sidebar />
 
 
-<div class="flex flex-col mt-8 w-full">
-    <div class="py-2 -my-2 overflow-x-auto sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8">
+<div class="flex flex-col mt-28 w-full">
+    <div class="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-full">
 
-        <div class="inline-block min-w-full overflow-hidden align-middle border-b shadow sm:rounded-lg">
+        <div class="inline-block ml-10 w-full align-middle border-b border-gray-200 shadow sm:rounded-lg">
 
             <div class="grid grid-cols-2 gap-">
 
@@ -68,7 +68,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="lg:inline-flex items-center rounded-full px-12 py-2 mt-2 ml-28">
+                    <div class="lg:inline-flex items-center rounded-full px-0 py-2 mt-2 ml-28">
                         <form method="GET" action="/roles">
 
                             @if(request('category'))

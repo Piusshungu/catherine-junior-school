@@ -8,7 +8,7 @@ use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PaymentController;
-
+use App\Models\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,6 +55,12 @@ Route::post('/redirectAfterLogin', [UsersController::class, 'userLogin']);
 
 Route::get('/logout', [UsersController::class, 'userLogout'])->middleware('auth');
 
+Route::get('/users', [UsersController::class, 'index'])->middleware('auth');
+
+Route::get('/users/create', [UsersController::class, 'createForm'])->middleware('auth');
+
+Route::post('/users/saveUser', [UsersController::class, 'createUser'])->middleware('auth');
+
 //Routes for managing Dashboard
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
@@ -88,8 +94,10 @@ Route::get('/deletePaymentRecord/{id}', [PaymentController::class, 'deletePaymen
 //Routes for managing Roles and Permissions
 
 Route::group(['middleware' => ['auth']], function(){
+
     Route::resource('/roles', RolesController::class);
-    Route::resource('/users', UsersController::class);
+
+    
    
 
 });

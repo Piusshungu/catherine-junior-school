@@ -1,4 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+
 <x-sidebar />
+
+<style>
+    svg > g[class^="raphael-group-"] > text{
+    display: none !important;
+}
+</style>
 
 <div class="w-full px-4 py-2 bg-gray-200 lg:w-full">
     <div class="container mx-auto mt-16">

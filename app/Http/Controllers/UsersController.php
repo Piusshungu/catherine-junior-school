@@ -54,10 +54,10 @@ class UsersController extends Controller
         return redirect('/login');
     }
 
-    public function showForm()
+    public function createForm()
     {
 
-        return view('users,create', [
+        return view('users.create', [
 
             'roles' => Role::pluck('name', 'name')->all(),
         ]);
@@ -105,6 +105,7 @@ class UsersController extends Controller
         $input = request()->all();
 
         if(!empty($input['password'])){ 
+            
             $input['password'] = bcrypt($input['password']);
         }
         
