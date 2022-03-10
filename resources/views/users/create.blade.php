@@ -50,7 +50,7 @@
                     </div>
 
                 </div>
-_
+
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                     <div class="w-full px-3 mb-6 md:mb-0">
@@ -73,16 +73,16 @@ _
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                     <div class="w-full px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-first-name">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="roles">
                             Role
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="role" name="role" type="text" placeholder="User Role">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="roles" name="roles" type="text" placeholder="User Role">
                         <p class="text-gray-500 text-xs italic">Select User Role</p>
                     </div>
 
                     <div class="w-full px-3 mx-6">
 
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="grid-last-name">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">
                            Gender
                         </label>
                         <div class="mt-2">
@@ -100,7 +100,6 @@ _
                         
                     </div>
                 </div>
-
 
 
                 <div class="py-3 center mx-auto">
@@ -124,6 +123,7 @@ _
 
 
     <script type="text/javascript">
+
         function deleteConfirmation() {
 
             return confirm('Are you sure you want to delete this student?');

@@ -69,9 +69,12 @@ class UsersController extends Controller
         $userDetails = request()->validate([
 
             'email' => 'required|email|unique',
-            'name' => 'required|max:255',
-            'password' => 'required|same:confirm-password|min:6',
+            'first_name' => 'required|max:255',
+            'last_name' => 'required|max:255',
+            'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+            'phone_number' => 'required|max:12',
             'roles' => 'required',
+            'gender' => 'required'
         ]);
 
         $user = User::create($userDetails);
@@ -105,7 +108,7 @@ class UsersController extends Controller
         $input = request()->all();
 
         if(!empty($input['password'])){ 
-            
+
             $input['password'] = bcrypt($input['password']);
         }
         

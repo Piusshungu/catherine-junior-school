@@ -99,7 +99,7 @@
                 </div>
 
                 <div class="col">
-                    <div class="lg:inline-flex items-center rounded-full px-12 py-2 mt-2 ml-28">
+                    <div class="lg:inline-flex items-center rounded-full px-0 py-2 mt-2 ml-28">
                         <form method="GET" action="/students">
 
                             @if(request('category'))
