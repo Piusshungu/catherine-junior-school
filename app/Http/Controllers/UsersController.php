@@ -65,33 +65,45 @@ class UsersController extends Controller
 
     public function createUser()
     {
+        $password =  request()->last_name;
+
+        request()->merge(['password' => $password]);
 
         $userDetails = request()->validate([
 
-            'email' => 'required|email|unique',
+            'email' => 'required|email|unique:users,email',
             'first_name' => 'required|max:255',
             'last_name' => 'required|max:255',
             'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
             'phone_number' => 'required|max:12',
             'type' => 'required',
-            'gender' => 'required'
+            'gender' => 'required',
+            'password' => 'required'
+           
         ]);
 
-        $avatarName = request()->file('avatar')->getClientOriginalName();
+        if(request()->has('avatar') && !is_null(request()->avatar))
+        {
+            $avatarName = request()->file('avatar')->getClientOriginalName();
 
-        $path = request()->file('avatar')->store('public/images');
+            $path = request()->file('avatar')->store('public/images');
+    
+            $saveAvatar = new User;
+    
+            $saveAvatar->avatarName = $avatarName;
+    
+            $saveAvatar->path = $path;
 
-        $saveAvatar = new User;
+            $userDetails = array_merge($userDetails, ['avatar'=> $path]);
+        }
 
-        $saveAvatar->avatarName = $avatarName;
-
-        $saveAvatar->path = $path;
+        $role = Role::findByName(request()->type);
 
         $user = User::create($userDetails);
 
-        $user->assignRole(request()->input('roles'));
+        $user->assignRole($role->id);
 
-        return redirect('/users')->with('success', 'User successfully created');
+        return redirect('/users/create')->with('success', 'User successfully created');
     }
 
     public function showEditForm($id)
