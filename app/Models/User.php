@@ -55,9 +55,9 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function setPasswordAttributes($password){
+    public function setPasswordAttribute($password){
         
-        $this->userDetails['password'] = bcrypt($password);
+        $this->attributes['password'] = bcrypt($password);
     }
 
     public function setPhoneNumberAttribute($phone_number)

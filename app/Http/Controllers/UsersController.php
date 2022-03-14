@@ -67,7 +67,7 @@ class UsersController extends Controller
     {
         $password =  request()->last_name;
 
-        request()->merge(['password' => bcrypt($password)]);
+        request()->merge(['password' => $password]);
 
         $userDetails = request()->validate([
 
@@ -81,7 +81,6 @@ class UsersController extends Controller
             'password' => 'required'
            
         ]);
-        // dd($userDetails);
 
         if(request()->has('avatar') && !is_null(request()->avatar))
         {
@@ -97,7 +96,6 @@ class UsersController extends Controller
 
             $userDetails = array_merge($userDetails, ['avatar'=> $path]);
         }
-        // dd($userDetails);
 
         $role = Role::findByName(request()->type);
 
