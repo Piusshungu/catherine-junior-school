@@ -59,4 +59,23 @@ class User extends Authenticatable
         
         $this->userDetails['password'] = bcrypt($password);
     }
+
+    public function setPhoneNumberAttribute($phone_number)
+    {
+       
+        if(substr($phone_number,0,1) === "0" || substr($phone_number,0,1) === "+"){
+
+            $phone_number = substr($phone_number,1);
+ 
+            $this->userDetails['phone_number'] = "+255". $phone_number;
+            
+        }
+        
+        if (substr($phone_number,0,3) === "255") {
+
+            $this->userDetails['phone_number'] = "+". $phone_number;
+
+         }
+        
+    }
 }

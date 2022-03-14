@@ -81,7 +81,7 @@
                     // chart data
                     data: [
                        
-                        { label: "Female", value: female },
+                        { label: "Female", value: female, color: "#0A9AF8" },
                         { label: "Male", value: male }   
                     ]
                 }
