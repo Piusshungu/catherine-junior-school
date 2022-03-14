@@ -17,7 +17,7 @@ class UsersController extends Controller
 
         return view('users.index', [
 
-            'users' => User::orderBy('name')->paginate(10)->withQueryString(),
+            'users' => User::orderBy('first_name')->paginate(10)->withQueryString(),
         ]);
     }
 
