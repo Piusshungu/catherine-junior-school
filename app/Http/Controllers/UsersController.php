@@ -67,7 +67,7 @@ class UsersController extends Controller
     {
         $password =  request()->last_name;
 
-        request()->merge(['password' => $password]);
+        request()->merge(['password' => bcrypt($password)]);
 
         $userDetails = request()->validate([
 
