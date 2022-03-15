@@ -203,7 +203,9 @@
 </script>
 
 <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
 <script>
+    
     new TomSelect('#permission', {
         maxItems: 3,
     });
