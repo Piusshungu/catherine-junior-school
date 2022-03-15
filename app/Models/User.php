@@ -77,4 +77,18 @@ class User extends Authenticatable
 
          }
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+        if(isset($filters['search'])){
+
+            $query->where('first_name', 'like', '%'. request('search'). '%')
+
+            ->orWhere('last_name', 'like', '%'. request('search'). '%')
+
+            ->orWhere('email', 'like', '%'. request('search'). '%')
+
+            ->orWhere('type', 'like', '%'. request('search'). '%');
+        }
+    }
 }

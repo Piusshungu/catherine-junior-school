@@ -19,7 +19,7 @@
 
                 <div class="col">
                     <div class="lg:inline-flex items-center rounded-full px-52 py-2 mt-2 ml-0">
-                        <form method="GET" action="/parents">
+                        <form method="GET" action="/users">
 
                             <input type="search" value="{{ request('search') }}" name="search" class="rounded-full form-control relative flex-auto min-w-0 block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
 
@@ -125,7 +125,7 @@
 
                             @can('Can Delete Parent(s) Details')
 
-                            <a href="/deleteParent/{{ $user->id }}" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-red-500 rounded-full hover:bg-red-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-red-500 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
+                            <a href="/deleteUser/{{ $user->id }}" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-red-500 rounded-full hover:bg-red-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-red-500 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="return confirm('Are you sure you want to delete this user?')">Delete</a>
 
                             @endcan
                         </td>

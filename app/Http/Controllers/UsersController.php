@@ -17,7 +17,9 @@ class UsersController extends Controller
 
         return view('users.index', [
 
-            'users' => User::orderBy('first_name')->paginate(10)->withQueryString(),
+            'users' => User::orderBy('first_name')->filter(request(['search']))
+            
+            ->paginate(10)->withQueryString(),
         ]);
     }
 
@@ -152,7 +154,9 @@ class UsersController extends Controller
     public function deleteUser($id)
     {
 
-        User::find($id)->delete();
+        $user = User::find($id);
+
+        $user->delete();
 
         return redirect('/users')->with('success','User deleted successfully');
     }
