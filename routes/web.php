@@ -61,7 +61,7 @@ Route::get('/users/create', [UsersController::class, 'createForm'])->middleware(
 
 Route::post('/users/saveUser', [UsersController::class, 'createUser'])->middleware('auth');
 
-Route::get('/deleteUser/{id}', [UsersController::class, 'deleteUser'])->middleware('auth');
+Route::get('/deleteUser/{id}', [UsersController::class, 'deleteUserDetails'])->middleware('auth');
 
 //Routes for managing Dashboard
 

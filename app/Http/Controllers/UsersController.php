@@ -61,7 +61,7 @@ class UsersController extends Controller
 
         return view('users.create', [
 
-            'roles' => Role::pluck('name', 'name')->all(),
+            'roles' => Role::all(),
         ]);
     }
 
@@ -151,7 +151,7 @@ class UsersController extends Controller
         return redirect('/users')->with('success','User updated successfully');
     }
 
-    public function deleteUser($id)
+    public function deleteUserDetails($id)
     {
 
         $user = User::find($id);

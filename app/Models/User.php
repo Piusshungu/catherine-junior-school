@@ -36,6 +36,8 @@ class User extends Authenticatable
      */
     protected $guarded = ['id'];
 
+    public $incrementing = false;
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -73,12 +73,21 @@
 
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
-                    <div class="w-full px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="type">
-                            Role
+                    <div class="w-full px-3 mb-6 md:mb-0 ">
+
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="phone_number">
+                            User Role
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="type" name="type" type="text" placeholder="User Role">
-                        <p class="text-gray-500 text-xs italic">Select User Role</p>
+                        
+                        <select id="roles" name="type" multiple placeholder="Select Role" autocomplete="off" class="focus:ring-blue-500 w-full rounded-lg cursor-pointer focus:outline-none" multiple>
+
+                            @foreach($roles as $role)
+
+                            <option block w-full rounded-sm cursor-pointer focus:outline-none value="{{ $role->name }}">{{ $role->name }}</option>
+
+                            @endforeach
+
+                        </select>
                     </div>
 
                     <div class="w-full px-3 mx-6">
@@ -127,6 +136,7 @@
 
 
     <script type="text/javascript">
+        
         function deleteConfirmation() {
 
             return confirm('Are you sure you want to delete this student?');
@@ -135,6 +145,7 @@
 
 
     <script type="text/javascript">
+        
         function dropDown(dropdown) {
 
             document.getElementById(dropdown).classList.toggle("hidden");
@@ -142,4 +153,12 @@
             document.getElementById(dropdown).classList.toggle("flex");
 
         }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+    <script>
+        new TomSelect('#roles', {
+            maxItems: 1,
+        });
     </script>
