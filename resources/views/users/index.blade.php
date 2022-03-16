@@ -117,7 +117,7 @@
 
                             @can('Can Edit Parent(s) Details')
 
-                            <a href="#" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-white bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
+                            <a href="/user/{{ $user->id }}/edit/profile" class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-white bg-green-500 rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Edit</a>
 
                             @endcan
                         </td>

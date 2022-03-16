@@ -120,24 +120,32 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        $roles = Role::pluck('name','name')->all();
+        $roles = Role::all();
 
         $userRole = $user->roles->pluck('name','name')->all();
     
         return view('users.edit',compact('user','roles','userRole'));
     }
 
-    public function updateUser(Request $request, $id)
+    public function updateUser($id)
     {
-        $userDetails = request()->validate([
+        $password =  request()->last_name;
 
-            'email' => 'required|email|unique',
-            'name' => 'required|max:255',
-            'password' => 'required|same:confirm-password|min:6',
-            'roles' => 'required',
+        request()->merge(['password' => $password]);
+
+        request()->validate([
+
+            'email' => 'required|email|unique:users,email',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'type' => 'required',
+            'gender' => 'required',
+            'password' => 'required',
+            'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
     
         $input = request()->all();
+        dd($input);
 
         if(!empty($input['password'])){ 
 
@@ -154,7 +162,7 @@ class UsersController extends Controller
 
         DB::table('model_has_roles')->where('model_id',$id)->delete();
     
-        $user->assignRole($request->input('roles'));
+        $user->assignRole(request()->input('roles'));
     
         return redirect('/users')->with('success','User updated successfully');
     }
