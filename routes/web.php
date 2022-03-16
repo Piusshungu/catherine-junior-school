@@ -9,6 +9,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PaymentController;
 use App\Models\User;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -60,6 +61,8 @@ Route::get('/users', [UsersController::class, 'index'])->middleware('auth');
 Route::get('/users/create', [UsersController::class, 'createForm'])->middleware('auth');
 
 Route::post('/users/saveUser', [UsersController::class, 'createUser'])->middleware('auth');
+
+Route::get('/user/{id}/profile', [UsersController::class, 'userProfile'])->middleware('auth');
 
 Route::get('/deleteUser/{id}', [UsersController::class, 'deleteUserDetails'])->middleware('auth');
 

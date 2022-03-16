@@ -108,6 +108,14 @@ class UsersController extends Controller
         return redirect('/users/create')->with('success', 'User successfully created');
     }
 
+    public function userProfile($id)
+    {
+        return view('users.profile', [
+            
+            'users' => User::find($id),
+        ]);
+    }
+
     public function showEditForm($id)
     {
         $user = User::find($id);
