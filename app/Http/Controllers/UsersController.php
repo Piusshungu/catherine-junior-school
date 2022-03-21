@@ -145,7 +145,7 @@ class UsersController extends Controller
         ]);
     
         $input = request()->all();
-        dd($input);
+        // dd($input);
 
         if(!empty($input['password'])){ 
 

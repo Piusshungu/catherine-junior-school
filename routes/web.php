@@ -74,6 +74,8 @@ Route::get('/deleteUser/{id}', [UsersController::class, 'deleteUserDetails'])->m
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
 
+Route::get('/dashboard', [AdminController::class, 'staffGenderSummary'])->middleware('auth');
+
 Route::get('/gendersummary', [AdminController::class, 'genderSummary']);
 
 //Routes for managing Parents

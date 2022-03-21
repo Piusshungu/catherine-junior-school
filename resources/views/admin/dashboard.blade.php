@@ -56,7 +56,12 @@
             </div>
         </div>
 
-        <div id="chart-container" class="ml-15 mt-10"></div>
+        <div class="grid grid-cols-2 gap-">
+
+        <div id="chart-container" class="ml-15 mt-10 col"></div>
+
+        <div id="staff-container" class="ml-15 mt-10 col"></div>
+        
 
         <script>
         FusionCharts.ready(function () {
@@ -83,6 +88,37 @@
                        
                         { label: "Female", value: female, color: "#0A9AF8" },
                         { label: "Male", value: male }   
+                    ]
+                }
+            }).render();
+        });
+    </script>
+
+<script>
+        FusionCharts.ready(function () {
+            // chart instance
+            var maleStaff = "<?php echo  $maleStaff; ?>";
+
+            var femaleStaff = "<?php echo $femaleStaff; ?>";
+
+            var chart = new FusionCharts({
+               
+                type: "pie3d",
+                renderAt: "staff-container",
+                width: "500",
+                height: "350",
+                dataFormat: "json",
+                dataSource: {
+                    // chart configuration
+                    chart: {
+                        caption: "Male Vs Female",
+                        subcaption: "Number of Male and Female Staff"
+                    },
+                    // chart data
+                    data: [
+                       
+                        { label: "Female", value: femaleStaff, color: "#0A9AF8" },
+                        { label: "Male", value: maleStaff }   
                     ]
                 }
             }).render();
