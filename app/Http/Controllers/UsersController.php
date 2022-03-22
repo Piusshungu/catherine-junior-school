@@ -65,48 +65,48 @@ class UsersController extends Controller
         ]);
     }
 
-    public function createUser()
-    {
-        $password =  request()->last_name;
+    // public function createUser()
+    // {
+    //     $password =  request()->last_name;
 
-        request()->merge(['password' => $password]);
+    //     request()->merge(['password' => $password]);
 
-        $userDetails = request()->validate([
+    //     $userDetails = request()->validate([
 
-            'email' => 'required|email|unique:users,email',
-            'first_name' => 'required|max:255',
-            'last_name' => 'required|max:255',
-            'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
-            'phone_number' => 'required|max:12',
-            'type' => 'required',
-            'gender' => 'required',
-            'password' => 'required'
+    //         'email' => 'required|email|unique:users,email',
+    //         'first_name' => 'required|max:255',
+    //         'last_name' => 'required|max:255',
+    //         'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048',
+    //         'phone_number' => 'required|max:12',
+    //         'type' => 'required',
+    //         'gender' => 'required',
+    //         'password' => 'required'
            
-        ]);
+    //     ]);
 
-        if(request()->has('avatar') && !is_null(request()->avatar))
-        {
-            $avatarName = request()->file('avatar')->getClientOriginalName();
+    //     if(request()->has('avatar') && !is_null(request()->avatar))
+    //     {
+    //         $avatarName = request()->file('avatar')->getClientOriginalName();
 
-            $path = request()->file('avatar')->store('public/images');
+    //         $path = request()->file('avatar')->store('public/images');
     
-            $saveAvatar = new User;
+    //         $saveAvatar = new User;
     
-            $saveAvatar->avatarName = $avatarName;
+    //         $saveAvatar->avatarName = $avatarName;
     
-            $saveAvatar->path = $path;
+    //         $saveAvatar->path = $path;
 
-            $userDetails = array_merge($userDetails, ['avatar'=> $path]);
-        }
+    //         $userDetails = array_merge($userDetails, ['avatar'=> $path]);
+    //     }
 
-        $role = Role::findByName(request()->type);
+    //     $role = Role::findByName(request()->type);
 
-        $user = User::create($userDetails);
+    //     $user = User::create($userDetails);
 
-        $user->assignRole($role->id);
+    //     $user->assignRole($role->id);
 
-        return redirect('/users/create')->with('success', 'User successfully created');
-    }
+    //     return redirect('/users/create')->with('success', 'User successfully created');
+    // }
 
     public function userProfile($id)
     {
