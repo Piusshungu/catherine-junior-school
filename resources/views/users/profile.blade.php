@@ -165,9 +165,9 @@
                                   
 
                                 <li>
-                                    <div class="text-teal-600">Want to Contact Parent?</div><br>
+                                    <div class="text-teal-600">Want to Contact {{ $users->first_name }}?</div><br>
 
-                                    <a href="" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send Email</a>
+                                    <a href="/user/sendEmail" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Send Email</a>
 
                                     <button class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-800 rounded-full hover:bg-blue-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-blue-200 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" type="button" data-modal-toggle="modalBox" onclick="toggleModal('modalBox')">
                                         Send SMS
