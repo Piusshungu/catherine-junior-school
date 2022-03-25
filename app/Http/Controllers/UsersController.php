@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\DB;
 use Hash;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Models\Role;
 
 class UsersController extends Controller
@@ -185,5 +186,20 @@ class UsersController extends Controller
     public function sendCustomEmailToUser($id)
     {
         $user = User::select('email')->find($id);
+
+        $mailValidation = request()->validate([
+
+            'subject' => 'required',
+
+            'content' => 'required'
+        ]);
+
+        $subject = $mailValidation['subject'];
+
+        $emailContent = $mailValidation['content'];
+
+        Mail::to($user->email)->send(new CustomEmail($subject,$emailContent));
+
+        return redirect('/users')->with('success', 'Email successfully sent');
     }
 }
