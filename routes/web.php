@@ -70,9 +70,9 @@ Route::post('/user/{id}/edit', [UsersController::class, 'updateUser'])->middlewa
 
 Route::get('/deleteUser/{id}', [UsersController::class, 'deleteUserDetails'])->middleware('auth');
 
-Route::get('/user/{id}/sendEMail', [UsersController::class, 'sendCustomEmailToUser'])->middleware('auth');
+Route::post('/user/{id}/sendEMail', [UsersController::class, 'sendCustomEmailToUser'])->middleware('auth');
 
-Route::get('/user/sendEmail', [UsersController::class, 'showEmailForm'])->middleware('auth');
+Route::get('/user/{id}/sendEmail', [UsersController::class, 'showEmailForm'])->middleware('auth');
 
 //Routes for managing Dashboard
 

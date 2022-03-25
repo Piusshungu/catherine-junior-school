@@ -11,7 +11,7 @@
     @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap");
 </style>
 
-<body style="font-family: 'Open Sans', sans-serif;background-color: #F5F5F5;font-size: 16px;">
+<body style="font-family: 'Open Sans', sans-serif;font-size: 16px; width: 100px;">
     <div style="justify-content: center;align-items: center; border-radius:0.125rem;background-color:rgba(232, 236, 238, 1);width:80%; border-radius: 0.375rem;padding-left: 2rem;padding-right: 2rem;padding-top: 2rem;padding-bottom: 2rem">
         <div style="padding-top:1.25rem;padding-bottom: 0.875rem;padding-left:1rem;padding-right:1rem;width:97%;border-left-width:8px;border-bottom-right-radius:0.125rem;border-top-right-radius:0.125rem;justify-content: center;align-items: center;margin-top: 2rem;margin-top: 0.75rem;margin-bottom: 0.75rem;background-color: #27BF3C20;border-color:rgb(239, 191, 60); margin: right 4rem;">
             <p style="text-transform: uppercase;letter-spacing:0.025em;font-weight: 600;font-size: 0.875rem;line-height: 1.25rem;text-align:center">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\NotificationToUser;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -146,7 +147,6 @@ class UsersController extends Controller
         ]);
     
         $input = request()->all();
-        // dd($input);
 
         if(!empty($input['password'])){ 
 
@@ -178,14 +178,16 @@ class UsersController extends Controller
         return redirect('/users')->with('success','User deleted successfully');
     }
 
-    public function showEmailForm()
+    public function showEmailForm($id)
     {
-        return view('users.custom-email');
+        $userEmail = User::select('email', 'id')->find($id);
+
+        return view('users.custom-email', compact('userEmail'));
     }
 
     public function sendCustomEmailToUser($id)
     {
-        $user = User::select('email')->find($id);
+        $userEmail = User::select('email')->find($id);
 
         $mailValidation = request()->validate([
 
@@ -198,7 +200,7 @@ class UsersController extends Controller
 
         $emailContent = $mailValidation['content'];
 
-        Mail::to($user->email)->send(new CustomEmail($subject,$emailContent));
+        Mail::to($userEmail)->send(new NotificationToUser($subject,$emailContent));
 
         return redirect('/users')->with('success', 'Email successfully sent');
     }
