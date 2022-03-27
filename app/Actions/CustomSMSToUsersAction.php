@@ -39,8 +39,6 @@ class CustomSMSToUsersAction
 
         $response = curl_exec($ch);
 
-        
-
         if ($response === FALSE) {
             echo $response;
 

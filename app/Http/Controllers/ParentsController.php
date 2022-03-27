@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NotifyAllParents;
+use App\Mail\NotificationToParents;
 use App\Models\Parents;
 use App\Models\Student;
 use App\Notifications\SchoolFeePayment;
@@ -156,7 +157,7 @@ class ParentsController extends Controller
 
         $emailContent = $mailValidation['content'];
 
-        Mail::to($parentEmail)->send(new NotificationToUser($subject,$emailContent));
+        Mail::to($parentEmail)->send(new NotificationToParents($subject,$emailContent));
 
         return redirect('/users')->with('success', 'Email successfully sent');
     }
