@@ -139,4 +139,25 @@ class ParentsController extends Controller
 
         return redirect()->back()->with('success', 'Message successfully sent');
     }
+
+    public function sendCustomEmail($id)
+    {
+        $parentEmail = Parents::select('email')->find($id);
+
+        $mailValidation = request()->validate([
+
+            'subject' => 'required',
+
+            'content' => 'required'
+
+        ]);
+
+        $subject = $mailValidation['subject'];
+
+        $emailContent = $mailValidation['content'];
+
+        Mail::to($parentEmail)->send(new NotificationToUser($subject,$emailContent));
+
+        return redirect('/users')->with('success', 'Email successfully sent');
+    }
 }
