@@ -18,7 +18,7 @@
                 {{ $subject }}
             </p> -->
             <p style="text-align: center;font-size:0.875rem;line-height:1.25rem;margin-bottom:0.5rem;margin-top: 0.5rem;position:relative">
-                {{ $mailContent }}
+                {!! $mailContent !!}
             </p>
 
 
