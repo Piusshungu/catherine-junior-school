@@ -10,7 +10,6 @@ class CustomSMSToUsersAction
 
     $secret_key = config('keys.beem.secretkey');
 
-
         $smsData = array(
             'source_addr' => 'INFO',
             'encoding' => 0,
@@ -19,7 +18,6 @@ class CustomSMSToUsersAction
             'recipients' => [array('recipient_id' => '1', 'dest_addr' => $recipient->phone_number)]
         );
     
-
         $Url = 'https://apisms.beem.africa/v1/send';
 
         $ch = curl_init($Url);
@@ -46,7 +44,5 @@ class CustomSMSToUsersAction
         }
         var_dump($response) ;
     
-        
    }
 }
-

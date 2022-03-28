@@ -10,8 +10,6 @@ class SchoolOpeningAction
 
     $secret_key = config('keys.beem.secretkey');
 
-
-
         $smsData = array(
             'source_addr' => 'INFO',
             'encoding' => 0,
@@ -20,7 +18,6 @@ class SchoolOpeningAction
             'recipients' => $recipients
         );
     
-
         $Url = 'https://apisms.beem.africa/v1/send';
 
         $ch = curl_init($Url);
@@ -40,8 +37,6 @@ class SchoolOpeningAction
 
         $response = curl_exec($ch);
 
-        
-
         if ($response === FALSE) {
             echo $response;
 
@@ -51,4 +46,3 @@ class SchoolOpeningAction
     }
 
 }
-

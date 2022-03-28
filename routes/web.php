@@ -96,7 +96,7 @@ Route::get('/schoolFeeSms', [ParentsController::class, 'sendSchoolFeeSms'])->mid
 
 Route::post('/sendCustomSMSToParent/{id}', [ParentsController::class, 'sendCustomSMS'])->middleware('auth');
 
-Route::post('/sendCustomEmailToParent/{id}', [ParentsController::class, 'sendCustomEmail'])->middleware('auth');
+Route::post('/parent/{id}/sendEmail', [ParentsController::class, 'sendCustomEmail'])->middleware('auth');
 
 //Routes for managing Payment
 

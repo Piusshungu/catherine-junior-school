@@ -40,6 +40,9 @@
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" type="text" placeholder="Mail Subject">
 
+                        <div class="form-group">
+                            <textarea class="ckeditor form-control" name="content"></textarea>
+                        </div>
 
                     </div>
 
@@ -55,29 +58,12 @@
         </div>
     </div>
 
+    <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
     <script type="text/javascript">
-        function deleteConfirmation() {
 
-            return confirm('Are you sure you want to delete this student?');
-        }
-    </script>
+        $(document).ready(function() {
 
-
-    <script type="text/javascript">
-        function dropDown(dropdown) {
-
-            document.getElementById(dropdown).classList.toggle("hidden");
-
-            document.getElementById(dropdown).classList.toggle("flex");
-
-        }
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
-
-    <script>
-        new TomSelect('#roles', {
-            maxItems: 1,
+            $('.ckeditor').ckeditor();
         });
     </script>
