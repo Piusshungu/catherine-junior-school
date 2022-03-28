@@ -257,6 +257,7 @@
 
 
 <script type="text/javascript">
+    
     function toggleModal(modalBox) {
 
         document.getElementById(modalBox).classList.toggle("hidden");
@@ -264,4 +265,12 @@
         document.getElementById(modalBox).classList.toggle("flex");
 
     }
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+<script>
+    new TomSelect('#roles', {
+        maxItems: 1,
+    });
 </script>

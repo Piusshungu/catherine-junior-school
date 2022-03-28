@@ -48,9 +48,6 @@
 
                 </div>
 
-                <!-- <textarea class="w-full px-6 mt-16 py-8 text-gray-700 border rounded-lg focus:outline-none" rows="4" name="content"></textarea>
- -->
-
                 <button type="submit" class=" mt-10 ml-10 block w- 55 border border-yellow-500 text-gray mb-8 flex hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Send</button>
 
             </form>
