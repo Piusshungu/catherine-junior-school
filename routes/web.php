@@ -8,6 +8,7 @@ use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\ClassesController;
 use App\Models\User;
 use Spatie\Permission\Contracts\Role;
 
