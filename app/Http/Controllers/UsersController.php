@@ -131,32 +131,18 @@ class UsersController extends Controller
 
     public function updateUser($id)
     {
-        $password =  request()->last_name;
-
-        request()->merge(['password' => $password]);
-
         request()->validate([
 
-            'email' => 'required|email|unique:users,email',
+            'email' => 'required|email',
             'first_name' => 'required',
             'last_name' => 'required',
             'type' => 'required',
             'gender' => 'required',
-            'password' => 'required',
             'avatar' => 'image|mimes:jpg,png,jpeg,gif,svg|max:2048'
         ]);
     
         $input = request()->all();
-
-        if(!empty($input['password'])){ 
-
-            $input['password'] = bcrypt($input['password']);
-        }
-        
-        else{
-            $input = Arr::except($input,array('password'));    
-        }
-    
+       
         $user = User::find($id);
 
         $user->update($input);

@@ -50,7 +50,7 @@ Route::get('/studentProfile', [StudentsController::class, 'studentProfile'])->mi
 
 //Routes for managing users
 
-Route::get('/login', [UsersController::class, 'showLoginForm']);
+Route::get('/login', [UsersController::class, 'showLoginForm'])->name('login');
 
 Route::post('/redirectAfterLogin', [UsersController::class, 'userLogin']);
 
