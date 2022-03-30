@@ -115,3 +115,7 @@ Route::group(['middleware' => ['auth']], function(){
     Route::resource('/roles', RolesController::class);
 
 });
+
+//Routes to Manage classes
+
+Route::get('/classes', [ClassesController::class, 'index'])->middleware('auth');
