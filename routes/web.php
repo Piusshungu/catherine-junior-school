@@ -120,3 +120,7 @@ Route::group(['middleware' => ['auth']], function(){
 //Routes to Manage classes
 
 Route::get('/classes', [ClassesController::class, 'index'])->middleware('auth');
+
+Route::get('/class/create', [ClassesController::class, 'createClassForm'])->middleware('auth');
+
+Route::post('/class/saveClass', [ClassesController::class, 'createClass'])->middleware('auth');
