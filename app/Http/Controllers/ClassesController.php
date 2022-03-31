@@ -30,7 +30,7 @@ class ClassesController extends Controller
     {
         $classDetails = request()->validate([
 
-            'name' => 'required|unique:levels,name',
+            'class' => 'required|unique:levels,class',
             'stream' => 'required',
             'class_teacher' => 'required',
             'level'=> 'required'
