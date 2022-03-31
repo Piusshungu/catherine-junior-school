@@ -57,10 +57,10 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    // public function setPasswordAttribute($password){
+    public function setPasswordAttribute($password){
         
-    //     $this->attributes['password'] = bcrypt($password);
-    // }
+        $this->attributes['password'] = bcrypt($password);
+    }
 
     public function setPhoneNumberAttribute($phone_number)
     {
@@ -92,5 +92,10 @@ class User extends Authenticatable
 
             ->orWhere('type', 'like', '%'. request('search'). '%');
         }
+    }
+
+    public function levels()
+    {
+        return $this->hasMany(Level::class);
     }
 }
