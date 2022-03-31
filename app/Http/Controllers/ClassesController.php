@@ -14,7 +14,26 @@ class ClassesController extends Controller
 
             'users' => User::all(),
 
-            'classes' => Level::all(),
+            // 'classes' => Level::all(),
+        ]);
+    }
+
+    public function createClassForm()
+    {
+        return view('classes.create', [
+
+            'teachers' => User::all(),
+        ]);
+    }
+
+    public function createClass()
+    {
+        $classDetails = request()->validate([
+
+            'name' => 'required|unique:levels,name',
+            'stream' => 'required',
+            'class_teacher' => 'required',
+            'level'=> 'required'
         ]);
     }
 }
