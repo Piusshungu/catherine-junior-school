@@ -17,13 +17,13 @@ class AdminController extends Controller
         return view('admin.dashboard', compact('male', 'female'));
     }
 
-    public function staffGenderSummary()
-    {
-        $maleStaff = User::where('gender', 'male')->count();
+    // public function staffGenderSummary()
+    // {
+    //     $maleStaff = User::where('gender', 'male')->count();
 
-        $femaleStaff = User::where('gender', 'female')->count();
+    //     $femaleStaff = User::where('gender', 'female')->count();
 
-        return view('admin.dashboard', compact('maleStaff', 'femaleStaff'));
+    //     return view('admin.dashboard', compact('maleStaff', 'femaleStaff'));
 
-    }
+    // }
 }

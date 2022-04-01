@@ -3,9 +3,12 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Emadadly\LaravelUuid\Uuids;
 
-class CreateLevels extends Migration
+class CreateLevelsTable extends Migration
 {
+
+    use Uuids;
     /**
      * Run the migrations.
      *
@@ -14,13 +17,17 @@ class CreateLevels extends Migration
     public function up()
     {
         Schema::create('levels', function (Blueprint $table) {
-            $table->uuid('id');
-            $table->foreignUuid('teacher_id')->references('id')->on('users');
-            $table->string('stream');
-            $table->string('level');
-            $table->string('class');
-            $table->timestamps();
-        });
+                $table->uuid('id');
+                
+                
+                
+                $table->string('stream');
+                $table->string('level');
+                $table->string('class');
+                $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete();
+                $table->timestamps();
+            });
+       
     }
 
     /**

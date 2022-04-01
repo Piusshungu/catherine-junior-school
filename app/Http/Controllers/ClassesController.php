@@ -32,7 +32,7 @@ class ClassesController extends Controller
 
             'class' => 'required|unique:levels,class',
             'stream' => 'required',
-            'class_teacher' => 'required',
+            'user_id' => 'required',
             'level'=> 'required'
         ]);
     }

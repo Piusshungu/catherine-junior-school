@@ -79,7 +79,7 @@ Route::get('/user/{id}/sendEmail', [UsersController::class, 'showEmailForm'])->m
 
 Route::get('/dashboard', [AdminController::class, 'index'])->middleware('auth');
 
-Route::get('/dashboard', [AdminController::class, 'staffGenderSummary'])->middleware('auth');
+// Route::get('/dashboard', [AdminController::class, 'staffGenderSummary'])->middleware('auth');
 
 Route::get('/gendersummary', [AdminController::class, 'genderSummary']);
 

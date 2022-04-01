@@ -12,8 +12,12 @@ class Level extends Model
 
     use Uuids;
 
+    protected $guarded = ['id'];
+    
+    public $incrementing = false;
+
     public function teacher(){
 
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class,'user_id');
     }
 }
