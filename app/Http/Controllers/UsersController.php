@@ -11,6 +11,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Models\Role;
+use App\Jobs\SendEmailsToStaffUsers;
 
 class UsersController extends Controller
 {
@@ -199,5 +200,25 @@ class UsersController extends Controller
     public function smsNotificationForm()
     {
         return view('sms.all-staff');
+    }
+
+    public function mailNotificationToStaff()
+    {
+        $emailContent = request()->validate([
+
+            'subject' => 'required',
+
+            'content' => 'required'
+        ]);
+
+        $mailSubject = $emailContent['subject'];
+
+        $message = $emailContent['content'];
+
+        $emails = User::select('email')->get();
+
+        dispatch(new SendEmailsToStaffUsers($emails));
+
+
     }
 }
