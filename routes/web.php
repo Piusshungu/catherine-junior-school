@@ -75,11 +75,14 @@ Route::post('/user/{id}/sendEMail', [UsersController::class, 'sendCustomEmailToU
 
 Route::get('/user/{id}/sendEmail', [UsersController::class, 'showEmailForm'])->middleware('auth');
 
-Route::get('/users/notifications', [UsersController::class, 'notificationForm'])->middleware('auth');
+Route::get('/users/notifications/email', [UsersController::class, 'emailsNotificationForm'])->middleware('auth');
 
-Route::post('/users/notification/emails', [UsersController::class, 'mailNotificationToStaff'])->middleware('auth');
+Route::get('/users/notifications/sms', [UsersController::class, 'smsNotificationForm'])->middleware('auth');
 
-Route::post('/users/notification/sms', [UsersController::class, 'smsNotificationToStaff'])->middleware('auth');
+
+Route::post('/users/notification/emails/send', [UsersController::class, 'mailNotificationToStaff'])->middleware('auth');
+
+Route::post('/users/notification/sms/send', [UsersController::class, 'smsNotificationToStaff'])->middleware('auth');
 
 //Routes for managing Dashboard
 

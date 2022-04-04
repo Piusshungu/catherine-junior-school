@@ -190,4 +190,14 @@ class UsersController extends Controller
 
         return redirect('/users')->with('success', 'Email successfully sent');
     }
+
+    public function emailsNotificationForm()
+    {
+        return view('emails.all-staff');
+    }
+
+    public function smsNotificationForm()
+    {
+        return view('sms.all-staff');
+    }
 }
