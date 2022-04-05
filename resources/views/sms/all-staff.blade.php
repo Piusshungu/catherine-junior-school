@@ -48,19 +48,17 @@
 
                 </table>
 
-                <form method="POST" action="">
+                <form method="POST" action="/users/notification/sms/send">
                     @csrf
 
                     <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                         <div class="w-full px-12 mb-6 md:mb-0">
-                            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="subject">
-                                Mail Subject
-                            </label>
-                            <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" type="text" placeholder="Mail Subject">
+                           
+                            <input class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" value="You're about to send Messages to all Staff" type="text" placeholder="Mail Subject">
 
                             <div class="form-group">
-                                <textarea class="ckeditor form-control" name="content"></textarea>
+                                <textarea class="text-center mt-12 py-6 px-0 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content"></textarea>
                             </div>
 
                         </div>

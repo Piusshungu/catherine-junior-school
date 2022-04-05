@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Models\Role;
 use App\Jobs\SendEmailsToStaffUsers;
+use App\Jobs\SendSmsToStaffUsers;
 
 class UsersController extends Controller
 {
@@ -235,12 +236,16 @@ class UsersController extends Controller
 
         $messageContent = $sms['content'];
 
-        $users = User::all();
+        $users = User::select('phone_number')->get();
 
-        foreach($users as $user){
+        $contacts = [];
 
-            dispatch(new SendSmsToStaffUsers($messageContent, $user));
+        foreach ($users as $key => $user) {
+            
+            array_push($contacts, ['recipient_id' => $key, 'dest_addr' => $user->phone_number]);
         }
+
+        dispatch(new SendSmsToStaffUsers($contacts, $messageContent));
 
         return redirect('/users/notifications/sms')->with('success', 'SMS successfully sent to all staff');
     }
