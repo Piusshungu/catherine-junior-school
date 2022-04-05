@@ -11,14 +11,24 @@ class StaffUsersNotification extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $mailSubject;
+
+    public $message;
+
+    public $user;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($mailSubject, $message, $user)
     {
-        //
+        $this->mailSubject = $mailSubject;
+
+        $this->message = $message;
+
+        $this->user = $user;
     }
 
     /**
@@ -28,6 +38,8 @@ class StaffUsersNotification extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.staff');
+        return $this->view('emails.staff')
+        
+        ->subject($this->mailSubject);
     }
 }

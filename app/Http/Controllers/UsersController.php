@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\NotificationToUser;
+use App\Mail\StaffUsersNotification;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -215,10 +216,13 @@ class UsersController extends Controller
 
         $message = $emailContent['content'];
 
-        $emails = User::select('email')->get();
+        $users = User::all();
 
-        dispatch(new SendEmailsToStaffUsers($emails));
+        foreach($users as $user){
 
+            dispatch(new SendEmailsToStaffUsers($mailSubject, $message, $user));
+        }
 
+        return redirect('/users/notifications/email')->with('success', 'Emails are successfully sent');
     }
 }

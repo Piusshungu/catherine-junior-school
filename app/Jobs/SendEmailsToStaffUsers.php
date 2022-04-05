@@ -15,16 +15,24 @@ class SendEmailsToStaffUsers implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected $details;
+    protected $mailSubject;
+
+    protected $message;
+
+    protected $user;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct($details)
+    public function __construct($mailSubject, $message, $user)
     {
-        $this->details = $details;
+        $this->mailSubject = $mailSubject;
+
+        $this->message = $message;
+
+        $this->user = $user;
     }
 
     /**
@@ -34,8 +42,8 @@ class SendEmailsToStaffUsers implements ShouldQueue
      */
     public function handle()
     {
-        $staffEmail = new StaffUsersNotification();
+        $email = new StaffUsersNotification($this->mailSubject, $this->message, $this->user);
 
-        Mail::to($this->email)->send($staffEmail);
+        Mail::to($this->user['email'])->send($email);
     }
 }

@@ -48,7 +48,7 @@
 
                 </table>
 
-                <form method="POST" action="">
+                <form method="POST" action="/users/notification/emails/send">
                     @csrf
 
                     <div class="flex w-full mx-3 mb-6 mt-10 content-center">

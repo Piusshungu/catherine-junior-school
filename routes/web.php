@@ -79,7 +79,7 @@ Route::get('/users/notifications/email', [UsersController::class, 'emailsNotific
 
 Route::get('/users/notifications/sms', [UsersController::class, 'smsNotificationForm'])->middleware('auth');
 
-Route::get('/users/notification/emails/send', [UsersController::class, 'mailNotificationToStaff'])->middleware('auth');
+Route::post('/users/notification/emails/send', [UsersController::class, 'mailNotificationToStaff'])->middleware('auth');
 
 Route::post('/users/notification/sms/send', [UsersController::class, 'smsNotificationToStaff'])->middleware('auth');
 
