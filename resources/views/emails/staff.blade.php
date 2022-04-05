@@ -16,7 +16,7 @@
         <div style="padding-top:1.25rem;padding-bottom: 0.875rem;padding-left:1rem;padding-right:1rem;width:97%;border-left-width:8px;border-bottom-right-radius:0.125rem;border-top-right-radius:0.125rem;justify-content: center;align-items: center;margin-top: 2rem;margin-top: 0.75rem;margin-bottom: 0.75rem;background-color: #27BF3C20;border-color:rgb(239, 191, 60); margin: right 4rem;">
            Hello {{ $user['first_name']}} {{ $user['last_name']}}
             <p style="text-align: center;font-size:0.875rem;line-height:1.25rem;margin-bottom:0.5rem;margin-top: 0.5rem;position:relative">
-                {{ dd($message) }}
+                {{ ($message) }}
             </p>
 
 

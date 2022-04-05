@@ -225,4 +225,23 @@ class UsersController extends Controller
 
         return redirect('/users/notifications/email')->with('success', 'Emails are successfully sent');
     }
+
+    public function smsNotificationToStaff()
+    {
+        $sms = request()->validate([
+
+            'content' => 'required'
+        ]);
+
+        $messageContent = $sms['content'];
+
+        $users = User::all();
+
+        foreach($users as $user){
+
+            dispatch(new SendSmsToStaffUsers($messageContent, $user));
+        }
+
+        return redirect('/users/notifications/sms')->with('success', 'SMS successfully sent to all staff');
+    }
 }
