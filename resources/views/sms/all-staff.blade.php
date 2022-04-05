@@ -58,7 +58,7 @@
                             <input class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" value="You're about to send Messages to all Staff" type="text" placeholder="Mail Subject">
 
                             <div class="form-group">
-                                <textarea class="text-center mt-12 py-6 px-0 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content"></textarea>
+                                <textarea class=" mt-12 py-6 px-12 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content"></textarea>
                             </div>
 
                         </div>
