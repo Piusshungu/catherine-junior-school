@@ -54,12 +54,14 @@
                     <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                         <div class="w-full px-12 mb-6 md:mb-0">
-                           
+
                             <input class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" value="You're about to send Messages to all Staff" type="text" placeholder="Mail Subject">
 
                             <div class="form-group">
-                                <textarea class="mt-12 py-6 px-12 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content" placeholder="Type your Message here.."></textarea>
+                                <textarea id="word_count" maxlength="120" class="mt-12 py-6 px-12 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content" placeholder="Type your Message here.."></textarea>
                             </div>
+                            <label id="display_count">0</label>
+                            <label>/120</label>
 
                         </div>
 
@@ -75,9 +77,31 @@
         <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
         <script type="text/javascript">
-            
             $(document).ready(function() {
 
                 $('.ckeditor').ckeditor();
             });
+        </script>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+        <script>
+            $(document).ready(function() {
+
+                $('#word_count').on('keyup', function() {
+
+                    let maximumLength = 120
+
+                    let characters = this.value.length
+
+                    if (characters > maximumLength) {
+
+                        this.value = this.value.substring(0, maximumLength)
+                    } else {
+                        $('#display_count').text(characters)
+                        
+                        $('#word_left').text(maximumLength - characters)
+                    }
+                })
+            })
         </script>
