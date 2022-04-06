@@ -58,8 +58,13 @@
                             <input class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" value="You're about to send Messages to all Staff" type="text" placeholder="Mail Subject">
 
                             <div class="form-group">
-                                <textarea id="word_count" maxlength="120" class="mt-12 py-6 px-12 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content" placeholder="Type your Message here.."></textarea>
+                                <textarea id="word_count" maxlength="120" class="mt-12 py-6 px-12 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content" placeholder="Type your Message here.." required></textarea>
                             </div>
+
+                            @error('password')
+                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
+                            
                             <label id="display_count">0</label>
                             <label>/120</label>
 
@@ -99,7 +104,7 @@
                         this.value = this.value.substring(0, maximumLength)
                     } else {
                         $('#display_count').text(characters)
-                        
+
                         $('#word_left').text(maximumLength - characters)
                     }
                 })

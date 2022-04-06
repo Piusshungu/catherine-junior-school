@@ -25,7 +25,7 @@
                     </li>
                     <li class="mr-2">
                         <a href="/users/notifications/sms" class="inline-flex p-4 rounded-t-lg active dark:text-blue-500 dark:border-blue-500 group" aria-current="page">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="mr-2 h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
                             </svg>SMS
                         </a>
@@ -60,8 +60,12 @@
                             <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" type="text" placeholder="Mail Subject">
 
                             <div class="form-group">
-                                <textarea class="ckeditor form-control" name="content"></textarea>
+                                <textarea class="ckeditor form-control" name="content" required></textarea>
                             </div>
+
+                            @error('password')
+                            <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                            @enderror
 
                         </div>
 
@@ -77,7 +81,6 @@
         <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
 
         <script type="text/javascript">
-            
             $(document).ready(function() {
 
                 $('.ckeditor').ckeditor();
