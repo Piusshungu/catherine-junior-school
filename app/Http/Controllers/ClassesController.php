@@ -22,7 +22,7 @@ class ClassesController extends Controller
     {
         return view('classes.create', [
 
-            'teachers' => User::all(),
+            'teachers' => User::where('type', 'Teacher')->get(),
         ]);
     }
 
