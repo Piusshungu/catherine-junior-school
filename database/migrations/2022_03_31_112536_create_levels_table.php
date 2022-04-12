@@ -18,13 +18,9 @@ class CreateLevelsTable extends Migration
     {
         Schema::create('levels', function (Blueprint $table) {
                 $table->uuid('id');
-                
-                
-                
+                $table->primary('id');
                 $table->string('stream');
-                $table->string('level');
                 $table->string('class');
-                $table->foreignUuid('user_id')->references('id')->on('users')->cascadeOnDelete();
                 $table->timestamps();
             });
        

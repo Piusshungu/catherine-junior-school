@@ -20,4 +20,9 @@ class Level extends Model
 
         return $this->belongsTo(User::class,'user_id');
     }
+
+    public function students()
+    {
+        return $this->hasMany(Student::class);
+    }
 }
