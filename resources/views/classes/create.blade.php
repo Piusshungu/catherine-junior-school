@@ -60,11 +60,11 @@
                             Class Teacher
                         </label>
                         
-                        <select id="user" name="user_id" multiple placeholder="Class Teacher" autocomplete="off" class="focus:ring-blue-500 w-full rounded-lg cursor-pointer focus:outline-none" multiple>
+                        <select id="user" name="user_id" multiple placeholder="Class Teacher" autocomplete="off" class="focus:ring-blue-500 w-full rounded-lg cursor-pointer focus:outline-none h-12" multiple>
 
                             @foreach($teachers as $teacher)
 
-                            <option block w-full rounded-sm cursor-pointer focus:outline-none value="{{ $user->id }}">{{ $teacher->first_name }} {{ $teacher->last_name }}</option>
+                            <option block w-full rounded-sm cursor-pointer focus:outline-none value="{{ $teacher->id }}">{{ $teacher->first_name }} {{ $teacher->last_name }}</option>
 
                             @endforeach
 
@@ -84,16 +84,6 @@
             </form>
         </div>
     </div>
-
-
-    <script type="text/javascript">
-        
-        function deleteConfirmation() {
-
-            return confirm('Are you sure you want to delete this student?');
-        }
-    </script>
-
 
     <script type="text/javascript">
         
