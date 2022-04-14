@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Attendance;
 use App\Models\Student;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Http;
 
 class AttendanceController extends Controller
 {
@@ -18,9 +19,13 @@ class AttendanceController extends Controller
         ]);
     }
 
-    public function recordAttendance($id)
+    public function recordAttendance()
     {
-        request()->validate([
+        foreach(request()->attendences as $attendence){
+
+        $attendence = new Request(array_merge($attendence, ['date'=>date("Y-m-d", strtotime(request()->date))]));
+        
+        $attendence->validate([
 
             'student_id' => 'required',
 
@@ -28,18 +33,11 @@ class AttendanceController extends Controller
 
             'date' => 'required'
         ]);
+    }
 
-        $students = Student::where('id', 'id')->get();
+    $save =  Attendance::create($attendence->all());
 
-        $studentsAttendance = [];
-
-        foreach($students as $student){
-
-            array_push($studentsAttendance, $student->$id);
-        }
-
-        $studentsAttendance = request()->all();
-
-        $saveAttendance = Attendance::create($studentsAttendance);
+    return redirect('/attendance')->with('success', 'Attendance successfully marked');
+        
     }
 }

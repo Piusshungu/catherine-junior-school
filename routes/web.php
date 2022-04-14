@@ -137,6 +137,7 @@ Route::post('/class/saveClass', [ClassesController::class, 'createClass'])->midd
 
 //Routes to Manage Attendances
 
+Route::post('/attendance', [AttendanceController::class, 'recordAttendance']);
+
 Route::get('/attendance', [AttendanceController::class, 'index']);
 
-Route::post('/attendance{id}', [AttendanceController::class, 'recordAttendance']);
