@@ -200,14 +200,3 @@
         </div>
     </div>
 </div>
-
-
-<script type="text/javascript">
-    function dropDown(dropdown) {
-
-        document.getElementById(dropdown).classList.toggle("hidden");
-
-        document.getElementById(dropdown).classList.toggle("flex");
-
-    }
-</script>
