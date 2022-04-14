@@ -33,11 +33,13 @@ class AttendanceController extends Controller
 
             'date' => 'required'
         ]);
-    }
 
-    $save =  Attendance::create($attendence->all());
-
-    return redirect('/attendance')->with('success', 'Attendance successfully marked');
+        $save =  Attendance::create($attendence->all());
         
+        }
+
+        return redirect('/attendance')->with('success', 'Attendance successfully marked');
     }
+        
+    
 }
