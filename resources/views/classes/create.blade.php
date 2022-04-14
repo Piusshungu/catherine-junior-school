@@ -29,7 +29,7 @@
 
             </table>
 
-            <form method="POST" action="/users/saveUser" enctype="multipart/form-data">
+            <form method="POST" action="/class/saveClass">
                 @csrf
 
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">

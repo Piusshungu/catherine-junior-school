@@ -10,12 +10,11 @@ class ClassesController extends Controller
 {
     public function index()
     {
-        return view('classes.index',[
+        $users = User::all();
 
-            'users' => User::all(),
+        $classes = Level::with('user')->get();
 
-            // 'classes' => Level::all(),
-        ]);
+        return view('classes.index', compact('users', 'classes'));
     }
 
     public function createClassForm()

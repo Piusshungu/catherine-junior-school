@@ -30,7 +30,7 @@
                     <tr>
 
                         <th class="px-6 py-3 font-bold text-xs font-medium leading-4 tracking-wider text-center text-gray-700 uppercase border-b border-gray-200 bg-gray-50">
-                            </th>
+                        </th>
                     </tr>
                 </thead>
 
@@ -90,52 +90,62 @@
         </div>
     </div>
 
-    <div class="container my-12 mx-auto px-8 md:px-12 mt-1">
+    <div class="grid grid-cols-3 gap-4 mx-6" >
 
-        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+        @foreach($classes as $class)
 
-            <!-- Column -->
-            <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/3">
+        <div class="container my-12 mx-auto mt-1 mx-4">
 
-                <!-- Article -->
-                <article class="overflow-hidden rounded-lg shadow-lg h-40 bg-gray-200 mt-0 border border-yellow-600 hover:bg-gray-100">
+            <div class="flex flex-wrap">
 
-                    <a href="#">
+                <!-- Column -->
+                <div class="my-1 px-1 w-full lg:my-4 lg:px-4">
 
-                    </a>
+                    <!-- Article -->
+                    <article class="overflow-hidden rounded-lg shadow-lg h-40 bg-gray-200 mt-0 border border-yellow-600 hover:bg-gray-100">
 
-                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
-                        <h1 class="text-lg">
-                            <a class="no-underline hover:underline text-black" href="#">
-                                Article Title
-                            </a>
-                        </h1>
-                        <p class="text-grey-darker text-sm">
-                            11/1/19
-                        </p>
-                    </header>
+                        <a href="#">
 
-                    <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-                        <a class="flex items-center no-underline hover:underline text-black" href="#">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
-                            </svg>
-                            <p class="ml-2 text-sm">
-                                Author Name
+                        </a>
+
+                        <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                            <h1 class="text-lg">
+                                <a class="no-underline hover:underline text-black" href="#">
+                                    {{ $class->class}} {{ $class->stream}}
+                                </a>
+                            </h1>
+                            <p class="text-grey-darker text-sm">
+                                11/1/19
                             </p>
-                        </a>
-                        <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
-                            <span class="hidden">Edit</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                            </svg>
-                        </a>
-                    </footer>
+                        </header>
 
-                </article>
-                <!-- END Article -->
+                        <footer class="flex items-center justify-between leading-none p-2 md:p-4">
+                            <a class="flex items-center no-underline hover:underline text-black" href="#">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+                                </svg>
 
+                                <p class="ml-2 text-sm">
+                                    {{ $class->user->first_name }} {{ $class->user->last_name }}
+                                </p>
+
+                            </a>
+                            <a class="no-underline text-grey-darker hover:text-red-dark" href="#">
+                                <span class="hidden">Edit</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                                </svg>
+                            </a>
+                        </footer>
+
+
+
+                    </article>
+                    <!-- END Article -->
+
+                </div>
             </div>
         </div>
+        @endforeach
     </div>
 </div>
