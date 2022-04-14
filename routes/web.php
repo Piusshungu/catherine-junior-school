@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\StudentsController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AttendanceController;
 use App\Http\Controllers\ParentsController;
 use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
@@ -132,3 +133,7 @@ Route::get('/classes', [ClassesController::class, 'index'])->middleware('auth');
 Route::get('/class/create', [ClassesController::class, 'createClassForm'])->middleware('auth');
 
 Route::post('/class/saveClass', [ClassesController::class, 'createClass'])->middleware('auth');
+
+//Routes to Manage Attendances
+
+Route::get('/attendance', [AttendanceController::class, 'index']);
