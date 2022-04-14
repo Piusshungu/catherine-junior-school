@@ -30,10 +30,15 @@ class ClassesController extends Controller
     {
         $classDetails = request()->validate([
 
-            'class' => 'required|unique:levels,class',
+            'class' => 'required',
+
             'stream' => 'required',
-            'user_id' => 'required',
-            'level'=> 'required'
+
+            'user_id' => 'required'
         ]);
+
+        $saveClass = Level::create($classDetails);
+
+        return redirect('/classes')->with('success', 'Class Records Added');
     }
 }

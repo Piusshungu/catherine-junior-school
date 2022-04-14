@@ -35,15 +35,15 @@
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                     <div class="w-full px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first_name">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="class">
                             Class Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="first_name" name="first_name" type="text" placeholder="Class Name">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="class" name="class" type="text" placeholder="Class Name">
                         <p class="text-gray-500 text-xs italic">Example Form One</p>
 
                     </div>
                     <div class="w-full px-3 mx-6">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="last_name">
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="stream">
                             Stream
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="stream" name="stream" type="text" placeholder="Stream">
