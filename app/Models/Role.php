@@ -16,6 +16,8 @@ class Role extends SpatieRole
 
     protected $primaryKey = 'id';
 
+    protected $keyType='string';
+    
     public $incrementing = false;
 
     const HEADMASTER = 'Head Master';

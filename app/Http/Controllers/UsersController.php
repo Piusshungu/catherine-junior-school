@@ -108,7 +108,7 @@ class UsersController extends Controller
 
         $user = User::create($userDetails);
 
-        $user->assignRole($role->id);
+        $user->assignRole($role->name);
 
         return redirect('/users/create')->with('success', 'User successfully created');
     }
