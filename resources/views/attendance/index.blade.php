@@ -126,7 +126,7 @@
                                             <input type="checkbox" id="{{ $student->id }}" class="sr-only" name="attendences[{{$loop->index}}][status]" value="Present">
                                             <input type="hidden" name="attendences[{{$loop->index}}][student_id]" value="{{$student->id}}">
                                             <!-- line -->
-                                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                                            <div class="block bg-gray-500 w-14 h-8 rounded-full"></div>
                                             <!-- dot -->
                                             <div class="present absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
                                         </div>
@@ -149,7 +149,7 @@
 
                                             <input type="hidden" name="attendences[{{$loop->index}}][student_id]" value="{{$student->id}}">
                                             <!-- line -->
-                                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                                            <div class="block bg-gray-500 w-14 h-8 rounded-full"></div>
                                             <!-- dot -->
                                             <div class="absent absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
                                         </div>
@@ -172,7 +172,9 @@
 
                                             <input type="hidden" name="attendences[{{$loop->index}}][student_id]" value="{{$student->id}}">
                                             <!-- line -->
-                                            <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                                            <div class="block bg-gray-5
+                                            
+                                            00 w-14 h-8 rounded-full"></div>
                                             <!-- dot -->
                                             <div class="permitted absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
                                         </div>
