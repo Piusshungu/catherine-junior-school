@@ -17,7 +17,11 @@ class CreateAttendancesTable extends Migration
     public function up()
     {
         Schema::create('attendances', function (Blueprint $table) {
-            $table->id();
+            $table->uuid('id');
+            $table->primary('id');
+            $table->foreignUuid('student_id')->references('id')->on('students')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->string('status');
+            $table->date('date');
             $table->timestamps();
         });
     }
