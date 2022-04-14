@@ -10,13 +10,13 @@
     input:checked~.absent {
         transform: translateX(100%);
 
-        background-color: red;
+        background-color: #E74C3C;
     }
 
     input:checked~.permitted {
         transform: translateX(100%);
 
-        background-color: yellow;
+        background-color: #F4D03F;
     }
 </style>
 <div class="flex flex-col mt-28 w-full">
@@ -182,8 +182,6 @@
 
                                 </div>
                             </td>
-
-
                     </tr>
 
                     <tr>
@@ -202,14 +200,6 @@
         </div>
     </div>
 </div>
-
-
-<script type="text/javascript">
-    function deleteConfirmation() {
-
-        return confirm('Are you sure you want to delete this student?');
-    }
-</script>
 
 
 <script type="text/javascript">
