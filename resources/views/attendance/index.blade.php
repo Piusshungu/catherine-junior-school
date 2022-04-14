@@ -1,6 +1,18 @@
 <x-sidebar />
 
+<style>
+    input:checked~.present {
+        transform: translateX(100%);
 
+        background-color: #48bb78;
+    }
+
+    input:checked~.absent {
+        transform: translateX(100%);
+
+        background-color: red;
+    }
+</style>
 <div class="flex flex-col mt-28 w-full">
     <div class="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-full">
 
@@ -20,27 +32,7 @@
                 </div>
 
                 <div class="col">
-
-
-                    <button id="dropdownButton" data-dropdown-toggle="dropdown" class="-ml-16 mt-4 block w- 55 text-white mb-8 flex bg-blue-700 hover:bg-blue-800 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onclick="dropDown('dropdown')" type="button">Import/Export<svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M19 9l-7 7-7-7"></path>
-                        </svg></button>
-
-                    <div id="dropdown" class="fixed hidden z-18 -mt-8 w-40 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600">
-                        <ul class="py-3" aria-labelledby="dropdownButton">
-                            <li>
-                                <a href="/importStudents" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Upload Excel</a>
-                            </li>
-                            <li>
-                                <a href="/exportStudentsDetails" class="block py-2 px-4 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Export Excel</a>
-                            </li>
-                        </ul>
-                    </div>
-
-                </div>
-
-                <div class="col">
-                    <div class="lg:inline-flex items-center rounded-full px-0 py-2 mt-2 ml-1">
+                    <div class="lg:inline-flex items-center rounded-full px-0 py-2 mt-2 ml-40">
                         <form method="GET" action="/students">
 
                             @if(request('category'))
@@ -122,18 +114,67 @@
                         </td>
 
 
-
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
-                            <span class="py-2.5 px-5 mr-2 mb-2 text-sm font-small text-white bg-green-500 rounded-full py-2.5 px-5 mr-2 mb-2 text-sm font-small text-white bg-green-500 rounded-full  hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">Active</span>
+
+                            <div class="flex items-center justify-center w-full mb-8">
+
+                                <label for="toggleB" class="flex items-center cursor-pointer">
+                                    <!-- toggle -->
+                                    <div class="relative">
+                                        <!-- input -->
+                                        <input type="checkbox" id="toggleB" class="sr-only">
+                                        <!-- line -->
+                                        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                                        <!-- dot -->
+                                        <div class="present absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                                    </div>
+                                    <!-- label -->
+
+                                </label>
+
+                            </div>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="#" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-gray-900 border border-yellow-500  rounded-fullpy-2.5 px-5 mr-2 mb-2 text-sm font-small text-gray-900 rounded-full  hover:bg-yellow-400 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-50 focus:text-blue-700 dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700">View</a>
 
+                            <div class="flex items-center justify-center w-full mb-8">
+
+                                <label for="toggleB" class="flex items-center cursor-pointer">
+                                    <!-- toggle -->
+                                    <div class="relative">
+                                        <!-- input -->
+                                        <input type="checkbox" id="toggleB" class="sr-only">
+                                        <!-- line -->
+                                        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                                        <!-- dot -->
+                                        <div class="absent absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                                    </div>
+                                    <!-- label -->
+
+                                </label>
+
+                            </div>
                         </td>
 
                         <td class="px-6 py-4 text-sm leading-5 text-gray-500 whitespace-no-wrap border-b border-gray-200">
-                            <a href="/deleteStudent/{{ $student->id }}" class="py-2 px-6 mr-2 mb-2 text-sm font-small text-red-500 rounded-full hover:bg-red-500 hover:text-white focus:z-10 focus:ring-2 focus:ring-blue-50 border border-red-500 focus: dark:bg-gray-800 dark:text-gray-400 dark:dark:hover:text-white dark:hover:bg-gray-700" onclick="return confirm('Are you sure you want to delete this student?')">Delete</a>
+
+                            <div class="flex items-center justify-center w-full mb-8">
+
+                                <label for="toggleB" class="flex items-center cursor-pointer">
+                                    <!-- toggle -->
+                                    <div class="relative">
+                                        <!-- input -->
+                                        <input type="checkbox" id="toggleB" class="sr-only">
+                                        <!-- line -->
+                                        <div class="block bg-gray-600 w-14 h-8 rounded-full"></div>
+                                        <!-- dot -->
+                                        <div class="dot absolute left-1 top-1 bg-white w-6 h-6 rounded-full transition"></div>
+                                    </div>
+                                    <!-- label -->
+
+                                </label>
+
+                            </div>
                         </td>
 
                     </tr>

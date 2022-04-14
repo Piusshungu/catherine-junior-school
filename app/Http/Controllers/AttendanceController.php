@@ -9,7 +9,7 @@ class AttendanceController extends Controller
 {
     public function index(){
 
-        return view('attendance',[
+        return view('attendance.index',[
             
             'students' => Student::orderBy('first_name')->filter(request(['search']))
 
