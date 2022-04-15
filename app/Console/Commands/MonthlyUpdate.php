@@ -2,7 +2,10 @@
 
 namespace App\Console\Commands;
 
+use App\Mail\MonthlyUpdates;
 use Illuminate\Console\Command;
+use App\Models\User;
+use Illuminate\Support\Facades\Mail;
 
 class MonthlyUpdate extends Command
 {
@@ -37,6 +40,20 @@ class MonthlyUpdate extends Command
      */
     public function handle()
     {
-        return 0;
+        $users = User::select('email')->get();
+
+        if($users->count() > 0){
+
+            foreach($users as $user){
+
+
+                $subject = [
+
+                    'subject' => 'Monthly Updates',
+                ];
+
+                Mail::to($user->email)->send(new MonthlyUpdates($subject));
+            }
+        }
     }
 }

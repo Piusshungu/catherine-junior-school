@@ -11,14 +11,16 @@ class MonthlyUpdates extends Mailable
 {
     use Queueable, SerializesModels;
 
+    public $subject;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($subject)
     {
-        //
+        $this->subject = $subject;
     }
 
     /**
@@ -28,6 +30,6 @@ class MonthlyUpdates extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.all-staff')->subject('Monthly Update');
+        return $this->view('emails.all-staff')->subject($this->subject);
     }
 }
