@@ -90,7 +90,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-3 gap-4 mx-6" >
+    <div class="grid grid-cols-3 gap-4 mx-6">
 
         @foreach($classes as $class)
 
@@ -115,7 +115,7 @@
                                 </a>
                             </h1>
                             <p class="text-grey-darker text-sm">
-                                11/1/19
+                                {{ $class->created_at }}
                             </p>
                         </header>
 
