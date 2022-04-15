@@ -30,6 +30,6 @@ class MonthlyUpdates extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.all-staff')->subject($this->subject);
+        return $this->view('emails.staff')->subject($this->subject);
     }
 }
