@@ -46,7 +46,6 @@ class MonthlyUpdate extends Command
 
             foreach($users as $user){
 
-
                 $subject = [
 
                     'subject' => 'Monthly Updates',
