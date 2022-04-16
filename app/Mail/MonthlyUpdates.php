@@ -13,14 +13,18 @@ class MonthlyUpdates extends Mailable
 
     public $subject;
 
+    public $user;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($subject)
+    public function __construct($subject, $user)
     {
         $this->subject = $subject;
+
+        $this->user = $user;
     }
 
     /**
@@ -30,6 +34,6 @@ class MonthlyUpdates extends Mailable
      */
     public function build()
     {
-        return $this->view('emails.staff')->subject($this->subject);
+        return $this->view('emails.monthly-update')->subject($this->subject);
     }
 }

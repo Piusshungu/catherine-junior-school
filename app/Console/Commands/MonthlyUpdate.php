@@ -52,7 +52,7 @@ class MonthlyUpdate extends Command
                     'subject' => 'Monthly Updates',
                 ];
 
-                Mail::to($user->email)->send(new MonthlyUpdates($subject));
+                Mail::to($user->email)->send(new MonthlyUpdates($subject, $user));
             }
         }
     }
