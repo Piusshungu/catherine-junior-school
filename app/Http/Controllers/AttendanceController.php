@@ -15,7 +15,7 @@ class AttendanceController extends Controller
             
             'students' => Student::orderBy('first_name')->filter(request(['search']))
 
-            ->paginate(3)->withQueryString(),
+            ->paginate(10)->withQueryString(),
         ]);
     }
 

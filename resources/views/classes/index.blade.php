@@ -115,7 +115,7 @@
                                 </a>
                             </h1>
                             <p class="text-grey-darker text-sm">
-                                {{ $class->created_at }}
+                                {{ $class->created_at->diffForHumans()}}
                             </p>
                         </header>
 
