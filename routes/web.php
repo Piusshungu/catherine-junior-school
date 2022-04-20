@@ -61,6 +61,10 @@ Route::get('/logout', [UsersController::class, 'userLogout'])->middleware('auth'
 
 Route::get('/users', [UsersController::class, 'index'])->middleware('auth');
 
+Route::get('/changePassword', [UsersController::class, 'changePasswordForm'])->middleware('auth');
+
+Route::post('/changePassword', [UsersController::class, 'changePassword'])->middleware('auth');
+
 Route::get('/users/create', [UsersController::class, 'createForm'])->middleware('auth');
 
 Route::post('/users/saveUser', [UsersController::class, 'createUser'])->middleware('auth');

@@ -7,13 +7,13 @@ use App\Mail\StaffUsersNotification;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Hash;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Spatie\Permission\Models\Role;
 use App\Jobs\SendEmailsToStaffUsers;
 use App\Jobs\SendSmsToStaffUsers;
+use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
@@ -119,6 +119,41 @@ class UsersController extends Controller
             
             'users' => User::find($id),
         ]);
+    }
+
+    public function changePasswordForm()
+    {
+        return view('users.change-password');
+    }
+
+    public function changePassword()
+    {
+        if(!Hash::check(request()->get('current-password'), Auth::user()->password)){
+
+            return redirect()->back()->with('error','Your current password does not matches with the password.');
+        }
+
+        if(strcmp(request()->get('current-password'), request()->get('new-password')) == 0){
+
+            return redirect()->back()->with('error','New Password cannot be same as your current password.');
+
+        }
+
+        request()->validate([
+
+            'current-password' => 'required',
+
+            'new-password' => 'required'
+        ]);
+
+        $user = Auth::user();
+
+        $user->password = bcrypt(request()->get('new-password'));
+
+        $user->update();
+
+        return redirect()->back()->with('success','Password successfully changed');
+
     }
 
     public function showEditForm($id)
