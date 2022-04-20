@@ -19,7 +19,7 @@
         </div>
         @endif
 
-        <form method="POST" action="/redirectAfterLogin" class="mt-10">
+        <form method="POST" action="/changePassword" class="mt-10">
             @csrf
 
             <div class="mb-6">
@@ -30,7 +30,7 @@
 
                 </label>
 
-                <input class="border-gray-400 p-2 w-full" type="password" name="current-password" id="current-password" required>
+                <input class="border-gray-400 p-2 w-full text-xs" type="password" name="current-password" id="current-password" placeholder="Current Password" required>
 
                 @error('password')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
@@ -44,7 +44,7 @@
 
                 </label>
 
-                <input class="border-gray-400 p-2 w-full" type="password" name="new-password" id="new-password" required>
+                <input class="border-gray-400 p-2 w-full text-xs" type="password" name="new-password" id="new-password" placeholder="New Password" required>
 
                 @error('password')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
