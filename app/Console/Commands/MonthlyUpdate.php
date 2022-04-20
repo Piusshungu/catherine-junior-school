@@ -40,18 +40,13 @@ class MonthlyUpdate extends Command
      */
     public function handle()
     {
-        $users = User::select('email')->get();
+        $users = User::all();
 
         if($users->count() > 0){
 
-            foreach($users as $user){
+            foreach($users as $user){   
 
-                $subject = [
-
-                    'subject' => 'Monthly Updates',
-                ];
-
-                Mail::to($user->email)->send(new MonthlyUpdates($subject, $user));
+                Mail::to($user->email)->send(new MonthlyUpdates('Monthly Update', $user));
             }
         }
     }

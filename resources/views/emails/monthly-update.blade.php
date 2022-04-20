@@ -12,18 +12,20 @@
 </style>
 
 <body style="font-family: 'Open Sans', sans-serif;font-size: 16px;width:100%">
-    <div style="justify-content: center;align-items: center; border-radius:0.125rem;background-color:rgba(232, 236, 238, 1);width:80%; border-radius: 0.375rem;padding-left: 2rem;padding-right: 2rem;padding-top: 2rem;padding-bottom: 2rem">
-        <div style="padding-top:1.25rem;padding-bottom: 0.875rem;padding-left:1rem;padding-right:1rem;width:97%;border-left-width:8px;border-bottom-right-radius:0.125rem;border-top-right-radius:0.125rem;justify-content: center;align-items: center;margin-top: 2rem;margin-top: 0.75rem;margin-bottom: 0.75rem;background-color: #27BF3C20;border-color:rgb(239, 191, 60); margin: right 4rem;">
-           Hello 
-            <p style="text-align: center;font-size:0.875rem;line-height:1.25rem;margin-bottom:0.5rem;margin-top: 0.5rem;position:relative">
-                This is monthly updates from Catherine Junior School
+    <div style="justify-content: center;align-items: center; border-radius:0.125rem;width:80%; border-radius: 0.375rem;padding-left: 2rem;padding-right: 2rem;padding-top: 2rem;padding-bottom: 2rem">
+        <div style="padding-top:1.25rem;padding-bottom: 0.75rem;font-size:0.75rem; padding-left:3rem;padding-right:3rem;width:97%;border-left-width:8px;border-bottom-right-radius:0.125rem;border-top-right-radius:0.125rem;justify-content: center;align-items: center;margin-top: 2rem;margin-top: 0.75rem;margin-bottom: 0.75rem;background-color: #27BF3C20;border-color:rgb(239, 191, 60); margin: right 4rem;">
+           Hello {{ $user['first_name'] }} {{ $user['last_name'] }}
+           
+            <p style="text-align: left;font-size:0.75rem;line-height:1.25rem;margin-bottom:0.5rem;margin-top: 0.625rem;position:relative">
+                This is monthly updates from Catherine Junior School, this time we would like to let you know that our quarter meeting has rescheduled following unpredicted reason.<br>
+                New date will soon be announced.
             </p>
 
 
-            <p style="font-size:0.875rem;text-align: center; line-height:1.25rem;text-transform:uppercase;letter-spacing:0.025em;font-weight:600 ">
+            <p style="font-size:0.75rem;text-align: center; line-height:1.25rem;text-transform:uppercase;letter-spacing:0.025em;font-weight:600 ">
                 Stay connected
             </p>
-            <p style="margin-top:0.5rem; margin-bottom:0.5rem; text-align:center;font-size:0.875rem; position:relative;line-height: 1.25rem">
+            <p style="margin-top:0.5rem; margin-bottom:0.5rem; text-align:left;font-size:0.75rem; position:relative;line-height: 1.25rem">
                 Please keep in touch with us through our social media platforms and website for more information and updates. Click links below to explore</p>
 
             <div style="display: inline-flex; justify-items:center; margin-top:1rem; width:auto;--tw-space-x-reverse: 0;margin-right: calc(0.75rem * var(--tw-space-x-reverse));margin-left: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));">
