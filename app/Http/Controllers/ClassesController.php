@@ -12,7 +12,7 @@ class ClassesController extends Controller
     {
         $users = User::all();
 
-        $classes = Level::with('user')->get();
+        $classes = Level::with('user')->orderBy('class')->get();
 
         return view('classes.index', compact('users', 'classes'));
     }

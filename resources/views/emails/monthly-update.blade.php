@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Catherine Junior School</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 </head>
 <style>
     @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&display=swap");
@@ -14,7 +16,7 @@
 <body style="font-family: 'Open Sans', sans-serif;font-size: 16px;width:100%">
     <div style="justify-content: center;align-items: center; border-radius:0.125rem;width:80%; border-radius: 0.375rem;padding-left: 2rem;padding-right: 2rem;padding-top: 2rem;padding-bottom: 2rem">
         <div style="padding-top:1.25rem;padding-bottom: 0.75rem;font-size:0.75rem; padding-left:3rem;padding-right:3rem;width:97%;border-left-width:8px;border-bottom-right-radius:0.125rem;border-top-right-radius:0.125rem;justify-content: center;align-items: center;margin-top: 2rem;margin-top: 0.75rem;margin-bottom: 0.75rem;background-color: #27BF3C20;border-color:rgb(239, 191, 60); margin: right 4rem;">
-           Hello, {{ $user['first_name'] }} {{ $user['last_name'] }}
+            Hello, {{ $user['first_name'] }} {{ $user['last_name'] }}
 
             <p style="text-align: left;font-size:0.75rem;line-height:1.25rem;margin-bottom:0.5rem;margin-top: 0.625rem;position:relative">
                 This is monthly updates from Catherine Junior School, this time we would like to let you know that our quarter meeting has rescheduled following unpredicted reason.<br>
