@@ -198,10 +198,10 @@ class UsersController extends Controller
     {
         $user = User::find($id);
 
-        $user = User::join('levels', 'levels.user_id', '=', 'users.id')
-        
-        ->get(['users.id', 'users.type', 'levels.user_id']);
-        dd($user);
+        if(count($user->levels) > 0) {
+         
+            return redirect('/users')->with('error', 'This user contains several roles, please remove all role before deleting');
+        }
 
         $user->delete();
 

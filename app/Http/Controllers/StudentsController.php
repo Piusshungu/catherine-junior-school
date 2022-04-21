@@ -40,7 +40,6 @@ class StudentsController extends Controller
             'phone_number' => 'required|max:13',
             'dob' => 'required',
             'registration_year' => 'required',
-            'level_id' => 'nullable',
             'gender' => 'required|in:male,female',
 
         ]);
@@ -58,7 +57,6 @@ class StudentsController extends Controller
             "phone_number" => $attributes['phone_number'],
             "registration_year" => $attributes['registration_year'],
             "gender" => $attributes['gender'],
-            "level_id" => $attributes['level_id'],
             "dob" => $attributes['dob'],
         ];
 
