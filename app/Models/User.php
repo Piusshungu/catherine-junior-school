@@ -7,12 +7,11 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, HasRoles, Uuids;
+    use HasFactory, Notifiable, HasRoles, Uuids;
 
     public const TYPE_HEADMASTER = 'Head Master';
     public const TYPE_ADMINISTRATOR = 'Administrator';

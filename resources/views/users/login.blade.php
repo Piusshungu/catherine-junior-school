@@ -19,7 +19,7 @@
         </div>
         @endif
 
-        <form method="POST" action="/redirectAfterLogin" class="mt-10">
+        <form method="POST" action="/login" class="mt-10">
             @csrf
 
             <div class="mb-6">
