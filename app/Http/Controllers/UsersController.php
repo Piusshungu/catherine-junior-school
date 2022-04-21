@@ -196,8 +196,12 @@ class UsersController extends Controller
 
     public function deleteUserDetails($id)
     {
-
         $user = User::find($id);
+
+        $user = User::join('levels', 'levels.user_id', '=', 'users.id')
+        
+        ->get(['users.id', 'users.type', 'levels.user_id']);
+        dd($user);
 
         $user->delete();
 
