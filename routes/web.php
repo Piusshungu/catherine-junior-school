@@ -55,7 +55,7 @@ Route::get('/studentProfile', [StudentsController::class, 'studentProfile'])->mi
 
 Route::get('/login', [UsersController::class, 'showLoginForm'])->name('login');
 
-Route::post('/redirectAfterLogin', [UsersController::class, 'userLogin']);
+Route::post('/login', [UsersController::class, 'userLogin']);
 
 Route::get('/logout', [UsersController::class, 'userLogout'])->middleware('auth');
 

@@ -130,7 +130,7 @@ class UsersController extends Controller
     {
         if(!Hash::check(request()->get('current-password'), Auth::user()->password)){
 
-            return redirect()->back()->with('error','Your current password does not matches with the password.');
+            return redirect()->back()->with('error','Your current password does not match our records.');
         }
 
         if(strcmp(request()->get('current-password'), request()->get('new-password')) == 0){
@@ -150,9 +150,11 @@ class UsersController extends Controller
 
         $user->password = bcrypt(request()->get('new-password'));
 
-        $user->update();
+        dd($user);
 
-        return redirect()->back()->with('success','Password successfully changed');
+        $user->save();
+
+        return redirect('/login')->with('success','Password successfully changed');
 
     }
 
