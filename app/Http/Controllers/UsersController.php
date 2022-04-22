@@ -200,7 +200,7 @@ class UsersController extends Controller
 
         if(count($user->levels) > 0) {
          
-            return redirect('/users')->with('error', 'This user contains several roles, please remove all role before deleting');
+            return redirect('/users')->with('error', 'This user has role in particular class, please remove class before deleting');
         }
 
         $user->delete();
