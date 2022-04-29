@@ -4,10 +4,13 @@
 <x-sidebar />
 
 <style>
-    svg > g[class^="raphael-group-"] > text{
-    display: none !important;
-}
+    svg>g[class^="raphael-group-"]>text {
+        display: none !important;
+    }
 </style>
+
+
+
 
 <div class="w-full px-4 py-2 bg-gray-200 lg:w-full">
     <div class="container mx-auto mt-16">
@@ -56,42 +59,103 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-">
+        <div class="grid grid-cols-2 gap-2">
 
-        <div id="chart-container" class="ml-15 mt-10 col"></div>
-        
+            <div id="chart-container" class="ml-15 mt-10 col mx-8"></div>
+
+            <div id="staff" class="ml-15 mt-10 col"></div>
+
+        </div>
+
 
         <script>
-        FusionCharts.ready(function () {
-            // chart instance
-            var male = "<?php echo $male; ?>";
+            FusionCharts.ready(function() {
+                // chart instance
+                var male = "<?php echo $male; ?>";
 
-            var female = "<?php echo $female; ?>";
+                var female = "<?php echo $female; ?>";
 
-            var chart = new FusionCharts({
-               
-                type: "pie3d",
-                renderAt: "chart-container",
-                width: "500",
-                height: "350",
-                dataFormat: "json",
-                dataSource: {
-                    // chart configuration
-                    chart: {
-                        caption: "Male Vs Female",
-                        subcaption: "Number of Male and Female Students"
-                    },
-                    // chart data
-                    data: [
-                       
-                        { label: "Female", value: female, color: "#0A9AF8" },
-                        { label: "Male", value: male }   
-                    ]
-                }
-            }).render();
-        });
-    </script>
+                var chart = new FusionCharts({
 
-    </body>
+                    type: "pie3d",
+                    renderAt: "chart-container",
+                    width: "500",
+                    height: "350",
+                    dataFormat: "json",
+                    theme: "fusion",
+                    dataSource: {
+                        // chart configuration
+                        chart: {
+                            caption: "Male Vs Female",
+                            subcaption: "Number of Male and Female Students",
+                            theme: "fusion"
+                        },
+                        // chart data
+                        data: [
 
-    </html>
+                            {
+                                label: "Female",
+                                value: female,
+                                color: "#0A9AF8"
+                            },
+                            {
+                                label: "Male",
+                                value: male
+                            }
+                        ]
+                    }
+                }).render();
+            });
+        </script>
+
+
+        <script>
+            FusionCharts.ready(function() {
+                // chart instance
+                var male = "<?php echo $maleStaff; ?>";
+
+                var female = "<?php echo $femaleStaff; ?>";
+
+
+                var chart = new FusionCharts({
+
+                    type: "doughnut3d",
+                    theme: "fusion",
+                    renderAt: "staff",
+                    width: "500",
+                    height: "350",
+                    dataFormat: "json",
+                    theme: "fusion",
+                    dataSource: {
+                        // chart configuration
+                        chart: {
+                            caption: "Male Staff Vs Female Staff",
+                            subcaption: "Number of Male and Female Staff",
+                            theme: "fusion"
+                        },
+                        // chart data
+                        data: [
+
+                            {
+                                label: "Female",
+                                value: female,
+                                color: "#0A9AF8"
+                            },
+                            {
+                                label: "Male",
+                                value: male
+                            }
+                        ]
+                    }
+                }).render();
+            });
+        </script>
+
+        <script type="text/javascript" src="{{ asset('asset/js/fusioncharts.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('asset/js/fusioncharts.charts.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('asset/js/fusioncharts.theme.fusion.js') }}"></script>
+        <script type="text/javascript" src="{{ asset('asset/js/themes/fusioncharts.theme.fusion.js') }}"></script>
+
+        </body>
+
+</html>

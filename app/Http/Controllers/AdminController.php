@@ -12,18 +12,20 @@ class AdminController extends Controller
         
         $male = Student::where('gender', 'male')->count();
 
+        $male = json_encode($male);
+
         $female = Student::where('gender', 'female')->count();
 
-        return view('admin.dashboard', compact('male', 'female'));
+        $female = json_encode($female);
+
+        $maleStaff = User::where('gender', 'male')->count();
+
+        $maleStaff = json_encode($maleStaff);
+
+        $femaleStaff = User::where('gender', 'female')->count();
+
+        $femaleStaff = json_encode($femaleStaff);
+
+        return view('admin.dashboard', compact('male', 'female', 'femaleStaff', 'maleStaff'));
     }
-
-    // public function staffGenderSummary()
-    // {
-    //     $maleStaff = User::where('gender', 'male')->count();
-
-    //     $femaleStaff = User::where('gender', 'female')->count();
-
-    //     return view('admin.dashboard', compact('maleStaff', 'femaleStaff'));
-
-    // }
 }

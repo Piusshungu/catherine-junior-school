@@ -91,8 +91,6 @@ class StudentsController extends Controller
 
         $student = Student::find($id);
 
-        dd($student);
-
         $student->update($input);
 
         return redirect('/students')->with('success', 'Student records successfully updated');
