@@ -28,7 +28,7 @@ class SubjectsController extends Controller
     {
         $classData = request()->validate([
 
-            'subject_name' => 'required',
+            'subject_name' => 'required|unique:subjects,subject_name',
         ]);
 
         $classData = Subject::create($classData);
