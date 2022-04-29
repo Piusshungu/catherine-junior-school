@@ -150,3 +150,5 @@ Route::get('/attendance', [AttendanceController::class, 'index']);
 
 Route::get('/subjects', [SubjectsController::class, 'index']);
 
+Route::post('/subjects', [SubjectsController::class, 'createSubject']);
+
