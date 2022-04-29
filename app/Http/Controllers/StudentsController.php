@@ -23,10 +23,13 @@ class StudentsController extends Controller
         ]);
     }
 
-    public function studentProfile()
+    public function studentProfile($id)
     {
 
-        return view('student-profile');
+        return view('student-profile',[
+
+            'student' => Student::find($id),
+        ]);
     }
 
 

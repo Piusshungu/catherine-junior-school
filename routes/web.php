@@ -51,7 +51,7 @@ Route::post('/importStudentsDetails', [StudentsController::class, 'importStudent
 
 Route::get('/exportStudentsDetails', [StudentsController::class, 'exportStudentsDetails'])->middleware('auth');
 
-Route::get('/studentProfile', [StudentsController::class, 'studentProfile'])->middleware('auth');
+Route::get('/studentProfile/{id}', [StudentsController::class, 'studentProfile'])->middleware('auth');
 
 //Routes for managing users
 
