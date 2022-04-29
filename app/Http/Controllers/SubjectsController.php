@@ -15,6 +15,11 @@ class SubjectsController extends Controller
         ]);
     }
 
+    public function subjectCreateForm()
+    {
+        return view('subjects.create');
+    }
+
     public function createSubject()
     {
         $classData = request()->validate([

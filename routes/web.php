@@ -12,6 +12,7 @@ use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\SubjectsController;
 use App\Models\Attendance;
+use App\Models\Subject;
 use App\Models\User;
 use Spatie\Permission\Contracts\Role;
 
@@ -149,6 +150,8 @@ Route::get('/attendance', [AttendanceController::class, 'index']);
 //Routes to Manage Subjects
 
 Route::get('/subjects', [SubjectsController::class, 'index']);
+
+Route::get('/subjects/create', [SubjectsController::class, 'subjectCreateForm']);
 
 Route::post('/subjects', [SubjectsController::class, 'createSubject']);
 
