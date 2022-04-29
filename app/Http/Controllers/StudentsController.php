@@ -75,9 +75,25 @@ class StudentsController extends Controller
     public function editStudentDetails($id)
     {
         
+        request()->validate([
+
+            'phone_number' => 'required',
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'level_id' => 'required',
+            'gender' => 'required',
+            'registration_number' => 'required',
+            'dob' => 'required',
+            'registration_year' => 'required'
+        ]);
+
+        $input = request()->all();
+
         $student = Student::find($id);
 
-        $student->update();
+        dd($student);
+
+        $student->update($input);
 
         return redirect('/students')->with('success', 'Student records successfully updated');
     }

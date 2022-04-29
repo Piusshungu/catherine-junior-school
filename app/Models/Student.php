@@ -61,7 +61,7 @@ class Student extends Model
         return $this->hasMany(Payment::class);
     }
 
-    public function levels()
+    public function level()
     {
         return $this->belongsTo(Level::class);
     }
