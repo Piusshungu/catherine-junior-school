@@ -1,6 +1,8 @@
 <x-sidebar />
 
 
+<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet" />
+
 <div class="flex flex-col mt-28 w-full">
     <div class="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-full">
 
@@ -22,67 +24,47 @@
                 <thead>
                     <tr>
 
-                        <th class="px-6 py-3 font-bold text-xs font-medium leading-4 tracking-wider text-center text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Create New User</th>
+                        <th class="px-6 py-6 font-bold text-xs font-medium leading-4 tracking-wider text-center text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Create Subjects</th>
                     </tr>
                 </thead>
 
             </table>
 
-            <form method="POST" action="/users/saveUser" enctype="multipart/form-data">
+            <form method="POST" action="/subjects">
                 @csrf
 
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
 
                     <div class="w-full px-3 mb-6 md:mb-0">
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="first_name">
-                           Class Name
+                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="subject_name">
+                            Class Name
                         </label>
-                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" id="first_name" name="first_name" type="text" placeholder="First Name">
+                        <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 -mx-3 leading-tight focus:outline-none focus:bg-white" id="subject_name" name="subject_name" type="text" placeholder="Subject Name">
                         <p class="text-gray-500 text-xs italic">Class Name eg. Mathematics</p>
 
-                    </div>
-                   
+                        @error('subject_name')
+                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        @enderror
 
+                    </div>
                 </div>
 
-                <div class="flex w-full mx-3 mb-6 mt-10 content-center">
+                @foreach($levels as $level)
 
-                    <div class="w-full px-3 mx-6">
-
-                        <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="gender">
-                            Gender
+                <div class="block mt-12 grid grid-cols-4">
+                    <div class="mt-6 mx-6 col gap-2">
+                        <label class="inline-flex items-center">
+                            <input type="checkbox" value="{{ $level->id }}" class="w-6 h-6 rounded" name="levels[]" />
+                            <span class="ml-2">{{ $level->class }} {{ $level->stream }}</span>
                         </label>
-                        <div class="mt-2">
-                            <label class="inline-flex items-center">
-                                <input type="radio" class="form-radio" name="gender" value="male" id="gender">
-                                <span class="ml-2">Male</span>
-                            </label>
-                            <label class="inline-flex items-center ml-6">
-                                <input type="radio" class="form-radio" name="gender" value="female" id="gender">
-                                <span class="ml-2">Female</span>
-                            </label>
-                        </div>
-
-
-
                     </div>
                 </div>
+
+                @endforeach
 
 
                 <div class="py-3 center mx-auto">
-                    <div class="px-4 py-5 rounded-lg shadow-lg text-center w-48 ml-8">
-                        <div class="mb-4">
-                            <svg class="inline-block h-30 w-30 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-
-                        <label class="cursor-pointer mt-6">
-                            <span class="mt-2 text-base leading-normal px-4 py-2 bg-blue-500 text-white text-sm rounded-full">Select Avatar</span>
-                            <input type='file' name="avatar" class="hidden" :multiple="multiple" accept=".jpeg,.png,.jpg" />
-                        </label>
-                    </div>
 
                     <button type="submit" class=" mt-10 ml-10 block w- 55 border border-yellow-500 text-gray mb-8 flex hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Submit</button>
 
@@ -94,7 +76,6 @@
 
 
     <script type="text/javascript">
-        
         function dropDown(dropdown) {
 
             document.getElementById(dropdown).classList.toggle("hidden");

@@ -34,6 +34,6 @@ class Level extends Model
 
     public function subjects()
     {
-        return $this->belongsToMany(Subset::class);
+        return $this->belongsToMany(Subset::class, 'levels_subjects');
     }
 }

@@ -18,6 +18,6 @@ class Subject extends Model
 
     public function levels()
     {
-        return $this->belongsToMany(Level::class);
+        return $this->belongsToMany(Level::class, 'levels_subjects');
     }
 }

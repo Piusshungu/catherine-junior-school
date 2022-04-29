@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Level;
 use App\Models\Subject;
 use Illuminate\Http\Request;
 
@@ -17,14 +18,17 @@ class SubjectsController extends Controller
 
     public function subjectCreateForm()
     {
-        return view('subjects.create');
+        return view('subjects.create',[
+
+            'levels' => Level::all(),
+        ]);
     }
 
     public function createSubject()
     {
         $classData = request()->validate([
 
-            'name' => 'required',
+            'subject_name' => 'required',
         ]);
 
         $classData = Subject::create($classData);
@@ -37,6 +41,6 @@ class SubjectsController extends Controller
             }
         }
 
-        return redirect('/levels')->with('success', 'Subject records successfully added');
+        return redirect('/subjects/create')->with('success', 'Subject records successfully added');
     }
 }
