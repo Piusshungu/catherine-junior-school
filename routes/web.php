@@ -10,6 +10,7 @@ use App\Http\Controllers\RolesController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ClassesController;
+use App\Http\Controllers\SubjectsController;
 use App\Models\Attendance;
 use App\Models\User;
 use Spatie\Permission\Contracts\Role;
@@ -144,4 +145,8 @@ Route::post('/class/saveClass', [ClassesController::class, 'createClass'])->midd
 Route::post('/attendance', [AttendanceController::class, 'recordAttendance']);
 
 Route::get('/attendance', [AttendanceController::class, 'index']);
+
+//Routes to Manage Subjects
+
+Route::get('/subjects', [SubjectsController::class, 'index']);
 
