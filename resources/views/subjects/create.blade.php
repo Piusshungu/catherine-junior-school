@@ -1,7 +1,7 @@
 <x-sidebar />
 
 
-<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet" />
+<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet"/>
 
 <div class="flex flex-col mt-28 w-full">
     <div class="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-full">
@@ -38,10 +38,10 @@
 
                     <div class="w-full px-3 mb-6 md:mb-0">
                         <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="subject_name">
-                            Class Name
+                            Subject Name
                         </label>
                         <input class="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 -mx-3 leading-tight focus:outline-none focus:bg-white" id="subject_name" name="subject_name" type="text" placeholder="Subject Name">
-                        <p class="text-gray-500 text-xs italic">Class Name eg. Mathematics</p>
+                        <p class="text-gray-500 text-xs italic">Subject Name eg. Mathematics</p>
 
                         @error('subject_name')
                         <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
@@ -50,22 +50,26 @@
                     </div>
                 </div>
 
+                <div class="block mt-12 grid grid-cols-4">
+
                 @foreach($levels as $level)
 
-                <div class="block mt-12 grid grid-cols-4">
+               
                     <div class="mt-6 mx-6 col gap-2">
                         <label class="inline-flex items-center">
                             <input type="checkbox" value="{{ $level->id }}" class="w-6 h-6 rounded" name="levels[]" />
                             <span class="ml-2">{{ $level->class }} {{ $level->stream }}</span>
                         </label>
                     </div>
-                </div>
+                
 
                 @error('levels')
                 <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
                 @enderror
 
                 @endforeach
+
+                </div>
 
 
                 <div class="py-3 center mx-auto">
@@ -77,14 +81,3 @@
             </form>
         </div>
     </div>
-
-
-    <script type="text/javascript">
-        function dropDown(dropdown) {
-
-            document.getElementById(dropdown).classList.toggle("hidden");
-
-            document.getElementById(dropdown).classList.toggle("flex");
-
-        }
-    </script>
