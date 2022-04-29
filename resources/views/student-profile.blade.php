@@ -29,7 +29,7 @@
 
             </table>
 
-            <form method="POST" action="/users/saveUser" enctype="multipart/form-data">
+            <form method="POST" action="/editStudentDetails/{{ student->id }}">
                 @csrf
 
                 <div class="flex w-full mx-3 mb-6 mt-10 content-center">
@@ -79,11 +79,11 @@
                             User Role
                         </label>
                         
-                        <select id="roles" name="type" multiple placeholder="Select Role" autocomplete="off" class="focus:ring-blue-500 w-full rounded-lg cursor-pointer focus:outline-none" multiple>
+                        <select id="levels" name="level" multiple placeholder="Select Role" autocomplete="off" class="focus:ring-blue-500 w-full rounded-lg cursor-pointer focus:outline-none" multiple>
 
-                            @foreach($roles as $role)
+                            @foreach($levels as $level)
 
-                            <option block w-full rounded-sm cursor-pointer focus:outline-none value="{{ $role->name }}">{{ $role->name }}</option>
+                            <option block w-full rounded-sm cursor-pointer focus:outline-none value="{{ $level->class }} {{ $level->stream }}">{{ $level->class }} {{ $level->stream }}</option>
 
                             @endforeach
 
@@ -111,37 +111,9 @@
                     </div>
                 </div>
 
-
-                <div class="py-3 center mx-auto">
-                    <div class="px-4 py-5 rounded-lg shadow-lg text-center w-48 ml-8">
-                        <div class="mb-4">
-                            <svg class="inline-block h-30 w-30 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A13.937 13.937 0 0112 16c2.5 0 4.847.655 6.879 1.804M15 10a3 3 0 11-6 0 3 3 0 016 0zm6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </div>
-
-                        <label class="cursor-pointer mt-6">
-                            <span class="mt-2 text-base leading-normal px-4 py-2 bg-blue-500 text-white text-sm rounded-full">Select Avatar</span>
-                            <input type='file' name="avatar" class="hidden" :multiple="multiple" accept=".jpeg,.png,.jpg" />
-                        </label>
-                    </div>
-
-                    <button type="submit" class=" mt-10 ml-10 block w- 55 border border-yellow-500 text-gray mb-8 flex hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-yellow-600 dark:hover:bg-yellow-700 dark:focus:ring-yellow-800">Submit</button>
-
-                </div>
-
             </form>
         </div>
     </div>
-
-
-    <script type="text/javascript">
-        
-        function deleteConfirmation() {
-
-            return confirm('Are you sure you want to delete this student?');
-        }
-    </script>
 
 
     <script type="text/javascript">
@@ -158,7 +130,7 @@
     <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 
     <script>
-        new TomSelect('#roles', {
+        new TomSelect('#levels', {
             maxItems: 1,
         });
     </script>

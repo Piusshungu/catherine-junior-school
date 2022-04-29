@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Jobs\StudentsExcelProcess;
 use App\Exports\StudentsExport;
 use App\Imports\StudentsImport;
+use App\Models\Level;
 use Maatwebsite\Excel\Facades\Excel;
 
 
@@ -29,6 +30,8 @@ class StudentsController extends Controller
         return view('student-profile',[
 
             'student' => Student::find($id),
+
+            'levels' => Level::all(),
         ]);
     }
 
