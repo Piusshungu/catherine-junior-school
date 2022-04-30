@@ -71,11 +71,7 @@
 
             <div class="lg:inline-flex items-center rounded-full px-12 py-4 mt-2 ml-0">
 
-                <form method="GET" action="/parents">
-
-                    @if(request('category'))
-                    <input type="hidden" name="category" value="{{ request('category') }}">
-                    @endif
+                <form method="GET" action="/classes">
 
                     <input type="search" value="{{ request('search') }}" name="search" class="rounded-full form-control relative flex-auto min-w-0 block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
 

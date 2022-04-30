@@ -71,11 +71,7 @@
 
             <div class="lg:inline-flex items-center rounded-full px-12 py-4 mt-2 ml-0">
 
-                <form method="GET" action="/parents">
-
-                    @if(request('category'))
-                    <input type="hidden" name="category" value="{{ request('category') }}">
-                    @endif
+                <form method="GET" action="/subjects">
 
                     <input type="search" value="{{ request('search') }}" name="search" class="rounded-full form-control relative flex-auto min-w-0 block w-80 px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none" placeholder="Search..." aria-label="Search" aria-describedby="button-addon2">
 
@@ -85,7 +81,7 @@
 
         <div class="col">
 
-            <a href="/subjects/create" class="border border-yellow-400 ml-80 mt-6 block w-40 text-black mb-8 flex bg-white focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Create New Class</a>
+            <a href="/subjects/create" class="border border-yellow-400 ml-80 mt-6 block w-40 text-black mb-8 flex bg-white focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add New Subject</a>
 
         </div>
     </div>

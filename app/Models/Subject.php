@@ -20,4 +20,13 @@ class Subject extends Model
     {
         return $this->belongsToMany(Level::class, 'levels_subjects');
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if(isset($filters['search'])){
+
+            $query->where('subject_name', 'like', '%'. request('search'). '%');
+        }
+    }
 }

@@ -36,4 +36,15 @@ class Level extends Model
     {
         return $this->belongsToMany(Subset::class, 'levels_subjects');
     }
+
+    public function scopeFilter($query, array $filters)
+    {
+
+        if(isset($filters['search'])){
+
+            $query->where('class', 'like', '%'. request('search'). '%')
+
+            ->orWhere('stream', 'like', '%'. request('search'). '%');
+        }
+    }
 }

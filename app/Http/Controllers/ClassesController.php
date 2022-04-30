@@ -12,7 +12,9 @@ class ClassesController extends Controller
     {
         $users = User::all();
 
-        $classes = Level::with('user')->orderBy('class')->get();
+        $classes = Level::with('user')->orderBy('class')
+        
+        ->filter(request(['search']))->get();
 
         return view('classes.index', compact('users', 'classes'));
     }
