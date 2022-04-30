@@ -59,11 +59,11 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-2 gap-2">
+        <div class="grid grid-cols-2 gap-8">
 
-            <div id="chart-container" class="ml-15 mt-10 col mx-8"></div>
+            <div id="chart-container" class="ml-15 mt-12 px-4 col mx-8 h-50 border border-yellow-200 w-full bg-white rounded-xl"></div>
 
-            <div id="staff" class="ml-15 mt-10 col"></div>
+            <div id="staff" class="ml-12 mr-12 mt-12 px-4 mx-12 h-50 col border border-yellow-200 w-full bg-white rounded-xl"></div>
 
         </div>
 
@@ -77,10 +77,10 @@
 
                 var chart = new FusionCharts({
 
-                    type: "pie3d",
+                    type: "pie2d",
                     renderAt: "chart-container",
-                    width: "500",
-                    height: "350",
+                    width: "540",
+                    height: "400",
                     dataFormat: "json",
                     theme: "fusion",
                     dataSource: {
@@ -96,7 +96,7 @@
                             {
                                 label: "Female",
                                 value: female,
-                                color: "#0A9AF8"
+                                color: "#F4D03F"
                             },
                             {
                                 label: "Male",
@@ -116,14 +116,16 @@
 
                 var female = "<?php echo $femaleStaff; ?>";
 
+                var total = female + male;
+
 
                 var chart = new FusionCharts({
 
-                    type: "doughnut3d",
+                    type: "doughnut2d",
                     theme: "fusion",
                     renderAt: "staff",
-                    width: "500",
-                    height: "350",
+                    width: "540",
+                    height: "400",
                     dataFormat: "json",
                     theme: "fusion",
                     dataSource: {
@@ -131,7 +133,8 @@
                         chart: {
                             caption: "Male Staff Vs Female Staff",
                             subcaption: "Number of Male and Female Staff",
-                            theme: "fusion"
+                            theme: "fusion",
+                            centerlabel: "Total: <?php echo $maleStaff; ?>"
                         },
                         // chart data
                         data: [
@@ -139,7 +142,7 @@
                             {
                                 label: "Female",
                                 value: female,
-                                color: "#0A9AF8"
+                                color: "#F4D03F"
                             },
                             {
                                 label: "Male",
@@ -151,10 +154,8 @@
             });
         </script>
 
-        <script type="text/javascript" src="{{ asset('asset/js/fusioncharts.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('asset/js/fusioncharts.charts.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('asset/js/fusioncharts.theme.fusion.js') }}"></script>
-        <script type="text/javascript" src="{{ asset('asset/js/themes/fusioncharts.theme.fusion.js') }}"></script>
+        <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/fusioncharts.js"></script>
+        <script type="text/javascript" src="//cdn.fusioncharts.com/fusioncharts/latest/themes/fusioncharts.theme.fusion.js"></script>
 
         </body>
 
