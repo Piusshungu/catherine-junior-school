@@ -14,6 +14,7 @@ use App\Http\Controllers\SubjectsController;
 use App\Models\Attendance;
 use App\Models\Subject;
 use App\Models\User;
+use PhpParser\Builder\ClassConst;
 use Spatie\Permission\Contracts\Role;
 
 /*
@@ -140,6 +141,8 @@ Route::get('/classes', [ClassesController::class, 'index'])->middleware('auth');
 Route::get('/class/create', [ClassesController::class, 'createClassForm'])->middleware('auth');
 
 Route::post('/class/saveClass', [ClassesController::class, 'createClass'])->middleware('auth');
+
+Route::get('/class/{id}/students', [ClassesController::class, 'getStudentsInParticularSubject'])->middleware('auth');
 
 //Routes to Manage Attendances
 
