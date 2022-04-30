@@ -33,8 +33,13 @@ class SubjectsController extends Controller
 
         $classData = Subject::create($classData);
 
-        if(request()->levels){
+        if(empty(request()->input('levels'))){
 
+            return redirect('/subjects/create')->with('error', 'A subject must contains at least one class');
+
+        }
+        elseif(request()->levels){
+            
             foreach(request()->levels as $level){
 
                 $classData->levels()->attach($level);
