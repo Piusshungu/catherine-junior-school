@@ -1,7 +1,7 @@
 <x-sidebar />
 
 
-<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet"/>
+<link href="https://cdn.jsdelivr.net/npm/@tailwindcss/custom-forms@0.2.1/dist/custom-forms.css" rel="stylesheet" />
 
 <div class="flex flex-col mt-28 w-full">
     <div class="py-2 -my-2 sm:-mx-6 sm:px-6 lg:-mx-8 lg:px-8 w-full">
@@ -25,6 +25,23 @@
             </div>
             @endif
 
+
+            <div x-data="{ open: false }" class="flex flex-col max-w-screen-xl px-4 mx-auto md:items-center md:justify-between md:flex-row md:px-6 lg:px-8">
+                <div class="p-4 flex flex-row items-center justify-between">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mx-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                    </svg>
+                    <a href="/subjects" class="text-lg text-xs  tracking-widest rounded-lg focus:outline-none focus:shadow-outline">Back
+                    </a>
+                    <button class="md:hidden rounded-lg text-xs focus:outline-none focus:shadow-outline mx-2" @click="open = !open">
+                        <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
+                            <path x-show="!open" fill-rule="evenodd" d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM9 15a1 1 0 011-1h6a1 1 0 110 2h-6a1 1 0 01-1-1z" clip-rule="evenodd"></path>
+                            <path x-show="open" fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
             <div class="w-full border-b-4 border-yellow-400"></div>
 
             <table class="min-w-full">
@@ -33,8 +50,8 @@
                 <thead>
                     <tr>
 
-                        <th class="px-6 py-6 font-bold text-xs font-medium leading-4 tracking-wider text-center text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
-                            Create Subjects</th>
+                        <th class="px-6 py-6 text-xs font-medium leading-4 tracking-wider text-center text-gray-500 uppercase border-b border-gray-200 bg-gray-50">
+                            Create New Subject</th>
                     </tr>
                 </thead>
 
@@ -61,9 +78,9 @@
 
                 <div class="block mt-12 grid grid-cols-4">
 
-                @foreach($levels as $level)
+                    @foreach($levels as $level)
 
-               
+
                     <div class="mt-6 mx-6 col gap-2">
                         <label class="inline-flex items-center">
                             <input type="checkbox" value="{{ $level->id }}" class="w-6 h-6 rounded" name="levels[]" />
@@ -71,7 +88,7 @@
                         </label>
                     </div>
 
-                @endforeach
+                    @endforeach
 
                 </div>
 
