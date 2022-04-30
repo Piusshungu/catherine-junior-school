@@ -80,7 +80,7 @@
                     type: "pie2d",
                     renderAt: "chart-container",
                     width: "540",
-                    height: "400",
+                    height: "450",
                     dataFormat: "json",
                     theme: "fusion",
                     dataSource: {
@@ -116,7 +116,7 @@
 
                 var female = "<?php echo $femaleStaff; ?>";
 
-                var total = female + male;
+                var totalStaff = "<?php echo $totalStaff; ?>";
 
 
                 var chart = new FusionCharts({
@@ -125,7 +125,7 @@
                     theme: "fusion",
                     renderAt: "staff",
                     width: "540",
-                    height: "400",
+                    height: "450",
                     dataFormat: "json",
                     theme: "fusion",
                     dataSource: {
@@ -134,7 +134,7 @@
                             caption: "Male Staff Vs Female Staff",
                             subcaption: "Number of Male and Female Staff",
                             theme: "fusion",
-                            centerlabel: "Total: <?php echo $maleStaff; ?>"
+                            centerlabel: "Total: <?php echo $totalStaff; ?>"
                         },
                         // chart data
                         data: [

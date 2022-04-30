@@ -26,6 +26,10 @@ class AdminController extends Controller
 
         $femaleStaff = json_encode($femaleStaff);
 
-        return view('admin.dashboard', compact('male', 'female', 'femaleStaff', 'maleStaff'));
+        $totalStaff = $femaleStaff + $maleStaff;
+
+        $totalStaff = json_encode($totalStaff);
+
+        return view('admin.dashboard', compact('male', 'female', 'femaleStaff', 'maleStaff', 'totalStaff'));
     }
 }
