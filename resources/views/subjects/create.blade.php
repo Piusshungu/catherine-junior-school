@@ -53,7 +53,7 @@
                         <p class="text-gray-500 text-xs italic">Subject Name eg. Mathematics</p>
 
                         @error('subject_name')
-                        <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
+                        <p class="text-red-500 text-xs mt-2 mx-4">{{ $message }}</p>
                         @enderror
 
                     </div>
@@ -70,15 +70,14 @@
                             <span class="ml-2">{{ $level->class }} {{ $level->stream }}</span>
                         </label>
                     </div>
-                
-
-                @error('levels')
-                <p class="text-red-500 text-xs mt-2">{{ $message }}</p>
-                @enderror
 
                 @endforeach
 
                 </div>
+
+                @error('levels')
+                <p class="text-red-500 text-xs mt-2 mx-10">{{ $message }}</p>
+                @enderror
 
 
                 <div class="py-3 center mx-auto">
