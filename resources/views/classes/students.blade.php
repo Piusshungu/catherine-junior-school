@@ -94,7 +94,7 @@
 
                         @endphp
 
-                        @foreach($students as $student)
+                        @foreach($classes->students as $student)
 
 
                         <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200">
@@ -147,7 +147,7 @@
 
 
             </table>
-            {{ $students->links() }}
+            {{ $classes->links() }}
         </div>
     </div>
 </div>

@@ -12,7 +12,7 @@ class ClassesController extends Controller
     {
         $users = User::all();
 
-        $classes = Level::with('user')->orderBy('class')
+        $classes = Level::with('user', 'students')->orderBy('class')
         
         ->filter(request(['search']))->get();
 
@@ -45,8 +45,8 @@ class ClassesController extends Controller
 
     public function getStudentsInParticularSubject($id)
     {
-        $students = Level::with('students')->find($id);
+        $classes = Level::find($id);
 
-        return view('classes.students', compact('students'));
+        return view('classes.students', compact('classes'));
     }
 }

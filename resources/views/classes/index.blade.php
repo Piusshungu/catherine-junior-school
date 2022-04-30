@@ -100,13 +100,11 @@
                     <!-- Article -->
                     <article class="overflow-hidden rounded-lg shadow-lg h-40 bg-gray-200 mt-0 border border-yellow-600 hover:bg-gray-100">
 
-                        <a href="#">
-
-                        </a>
+                        <a href="/class/{{ $class->id }}/students"></a>
 
                         <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                             <h1 class="text-lg">
-                                <a class="no-underline hover:underline text-black" href="#">
+                                <a class="no-underline hover:underline text-black" href="/class/{{ $class->id }}/students">
                                     {{ $class->class}} {{ $class->stream}}
                                 </a>
                             </h1>
