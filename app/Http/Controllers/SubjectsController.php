@@ -12,7 +12,7 @@ class SubjectsController extends Controller
     {
         return view('subjects.index', [
 
-            'subjects' => Subject::all(),
+            'subjects' => Subject::orderBy('subject_name')->get(),
         ]);
     }
 

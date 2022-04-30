@@ -53,7 +53,7 @@
                                 List of Available Sujects
                             </p><br>
 
-                            <div class="mt-mt-12 text-gray-900 font-bold text-xl mb-2">{{ date('Y')}} Classes</div>
+                            <div class="mt-mt-12 text-gray-900 font-bold text-xl mb-2">{{ date('Y')}} Subjects</div>
                             <p class="mt-mt-12 text-gray-700 text-base w-240">This is the list of all subject that are taught in Catherine Juniuor School (CJS) with their respective streams. Each Subjact is subjected to its Class. </p>
                         </div>
 
