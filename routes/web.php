@@ -142,7 +142,7 @@ Route::get('/class/create', [ClassesController::class, 'createClassForm'])->midd
 
 Route::post('/class/saveClass', [ClassesController::class, 'createClass'])->middleware('auth');
 
-Route::get('/class/{id}/students', [ClassesController::class, 'getStudentsInParticularSubject'])->middleware('auth');
+Route::get('/class/{id}/students', [ClassesController::class, 'getStudentsInParticularClass'])->middleware('auth');
 
 //Routes to Manage Attendances
 
@@ -157,4 +157,6 @@ Route::get('/subjects', [SubjectsController::class, 'index']);
 Route::get('/subjects/create', [SubjectsController::class, 'subjectCreateForm']);
 
 Route::post('/subjects', [SubjectsController::class, 'createSubject']);
+
+Route::get('/subject/{id}/students', [SubjectsController::class, 'getStudentsInParticularSubject']);
 

@@ -43,7 +43,7 @@ class ClassesController extends Controller
         return redirect('/classes')->with('success', 'Class Records Added');
     }
 
-    public function getStudentsInParticularSubject($id)
+    public function getStudentsInParticularClass($id)
     {
         $classes = Level::find($id);
 

@@ -12,7 +12,7 @@ class SubjectsController extends Controller
     {
         return view('subjects.index', [
 
-            'subjects' => Subject::orderBy('subject_name')
+            'subjects' => Subject::with('levels')->orderBy('subject_name')
             
             ->filter(request(['search']))->get(),
         ]);
@@ -51,5 +51,12 @@ class SubjectsController extends Controller
         }
 
         return redirect('/subjects/create')->with('success', 'Subject records successfully added');
+    }
+
+    public function getStudentsInParticularSubject($id)
+    {
+        $subjects = Subject::find($id);
+
+        return view('subjects.students', compact('subjects'));
     }
 }
