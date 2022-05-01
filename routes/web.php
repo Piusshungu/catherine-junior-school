@@ -158,5 +158,5 @@ Route::get('/subjects/create', [SubjectsController::class, 'subjectCreateForm'])
 
 Route::post('/subjects', [SubjectsController::class, 'createSubject']);
 
-Route::get('/subject/{id}/students', [SubjectsController::class, 'getStudentsInParticularSubject']);
+Route::get('/subject/{id}/classes', [SubjectsController::class, 'getStudentsInParticularSubject']);
 

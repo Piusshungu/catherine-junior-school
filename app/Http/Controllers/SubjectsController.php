@@ -57,6 +57,6 @@ class SubjectsController extends Controller
     {
         $subjects = Subject::find($id);
 
-        return view('subjects.students', compact('subjects'));
+        return view('subjects.classes', compact('subjects'));
     }
 }

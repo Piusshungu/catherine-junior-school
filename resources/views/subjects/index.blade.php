@@ -100,13 +100,13 @@
                     <!-- Article -->
                     <article class="overflow-hidden rounded-lg shadow-lg h-40 bg-gray-200 mt-0 border border-yellow-600 hover:bg-gray-100">
 
-                        <a href="#">
+                        <a href="/subject/{{ $subject->id }}/classes">
 
                         </a>
 
                         <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                             <h1 class="text-lg">
-                                <a class="no-underline hover:underline text-black" href="#">
+                                <a class="no-underline hover:underline text-black" href="/subject/{{ $subject->id }}/classes">
                                     {{ $subject->subject_name}}
                                 </a>
                             </h1>
@@ -116,7 +116,7 @@
                         </header>
 
                         <footer class="flex items-center justify-between leading-none p-2 md:p-4">
-                            <a class="flex items-center no-underline hover:underline text-black" href="/subject/{{ $subject->id }}/students">
+                            <a class="flex items-center no-underline hover:underline text-black" href="/subject/{{ $subject->id }}/classes">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                     <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
                                 </svg>
