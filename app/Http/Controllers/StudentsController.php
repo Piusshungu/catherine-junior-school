@@ -125,7 +125,6 @@ class StudentsController extends Controller
             
             'file' => 'required',
         ]);
-        // dd(request()->all());
 
         Excel::import(new StudentsImport,request()->file('file'));
 

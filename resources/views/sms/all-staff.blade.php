@@ -55,7 +55,7 @@
 
                         <div class="w-full px-12 mb-6 md:mb-0">
 
-                            <input class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" value="You're about to send Messages to all Staff" type="text" placeholder="Mail Subject">
+                            <input class="text-center appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white" name="subject" value="You're about to send Messages to all Staff" type="text" placeholder="Mail Subject" disabled>
 
                             <div class="form-group">
                                 <textarea id="word_count" maxlength="120" class="mt-12 py-6 px-12 border border-yellow-500 w-full focus:outline-none h-60 align-content-center" name="content" placeholder="Type your Message here.." required></textarea>
