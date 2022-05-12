@@ -11,4 +11,9 @@ class Result extends Model
     use HasFactory;
     
     use Uuids;
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class);
+    }
 }
