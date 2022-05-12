@@ -44,11 +44,5 @@ class StudentsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEm
             'phone_number' => 'required'
         ];
     }
-
-    // public function chunkSize(): int
-    // {
-    //     return 2;
-    // }
-
-    
+  
 }
