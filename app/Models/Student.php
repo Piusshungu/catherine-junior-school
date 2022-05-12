@@ -65,4 +65,9 @@ class Student extends Model
     {
         return $this->belongsTo(Level::class);
     }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 }
