@@ -116,7 +116,7 @@ class StudentsController extends Controller
     public function exportStudentsDetails()
     {
 
-        return Excel::download(new StudentsExport, 'students.xlsx');
+        return Excel::download(new StudentsExport((int) request()->id), 'students.xlsx');
     }
 
     public function importStudentsDetails()
