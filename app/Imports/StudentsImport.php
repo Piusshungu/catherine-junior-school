@@ -20,7 +20,7 @@ class StudentsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEm
     {
         return new Student([
 
-            'full_name' => $row['full_name'],
+            'first_name' => $row['first_name'],
             'last_name' => $row['last_name'],
             'registration_number' => $row['registration_number'],
             'registration_year' => $row['registration_year'],
@@ -35,12 +35,13 @@ class StudentsImport implements ToModel, WithHeadingRow, WithValidation, SkipsEm
     {
         return [
 
-            '0' => 'required|string',
-            '1' => 'required|string',
-            '2' => 'required',
-            '3' => 'required',
-            '4' => 'required',
-            '5' => 'required'
+            'first_name' => 'required|string',
+            'last_name' => 'required|string',
+            'registration_number' => 'required',
+            'registration_year' => 'required',
+            'dob' => 'required',
+            'gender' => 'required',
+            'phone_number' => 'required'
         ];
     }
 
