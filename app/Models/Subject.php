@@ -29,4 +29,9 @@ class Subject extends Model
             $query->where('subject_name', 'like', '%'. request('search'). '%');
         }
     }
+
+    public function results()
+    {
+        return $this->hasMany(Result::class);
+    }
 }
