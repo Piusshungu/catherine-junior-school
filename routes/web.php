@@ -160,3 +160,7 @@ Route::post('/subjects', [SubjectsController::class, 'createSubject']);
 
 Route::get('/subject/{id}/classes', [SubjectsController::class, 'getStudentsInParticularSubject']);
 
+//Routes to Manage Results
+
+Route::get('/upload', [ResultsController::class, 'uploadResults']);
+
