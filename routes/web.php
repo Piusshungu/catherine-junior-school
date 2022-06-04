@@ -11,6 +11,7 @@ use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\ClassesController;
 use App\Http\Controllers\SubjectsController;
+use App\Http\Controllers\ResultsController;
 use App\Models\Attendance;
 use App\Models\Subject;
 use App\Models\User;
